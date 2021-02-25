@@ -1,16 +1,24 @@
-import Head from 'next/head';
-
 export async function getStaticProps(context) {
-  const res = await fetch(
-    'https://api.github.com/users/ZachScroggins/repos?type=owner',
-    {
-      headers: {
-        accept: 'application/vnd.github.v3+json',
-        Authorization: `token ${process.env.GITHUB_ACCESS_TOKEN}`,
-      },
+  let repos = null;
+
+  try {
+    const res = await fetch(
+      'https://api.github.com/users/ZachScroggins/repos?type=owner',
+      {
+        headers: {
+          accept: 'application/vnd.github.v3+json',
+          Authorization: `token ${process.env.GITHUB_ACCESS_TOKEN}`,
+        },
+      }
+    );
+    repos = await res.json();
+    if (!res.ok) {
+      throw new Error(repos?.message);
     }
-  );
-  const repos = await res.json();
+  } catch (e) {
+    repos = null;
+    console.log('Error: ', e.message);
+  }
 
   return {
     props: {
@@ -21,7 +29,7 @@ export async function getStaticProps(context) {
 }
 
 export default function Home({ repos, notFound }) {
-  console.log(repos, notFound);
+  console.log(repos);
 
   return (
     <>
