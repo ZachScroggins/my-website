@@ -1,3 +1,6 @@
+import Header from '../components/Header';
+import Hero from '../components/home/Hero';
+
 export async function getStaticProps(context) {
   let repos = null;
 
@@ -35,302 +38,222 @@ export default function Home({ repos, notFound }) {
     <>
       <div className='bg-white'>
         <div className='relative overflow-hidden'>
-          <header className='relative'>
-            <div className='bg-gray-900 pt-6'>
-              <nav
-                className='relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6'
-                aria-label='Global'
-              >
-                <div className='flex items-center flex-1'>
-                  <div className='flex items-center justify-between w-full md:w-auto'>
-                    <a href='#'>
-                      <span className='sr-only'>Workflow</span>
-                      <img
-                        className='h-8 w-auto sm:h-10'
-                        src='https://tailwindui.com/img/logos/workflow-mark-teal-200-cyan-400.svg'
-                      />
-                    </a>
-                    <div className='-mr-2 flex items-center md:hidden'>
-                      <button
-                        type='button'
-                        className='bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white'
-                        aria-expanded='false'
-                      >
-                        <span className='sr-only'>Open main menu</span>
-                        {/* Heroicon name: outline/menu */}
-                        <svg
-                          className='h-6 w-6'
-                          xmlns='http://www.w3.org/2000/svg'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          stroke='currentColor'
-                          aria-hidden='true'
-                        >
-                          <path
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                            strokeWidth={2}
-                            d='M4 6h16M4 12h16M4 18h16'
-                          />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                  <div className='hidden space-x-8 md:flex md:ml-10'>
-                    <a
-                      href='#'
-                      className='text-base font-medium text-white hover:text-gray-300'
-                    >
-                      Product
-                    </a>
-                    <a
-                      href='#'
-                      className='text-base font-medium text-white hover:text-gray-300'
-                    >
-                      Features
-                    </a>
-                    <a
-                      href='#'
-                      className='text-base font-medium text-white hover:text-gray-300'
-                    >
-                      Marketplace
-                    </a>
-                    <a
-                      href='#'
-                      className='text-base font-medium text-white hover:text-gray-300'
-                    >
-                      Company
-                    </a>
-                  </div>
-                </div>
-                <div className='hidden md:flex md:items-center md:space-x-6'>
-                  <a
-                    href='#'
-                    className='text-base font-medium text-white hover:text-gray-300'
-                  >
-                    Log in
-                  </a>
-                  <a
-                    href='#'
-                    className='inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700'
-                  >
-                    Start free trial
-                  </a>
-                </div>
-              </nav>
-            </div>
-            {/*
-  Mobile menu, show/hide based on menu open state.
-
-  Entering: "duration-150 ease-out"
-    From: "opacity-0 scale-95"
-    To: "opacity-100 scale-100"
-  Leaving: "duration-100 ease-in"
-    From: "opacity-100 scale-100"
-    To: "opacity-0 scale-95"
-*/}
-            <div className='absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden'>
-              <div className='rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden'>
-                <div className='px-5 pt-4 flex items-center justify-between'>
-                  <div>
-                    <img
-                      className='h-8 w-auto'
-                      src='https://tailwindui.com/img/logos/workflow-mark-teal-500-cyan-600.svg'
-                    />
-                  </div>
-                  <div className='-mr-2'>
-                    <button
-                      type='button'
-                      className='bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-600'
-                    >
-                      <span className='sr-only'>Close menu</span>
-                      {/* Heroicon name: outline/x */}
-                      <svg
-                        className='h-6 w-6'
-                        xmlns='http://www.w3.org/2000/svg'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                        aria-hidden='true'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M6 18L18 6M6 6l12 12'
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div className='pt-5 pb-6'>
-                  <div className='px-2 space-y-1'>
-                    <a
-                      href='#'
-                      className='block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50'
-                    >
-                      Product
-                    </a>
-                    <a
-                      href='#'
-                      className='block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50'
-                    >
-                      Features
-                    </a>
-                    <a
-                      href='#'
-                      className='block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50'
-                    >
-                      Marketplace
-                    </a>
-                    <a
-                      href='#'
-                      className='block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50'
-                    >
-                      Company
-                    </a>
-                  </div>
-                  <div className='mt-6 px-5'>
-                    <a
-                      href='#'
-                      className='block text-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700'
-                    >
-                      Start free trial
-                    </a>
-                  </div>
-                  <div className='mt-6 px-5'>
-                    <p className='text-center text-base font-medium text-gray-500'>
-                      Existing customer?{' '}
-                      <a href='#' className='text-gray-900 hover:underline'>
-                        Login
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </header>
-          <main>
-            <div className='pt-10 bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden'>
-              <div className='mx-auto max-w-7xl lg:px-8'>
-                <div className='lg:grid lg:grid-cols-2 lg:gap-8'>
-                  <div className='mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center'>
-                    <div className='lg:py-24'>
-                      <a
-                        href='#'
-                        className='inline-flex items-center text-white bg-black rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200'
-                      >
-                        <span className='px-3 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-gradient-to-r from-teal-500 to-cyan-600 rounded-full'>
-                          We're hiring
-                        </span>
-                        <span className='ml-4 text-sm'>
-                          Visit our careers page
-                        </span>
-                        {/* Heroicon name: solid/chevron-right */}
-                        <svg
-                          className='ml-2 w-5 h-5 text-gray-500'
-                          xmlns='http://www.w3.org/2000/svg'
-                          viewBox='0 0 20 20'
-                          fill='currentColor'
-                          aria-hidden='true'
-                        >
-                          <path
-                            fillRule='evenodd'
-                            d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z'
-                            clipRule='evenodd'
-                          />
-                        </svg>
-                      </a>
-                      <h1 className='mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl'>
-                        <span className='block'>A better way to</span>
-                        <span className='bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-cyan-400 block'>
-                          ship web apps
-                        </span>
-                      </h1>
-                      <p className='mt-3 text-base text-gray-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl'>
-                        Anim aute id magna aliqua ad ad non deserunt sunt. Qui
-                        irure qui Lorem cupidatat commodo. Elit sunt amet fugiat
-                        veniam occaecat fugiat.
-                      </p>
-                      <div className='mt-10 sm:mt-12'>
-                        <form
-                          action='#'
-                          className='sm:max-w-xl sm:mx-auto lg:mx-0'
-                        >
-                          <div className='sm:flex'>
-                            <div className='min-w-0 flex-1'>
-                              <label htmlFor='email' className='sr-only'>
-                                Email address
-                              </label>
-                              <input
-                                id='email'
-                                type='email'
-                                placeholder='Enter your email'
-                                className='block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900'
-                              />
-                            </div>
-                            <div className='mt-3 sm:mt-0 sm:ml-3'>
-                              <button
-                                type='submit'
-                                className='block w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900'
-                              >
-                                Start free trial
-                              </button>
-                            </div>
-                          </div>
-                          <p className='mt-3 text-sm text-gray-300 sm:mt-4'>
-                            Start your free 14-day trial, no credit card
-                            necessary. By providing your email, you agree to our{' '}
-                            <a href='#' className='font-medium text-white'>
-                              terms or service
-                            </a>
-                            .
-                          </p>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                  <div className='mt-12 -mb-16 sm:-mb-48 lg:m-0 lg:relative'>
-                    <div className='mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0'>
-                      {/* Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ */}
-                      <img
-                        className='w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none'
-                        src='https://tailwindui.com/img/component-images/cloud-illustration-teal-cyan.svg'
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <Header />
+          <main className='pt-16'>
+            <Hero />
             {/* Feature section with screenshot */}
-            <div className='relative bg-gray-50 pt-16 sm:pt-24 lg:pt-32'>
+            <div
+              id='portfolio'
+              className='relative bg-gray-50 pt-16 sm:pt-24 lg:pt-32'
+            >
               <div className='mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl'>
                 <div>
-                  <h2 className='text-base font-semibold tracking-wider text-cyan-600 uppercase'>
-                    Serverless
+                  <h2 className='text-6xl tracking-tight font-extrabold sm:text-8xl xl:text-8xl mb-10 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-cyan-600 block'>
+                    Portfolio
                   </h2>
+                  <h3 className='text-base font-semibold tracking-wider text-cyan-600 uppercase'>
+                    Professional
+                  </h3>
                   <p className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
-                    No server? No problem.
+                    Paulita Carlotta
                   </p>
                   <p className='mt-5 max-w-prose mx-auto text-xl text-gray-500'>
+                    Ecommerce store for women's fashion and jewelry. Blog with
+                    headless content management system integration. Lorem ipsum
+                    dolor sit amet consectetur adipisicing elit. Nam hic alias
+                    et tempore cumque amet libero.
+                  </p>
+                </div>
+                <div className='mt-12 -mb-10 sm:-mb-24 '>
+                  <img
+                    className='rounded-lg shadow-xl ring-1 ring-black ring-opacity-5'
+                    src='/paulita-carlotta.png'
+                  />
+                </div>
+              </div>
+            </div>
+            {/* Blog section */}
+            <div className='relative bg-gray-100 py-16 sm:py-24 lg:py-32'>
+              <div className='relative'>
+                <div className='text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl'>
+                  <h2 className='text-base font-semibold tracking-wider text-cyan-600 uppercase'>
+                    Personal
+                  </h2>
+                  <p className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
+                    Featured Projects
+                  </p>
+                  <p className='mt-5 mx-auto max-w-prose text-xl text-gray-500'>
                     Phasellus lorem quam molestie id quisque diam aenean nulla
                     in. Accumsan in quis quis nunc, ullamcorper malesuada.
                     Eleifend condimentum id viverra nulla.
                   </p>
                 </div>
-                <div className='mt-12 -mb-10 sm:-mb-24 lg:-mb-80'>
-                  <img
-                    className='rounded-lg shadow-xl ring-1 ring-black ring-opacity-5'
-                    src='https://tailwindui.com/img/component-images/green-project-app-screenshot.jpg'
-                  />
+                <div className='mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl'>
+                  <div className='flex flex-col rounded-lg shadow-lg overflow-hidden'>
+                    <div className='flex-shrink-0'>
+                      <img
+                        className='h-48 w-full object-cover'
+                        src='https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80'
+                      />
+                    </div>
+                    <div className='flex-1 bg-white p-6 flex flex-col justify-between'>
+                      <div className='flex-1'>
+                        <p className='text-sm font-medium text-cyan-600'>
+                          <a href='#' className='hover:underline'>
+                            Article
+                          </a>
+                        </p>
+                        <a href='#' className='block mt-2'>
+                          <p className='text-xl font-semibold text-gray-900'>
+                            Boost your conversion rate
+                          </p>
+                          <p className='mt-3 text-base text-gray-500'>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Architecto accusantium praesentium eius, ut
+                            atque fuga culpa, similique sequi cum eos quis
+                            dolorum.
+                          </p>
+                        </a>
+                      </div>
+                      <div className='mt-6 flex items-center'>
+                        <div className='flex-shrink-0'>
+                          <a href='#'>
+                            <span className='sr-only'>Roel Aufderehar</span>
+                            <img
+                              className='h-10 w-10 rounded-full'
+                              src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+                            />
+                          </a>
+                        </div>
+                        <div className='ml-3'>
+                          <p className='text-sm font-medium text-gray-900'>
+                            <a href='#' className='hover:underline'>
+                              Roel Aufderehar
+                            </a>
+                          </p>
+                          <div className='flex space-x-1 text-sm text-gray-500'>
+                            <time dateTime='2020-03-16'>Mar 16, 2020</time>
+                            <span aria-hidden='true'>·</span>
+                            <span>6 min read</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='flex flex-col rounded-lg shadow-lg overflow-hidden'>
+                    <div className='flex-shrink-0'>
+                      <img
+                        className='h-48 w-full object-cover'
+                        src='https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80'
+                      />
+                    </div>
+                    <div className='flex-1 bg-white p-6 flex flex-col justify-between'>
+                      <div className='flex-1'>
+                        <p className='text-sm font-medium text-cyan-600'>
+                          <a href='#' className='hover:underline'>
+                            Video
+                          </a>
+                        </p>
+                        <a href='#' className='block mt-2'>
+                          <p className='text-xl font-semibold text-gray-900'>
+                            How to use search engine optimization to drive sales
+                          </p>
+                          <p className='mt-3 text-base text-gray-500'>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Velit facilis asperiores porro quaerat
+                            doloribus, eveniet dolore. Adipisci tempora aut
+                            inventore optio animi., tempore temporibus quo
+                            laudantium.
+                          </p>
+                        </a>
+                      </div>
+                      <div className='mt-6 flex items-center'>
+                        <div className='flex-shrink-0'>
+                          <a href='#'>
+                            <span className='sr-only'>Brenna Goyette</span>
+                            <img
+                              className='h-10 w-10 rounded-full'
+                              src='https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+                            />
+                          </a>
+                        </div>
+                        <div className='ml-3'>
+                          <p className='text-sm font-medium text-gray-900'>
+                            <a href='#' className='hover:underline'>
+                              Brenna Goyette
+                            </a>
+                          </p>
+                          <div className='flex space-x-1 text-sm text-gray-500'>
+                            <time dateTime='2020-03-10'>Mar 10, 2020</time>
+                            <span aria-hidden='true'>·</span>
+                            <span>4 min read</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='flex flex-col rounded-lg shadow-lg overflow-hidden'>
+                    <div className='flex-shrink-0'>
+                      <img
+                        className='h-48 w-full object-cover'
+                        src='https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80'
+                      />
+                    </div>
+                    <div className='flex-1 bg-white p-6 flex flex-col justify-between'>
+                      <div className='flex-1'>
+                        <p className='text-sm font-medium text-cyan-600'>
+                          <a href='#' className='hover:underline'>
+                            Case Study
+                          </a>
+                        </p>
+                        <a href='#' className='block mt-2'>
+                          <p className='text-xl font-semibold text-gray-900'>
+                            Improve your customer experience
+                          </p>
+                          <p className='mt-3 text-base text-gray-500'>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Sint harum rerum voluptatem quo recusandae
+                            magni placeat saepe molestiae, sed excepturi cumque
+                            corporis perferendis hic.
+                          </p>
+                        </a>
+                      </div>
+                      <div className='mt-6 flex items-center'>
+                        <div className='flex-shrink-0'>
+                          <a href='#'>
+                            <span className='sr-only'>Daniela Metz</span>
+                            <img
+                              className='h-10 w-10 rounded-full'
+                              src='https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+                            />
+                          </a>
+                        </div>
+                        <div className='ml-3'>
+                          <p className='text-sm font-medium text-gray-900'>
+                            <a href='#' className='hover:underline'>
+                              Daniela Metz
+                            </a>
+                          </p>
+                          <div className='flex space-x-1 text-sm text-gray-500'>
+                            <time dateTime='2020-02-12'>Feb 12, 2020</time>
+                            <span aria-hidden='true'>·</span>
+                            <span>11 min read</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            {/* Feature section with grid */}
-            <div className='relative bg-white py-16 sm:py-24 lg:py-32'>
+            {/* Services section with grid */}
+            <div
+              id='services'
+              className='relative bg-white py-16 sm:py-24 lg:py-32'
+            >
               <div className='mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl'>
                 <h2 className='text-base font-semibold tracking-wider text-cyan-600 uppercase'>
-                  Deploy faster
+                  Services
                 </h2>
                 <p className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
                   Everything you need to deploy your app
@@ -539,7 +462,10 @@ export default function Home({ repos, notFound }) {
                           <h3 className='mt-8 text-lg font-medium text-gray-900 tracking-tight'>
                             Database Backups
                           </h3>
-                          <p className='mt-5 text-base text-gray-500'>
+                          <p
+                            id='about'
+                            className='mt-5 text-base text-gray-500'
+                          >
                             Ac tincidunt sapien vehicula erat auctor
                             pellentesque rhoncus. Et magna sit morbi lobortis.
                           </p>
@@ -550,7 +476,7 @@ export default function Home({ repos, notFound }) {
                 </div>
               </div>
             </div>
-            {/* Testimonial section */}
+            {/* About section */}
             <div className='pb-16 bg-gradient-to-r from-teal-500 to-cyan-600 lg:pb-0 lg:z-10 lg:relative'>
               <div className='lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-8'>
                 <div className='relative lg:-my-8'>
@@ -562,7 +488,7 @@ export default function Home({ repos, notFound }) {
                     <div className='aspect-w-10 aspect-h-6 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full'>
                       <img
                         className='object-cover lg:h-full lg:w-full'
-                        src='https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80'
+                        src='/profile-pic.jpg'
                       />
                     </div>
                   </div>
@@ -598,182 +524,8 @@ export default function Home({ repos, notFound }) {
                 </div>
               </div>
             </div>
-            {/* Blog section */}
-            <div className='relative bg-gray-50 py-16 sm:py-24 lg:py-32'>
-              <div className='relative'>
-                <div className='text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl'>
-                  <h2 className='text-base font-semibold tracking-wider text-cyan-600 uppercase'>
-                    Learn
-                  </h2>
-                  <p className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
-                    Helpful Resources
-                  </p>
-                  <p className='mt-5 mx-auto max-w-prose text-xl text-gray-500'>
-                    Phasellus lorem quam molestie id quisque diam aenean nulla
-                    in. Accumsan in quis quis nunc, ullamcorper malesuada.
-                    Eleifend condimentum id viverra nulla.
-                  </p>
-                </div>
-                <div className='mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl'>
-                  <div className='flex flex-col rounded-lg shadow-lg overflow-hidden'>
-                    <div className='flex-shrink-0'>
-                      <img
-                        className='h-48 w-full object-cover'
-                        src='https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80'
-                      />
-                    </div>
-                    <div className='flex-1 bg-white p-6 flex flex-col justify-between'>
-                      <div className='flex-1'>
-                        <p className='text-sm font-medium text-cyan-600'>
-                          <a href='#' className='hover:underline'>
-                            Article
-                          </a>
-                        </p>
-                        <a href='#' className='block mt-2'>
-                          <p className='text-xl font-semibold text-gray-900'>
-                            Boost your conversion rate
-                          </p>
-                          <p className='mt-3 text-base text-gray-500'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Architecto accusantium praesentium eius, ut
-                            atque fuga culpa, similique sequi cum eos quis
-                            dolorum.
-                          </p>
-                        </a>
-                      </div>
-                      <div className='mt-6 flex items-center'>
-                        <div className='flex-shrink-0'>
-                          <a href='#'>
-                            <span className='sr-only'>Roel Aufderehar</span>
-                            <img
-                              className='h-10 w-10 rounded-full'
-                              src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-                            />
-                          </a>
-                        </div>
-                        <div className='ml-3'>
-                          <p className='text-sm font-medium text-gray-900'>
-                            <a href='#' className='hover:underline'>
-                              Roel Aufderehar
-                            </a>
-                          </p>
-                          <div className='flex space-x-1 text-sm text-gray-500'>
-                            <time dateTime='2020-03-16'>Mar 16, 2020</time>
-                            <span aria-hidden='true'>·</span>
-                            <span>6 min read</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className='flex flex-col rounded-lg shadow-lg overflow-hidden'>
-                    <div className='flex-shrink-0'>
-                      <img
-                        className='h-48 w-full object-cover'
-                        src='https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80'
-                      />
-                    </div>
-                    <div className='flex-1 bg-white p-6 flex flex-col justify-between'>
-                      <div className='flex-1'>
-                        <p className='text-sm font-medium text-cyan-600'>
-                          <a href='#' className='hover:underline'>
-                            Video
-                          </a>
-                        </p>
-                        <a href='#' className='block mt-2'>
-                          <p className='text-xl font-semibold text-gray-900'>
-                            How to use search engine optimization to drive sales
-                          </p>
-                          <p className='mt-3 text-base text-gray-500'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Velit facilis asperiores porro quaerat
-                            doloribus, eveniet dolore. Adipisci tempora aut
-                            inventore optio animi., tempore temporibus quo
-                            laudantium.
-                          </p>
-                        </a>
-                      </div>
-                      <div className='mt-6 flex items-center'>
-                        <div className='flex-shrink-0'>
-                          <a href='#'>
-                            <span className='sr-only'>Brenna Goyette</span>
-                            <img
-                              className='h-10 w-10 rounded-full'
-                              src='https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-                            />
-                          </a>
-                        </div>
-                        <div className='ml-3'>
-                          <p className='text-sm font-medium text-gray-900'>
-                            <a href='#' className='hover:underline'>
-                              Brenna Goyette
-                            </a>
-                          </p>
-                          <div className='flex space-x-1 text-sm text-gray-500'>
-                            <time dateTime='2020-03-10'>Mar 10, 2020</time>
-                            <span aria-hidden='true'>·</span>
-                            <span>4 min read</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className='flex flex-col rounded-lg shadow-lg overflow-hidden'>
-                    <div className='flex-shrink-0'>
-                      <img
-                        className='h-48 w-full object-cover'
-                        src='https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80'
-                      />
-                    </div>
-                    <div className='flex-1 bg-white p-6 flex flex-col justify-between'>
-                      <div className='flex-1'>
-                        <p className='text-sm font-medium text-cyan-600'>
-                          <a href='#' className='hover:underline'>
-                            Case Study
-                          </a>
-                        </p>
-                        <a href='#' className='block mt-2'>
-                          <p className='text-xl font-semibold text-gray-900'>
-                            Improve your customer experience
-                          </p>
-                          <p className='mt-3 text-base text-gray-500'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Sint harum rerum voluptatem quo recusandae
-                            magni placeat saepe molestiae, sed excepturi cumque
-                            corporis perferendis hic.
-                          </p>
-                        </a>
-                      </div>
-                      <div className='mt-6 flex items-center'>
-                        <div className='flex-shrink-0'>
-                          <a href='#'>
-                            <span className='sr-only'>Daniela Metz</span>
-                            <img
-                              className='h-10 w-10 rounded-full'
-                              src='https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-                            />
-                          </a>
-                        </div>
-                        <div className='ml-3'>
-                          <p className='text-sm font-medium text-gray-900'>
-                            <a href='#' className='hover:underline'>
-                              Daniela Metz
-                            </a>
-                          </p>
-                          <div className='flex space-x-1 text-sm text-gray-500'>
-                            <time dateTime='2020-02-12'>Feb 12, 2020</time>
-                            <span aria-hidden='true'>·</span>
-                            <span>11 min read</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* CTA Section */}
-            <div className='relative bg-gray-900'>
+            {/* Contact Section */}
+            <div id='contact' className='relative bg-gray-900 lg:mt-20'>
               <div className='relative h-56 bg-indigo-600 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2'>
                 <img
                   className='w-full h-full object-cover'
@@ -787,39 +539,83 @@ export default function Home({ repos, notFound }) {
               </div>
               <div className='relative mx-auto max-w-md px-4 py-12 sm:max-w-7xl sm:px-6 sm:py-20 md:py-28 lg:px-8 lg:py-32'>
                 <div className='md:ml-auto md:w-1/2 md:pl-10'>
-                  <h2 className='text-base font-semibold uppercase tracking-wider text-gray-300'>
-                    Award winning support
-                  </h2>
-                  <p className='mt-2 text-white text-3xl font-extrabold tracking-tight sm:text-4xl'>
-                    We’re here to help
+                  <p className='mt-2 mb-6 text-3xl font-extrabold text-white tracking-tight sm:text-4xl'>
+                    Let's work together!
                   </p>
-                  <p className='mt-3 text-lg text-gray-300'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et,
-                    egestas tempus tellus etiam sed. Quam a scelerisque amet
-                    ullamcorper eu enim et fermentum, augue. Aliquet amet
-                    volutpat quisque ut interdum tincidunt duis.
-                  </p>
-                  <div className='mt-8'>
-                    <div className='inline-flex rounded-md shadow'>
-                      <a
-                        href='#'
-                        className='inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50'
+                  <form
+                    className='grid grid-cols-1 gap-y-6'
+                    onSubmit={e => e.preventDefault()}
+                  >
+                    <div>
+                      <label
+                        htmlFor='full_name'
+                        className='block text-white mb-2'
                       >
-                        Visit the help center
-                        {/* Heroicon name: solid/external-link */}
-                        <svg
-                          className='-mr-1 ml-3 h-5 w-5 text-gray-400'
-                          xmlns='http://www.w3.org/2000/svg'
-                          viewBox='0 0 20 20'
-                          fill='currentColor'
-                          aria-hidden='true'
-                        >
-                          <path d='M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z' />
-                          <path d='M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z' />
-                        </svg>
-                      </a>
+                        Full name
+                      </label>
+                      <input
+                        type='text'
+                        name='full_name'
+                        id='full_name'
+                        autoComplete='name'
+                        className='block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
+                        placeholder='John Doe'
+                        required
+                      />
                     </div>
-                  </div>
+                    <div>
+                      <label htmlFor='email' className='block text-white mb-2'>
+                        Email
+                      </label>
+                      <input
+                        id='email'
+                        name='email'
+                        type='email'
+                        autoComplete='email'
+                        className='block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
+                        placeholder='jdoe@gmail.com'
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor='phone' className='block text-white mb-2'>
+                        Phone
+                      </label>
+                      <input
+                        type='text'
+                        name='phone'
+                        id='phone'
+                        autoComplete='tel'
+                        className='block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
+                        placeholder='Optional'
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor='message'
+                        className='block text-white mb-2'
+                      >
+                        Message
+                      </label>
+                      <textarea
+                        id='message'
+                        name='message'
+                        rows={4}
+                        className='block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
+                        placeholder='What would you like to build?'
+                        defaultValue={''}
+                        required
+                      />
+                    </div>
+                    <div>
+                      <button
+                        type='submit'
+                        className='inline-flex justify-center py-3 px-6 border rounded-md text-white bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900'
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -1078,8 +874,9 @@ export default function Home({ repos, notFound }) {
                 </div>
               </div>
               <div className='mt-12 border-t border-gray-200 py-8'>
-                <p className='text-base text-gray-400 xl:text-center'>
-                  © 2020 Workflow, Inc. All rights reserved.
+                <p className='text-base text-gray-400 text-center'>
+                  © {new Date().getFullYear()} Zach Scroggins. All rights
+                  reserved.
                 </p>
               </div>
             </div>
