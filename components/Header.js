@@ -66,9 +66,9 @@ const Header = () => {
               >
                 About
               </a>
-              <a className='text-base font-medium text-white hover:text-gray-300'>
+              {/* <a className='text-base font-medium text-white hover:text-gray-300'>
                 Blog
-              </a>
+              </a> */}
               <a
                 href='#contact'
                 className='text-base font-medium text-white hover:text-gray-300'
@@ -153,12 +153,12 @@ const Header = () => {
                 >
                   About
                 </a>
-                <a
+                {/* <a
                   href='#'
                   className='block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50'
                 >
                   Blog
-                </a>
+                </a> */}
               </div>
               <div className='mt-6 px-5'>
                 <a

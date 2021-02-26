@@ -31,7 +31,7 @@ export async function getStaticProps(context) {
 
   try {
     const res = await fetch(
-      'https://api.github.com/users/ZachScroggins/repos?type=owner',
+      'https://api.github.com/users/ZachScroggins/repos?type=owner&sort=created',
       {
         headers: {
           accept: 'application/vnd.github.v3+json',

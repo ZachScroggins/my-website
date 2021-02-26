@@ -23,17 +23,17 @@ const index = () => {
                 <form action='#' className='sm:max-w-xl sm:mx-auto lg:mx-0'>
                   <div className='sm:flex'>
                     <div className='mt-3 sm:mt-0'>
-                      <button
-                        type='submit'
+                      <a
+                        href='#portfolio'
                         className='block w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900'
                       >
                         Check out my work
-                      </button>
+                      </a>
                     </div>
                     <div className='mt-3 sm:mt-0 sm:ml-3'>
                       <a
-                        href='#'
-                        className='block w-full py-3 px-4 rounded-md text-center text-teal-500 font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900'
+                        href='#contact'
+                        className='block w-full py-3 px-4 rounded-md text-teal-500 font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900'
                       >
                         Contact me
                         <FiArrowRight className='inline ml-1 align-middle' />
