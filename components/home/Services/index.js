@@ -2,229 +2,412 @@ import React from 'react';
 
 const index = () => {
   return (
-    <div id='services' className='relative bg-white py-16 sm:py-24 lg:py-32'>
-      <div className='mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl'>
-        <h2 className='text-base font-semibold tracking-wider text-cyan-600 uppercase'>
-          Services
-        </h2>
-        <p className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
-          Everything you need to deploy your app
-        </p>
-        <p className='mt-5 max-w-prose mx-auto text-xl text-gray-500'>
-          Phasellus lorem quam molestie id quisque diam aenean nulla in.
-          Accumsan in quis quis nunc, ullamcorper malesuada. Eleifend
-          condimentum id viverra nulla.
-        </p>
-        <div className='mt-12'>
-          <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3'>
-            <div className='pt-6'>
-              <div className='flow-root bg-gray-50 rounded-lg px-6 pb-8'>
-                <div className='-mt-6'>
-                  <div>
-                    <span className='inline-flex items-center justify-center p-3 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-md shadow-lg'>
-                      {/* Heroicon name: outline/cloud-upload */}
-                      <svg
-                        className='h-6 w-6 text-white'
-                        xmlns='http://www.w3.org/2000/svg'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                        aria-hidden='true'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12'
-                        />
-                      </svg>
-                    </span>
+    <>
+      <div id='services' className='bg-gray-900'>
+        <div className='pt-12 px-4 sm:px-6 lg:px-8 lg:pt-20'>
+          <div className='text-center'>
+            <h2 className='text-lg leading-6 font-semibold text-gray-300 uppercase tracking-wider'>
+              Services
+            </h2>
+            <p className='mt-2 text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl'>
+              The right price for you, whoever you are
+            </p>
+            <p className='mt-3 max-w-4xl mx-auto text-xl text-gray-300 sm:mt-5 sm:text-2xl'>
+              Pricing will vary on a project by project basis, depending on
+              requirements and features. This is meant to give you a general
+              idea of what to expect. I reserve the right to set pricing how I
+              see fit.
+            </p>
+          </div>
+        </div>
+        <div className='mt-16 bg-white pb-12 lg:mt-20 lg:pb-32'>
+          <div className='relative z-0'>
+            <div className='absolute inset-0 h-5/6 bg-gray-900 lg:h-2/3' />
+            <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+              <div className='relative lg:grid lg:grid-cols-7'>
+                <div className='mx-auto max-w-md lg:mx-0 lg:max-w-none lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-3'>
+                  <div className='h-full flex flex-col rounded-lg shadow-lg overflow-hidden lg:rounded-none lg:rounded-l-lg'>
+                    <div className='flex-1 flex flex-col'>
+                      <div className='bg-white px-6 py-10'>
+                        <div>
+                          <h3
+                            className='text-center text-2xl font-medium text-gray-900'
+                            id='tier-hobby'
+                          >
+                            Basic
+                          </h3>
+                          <div className='mt-4 flex items-center justify-center'>
+                            <span className='px-3 flex items-start text-6xl tracking-tight text-gray-900'>
+                              <span className='mt-2 mr-2 text-4xl font-medium'>
+                                $
+                              </span>
+                              <span className='font-extrabold'>25</span>
+                            </span>
+                            <span className='text-xl font-medium text-gray-500'>
+                              /hour
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='flex-1 flex flex-col justify-between border-t-2 border-gray-100 p-6 bg-gray-50 sm:p-10 lg:p-6 xl:p-10'>
+                        <ul className='space-y-4'>
+                          <li className='flex items-start'>
+                            <div className='flex-shrink-0'>
+                              <svg
+                                className='flex-shrink-0 h-6 w-6 text-green-500'
+                                xmlns='http://www.w3.org/2000/svg'
+                                fill='none'
+                                viewBox='0 0 24 24'
+                                stroke='currentColor'
+                                aria-hidden='true'
+                              >
+                                <path
+                                  strokeLinecap='round'
+                                  strokeLinejoin='round'
+                                  strokeWidth={2}
+                                  d='M5 13l4 4L19 7'
+                                />
+                              </svg>
+                            </div>
+                            <p className='ml-3 text-base font-medium text-gray-500'>
+                              Informational sites
+                            </p>
+                          </li>
+                          <li className='flex items-start'>
+                            <div className='flex-shrink-0'>
+                              <svg
+                                className='flex-shrink-0 h-6 w-6 text-green-500'
+                                xmlns='http://www.w3.org/2000/svg'
+                                fill='none'
+                                viewBox='0 0 24 24'
+                                stroke='currentColor'
+                                aria-hidden='true'
+                              >
+                                <path
+                                  strokeLinecap='round'
+                                  strokeLinejoin='round'
+                                  strokeWidth={2}
+                                  d='M5 13l4 4L19 7'
+                                />
+                              </svg>
+                            </div>
+                            <p className='ml-3 text-base font-medium text-gray-500'>
+                              Wordpress blogs
+                            </p>
+                          </li>
+                          <li className='flex items-start'>
+                            <div className='flex-shrink-0'>
+                              <svg
+                                className='flex-shrink-0 h-6 w-6 text-green-500'
+                                xmlns='http://www.w3.org/2000/svg'
+                                fill='none'
+                                viewBox='0 0 24 24'
+                                stroke='currentColor'
+                                aria-hidden='true'
+                              >
+                                <path
+                                  strokeLinecap='round'
+                                  strokeLinejoin='round'
+                                  strokeWidth={2}
+                                  d='M5 13l4 4L19 7'
+                                />
+                              </svg>
+                            </div>
+                            <p className='ml-3 text-base font-medium text-gray-500'>
+                              Quality templates
+                            </p>
+                          </li>
+                        </ul>
+                        <div className='mt-8'>
+                          <div className='rounded-lg shadow-md'>
+                            <a
+                              href='#contact'
+                              className='block w-full text-center rounded-lg border border-transparent bg-white px-6 py-3 text-base font-medium text-cyan-600 hover:bg-gray-50'
+                              aria-describedby='tier-hobby'
+                            >
+                              Get a quote
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className='mt-8 text-lg font-medium text-gray-900 tracking-tight'>
-                    Push to Deploy
-                  </h3>
-                  <p className='mt-5 text-base text-gray-500'>
-                    Ac tincidunt sapien vehicula erat auctor pellentesque
-                    rhoncus. Et magna sit morbi lobortis.
-                  </p>
                 </div>
-              </div>
-            </div>
-            <div className='pt-6'>
-              <div className='flow-root bg-gray-50 rounded-lg px-6 pb-8'>
-                <div className='-mt-6'>
-                  <div>
-                    <span className='inline-flex items-center justify-center p-3 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-md shadow-lg'>
-                      {/* Heroicon name: outline/lock-closed */}
-                      <svg
-                        className='h-6 w-6 text-white'
-                        xmlns='http://www.w3.org/2000/svg'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                        aria-hidden='true'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
-                        />
-                      </svg>
-                    </span>
+                <div className='mt-10 max-w-lg mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-start-3 lg:col-end-6 lg:row-start-1 lg:row-end-4'>
+                  <div className='relative z-10 rounded-lg shadow-xl'>
+                    <div
+                      className='pointer-events-none absolute inset-0 rounded-lg border-2 border-cyan-600'
+                      aria-hidden='true'
+                    />
+                    <div className='absolute inset-x-0 top-0 transform translate-y-px'>
+                      <div className='flex justify-center transform -translate-y-1/2'>
+                        <span className='inline-flex rounded-full bg-cyan-600 px-4 py-1 text-sm font-semibold tracking-wider uppercase text-white'>
+                          Most popular
+                        </span>
+                      </div>
+                    </div>
+                    <div className='bg-white rounded-t-lg px-6 pt-12 pb-10'>
+                      <div>
+                        <h3
+                          className='text-center text-3xl font-semibold text-gray-900 sm:-mx-6'
+                          id='tier-growth'
+                        >
+                          Essential
+                        </h3>
+                        <div className='mt-4 flex items-center justify-center'>
+                          <span className='px-3 flex items-start text-6xl tracking-tight text-gray-900 sm:text-6xl'>
+                            <span className='mt-2 mr-2 text-4xl font-medium'>
+                              $
+                            </span>
+                            <span className='font-extrabold'>50</span>
+                          </span>
+                          <span className='text-2xl font-medium text-gray-500'>
+                            /hour
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className='border-t-2 border-gray-100 rounded-b-lg pt-10 pb-8 px-6 bg-gray-50 sm:px-10 sm:py-10'>
+                      <ul className='space-y-4'>
+                        <li className='flex items-start'>
+                          <div className='flex-shrink-0'>
+                            <svg
+                              className='flex-shrink-0 h-6 w-6 text-green-500'
+                              xmlns='http://www.w3.org/2000/svg'
+                              fill='none'
+                              viewBox='0 0 24 24'
+                              stroke='currentColor'
+                              aria-hidden='true'
+                            >
+                              <path
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                                strokeWidth={2}
+                                d='M5 13l4 4L19 7'
+                              />
+                            </svg>
+                          </div>
+                          <p className='ml-3 text-base font-medium text-gray-500'>
+                            Ecommerce sites
+                          </p>
+                        </li>
+                        <li className='flex items-start'>
+                          <div className='flex-shrink-0'>
+                            <svg
+                              className='flex-shrink-0 h-6 w-6 text-green-500'
+                              xmlns='http://www.w3.org/2000/svg'
+                              fill='none'
+                              viewBox='0 0 24 24'
+                              stroke='currentColor'
+                              aria-hidden='true'
+                            >
+                              <path
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                                strokeWidth={2}
+                                d='M5 13l4 4L19 7'
+                              />
+                            </svg>
+                          </div>
+                          <p className='ml-3 text-base font-medium text-gray-500'>
+                            Peak performance React apps
+                          </p>
+                        </li>
+                        <li className='flex items-start'>
+                          <div className='flex-shrink-0'>
+                            <svg
+                              className='flex-shrink-0 h-6 w-6 text-green-500'
+                              xmlns='http://www.w3.org/2000/svg'
+                              fill='none'
+                              viewBox='0 0 24 24'
+                              stroke='currentColor'
+                              aria-hidden='true'
+                            >
+                              <path
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                                strokeWidth={2}
+                                d='M5 13l4 4L19 7'
+                              />
+                            </svg>
+                          </div>
+                          <p className='ml-3 text-base font-medium text-gray-500'>
+                            Global distribution and highly scalable
+                          </p>
+                        </li>
+                        <li className='flex items-start'>
+                          <div className='flex-shrink-0'>
+                            <svg
+                              className='flex-shrink-0 h-6 w-6 text-green-500'
+                              xmlns='http://www.w3.org/2000/svg'
+                              fill='none'
+                              viewBox='0 0 24 24'
+                              stroke='currentColor'
+                              aria-hidden='true'
+                            >
+                              <path
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                                strokeWidth={2}
+                                d='M5 13l4 4L19 7'
+                              />
+                            </svg>
+                          </div>
+                          <p className='ml-3 text-base font-medium text-gray-500'>
+                            Personalized custom design
+                          </p>
+                        </li>
+                        <li className='flex items-start'>
+                          <div className='flex-shrink-0'>
+                            <svg
+                              className='flex-shrink-0 h-6 w-6 text-green-500'
+                              xmlns='http://www.w3.org/2000/svg'
+                              fill='none'
+                              viewBox='0 0 24 24'
+                              stroke='currentColor'
+                              aria-hidden='true'
+                            >
+                              <path
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                                strokeWidth={2}
+                                d='M5 13l4 4L19 7'
+                              />
+                            </svg>
+                          </div>
+                          <p className='ml-3 text-base font-medium text-gray-500'>
+                            Exceptional user experience
+                          </p>
+                        </li>
+                      </ul>
+                      <div className='mt-10'>
+                        <div className='rounded-lg shadow-md'>
+                          <a
+                            href='#contact'
+                            className='block w-full text-center rounded-lg border border-transparent bg-cyan-600 px-6 py-4 text-xl leading-6 font-medium text-white hover:bg-cyan-700'
+                            aria-describedby='tier-growth'
+                          >
+                            Get a quote
+                          </a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className='mt-8 text-lg font-medium text-gray-900 tracking-tight'>
-                    SSL Certificates
-                  </h3>
-                  <p className='mt-5 text-base text-gray-500'>
-                    Ac tincidunt sapien vehicula erat auctor pellentesque
-                    rhoncus. Et magna sit morbi lobortis.
-                  </p>
                 </div>
-              </div>
-            </div>
-            <div className='pt-6'>
-              <div className='flow-root bg-gray-50 rounded-lg px-6 pb-8'>
-                <div className='-mt-6'>
-                  <div>
-                    <span className='inline-flex items-center justify-center p-3 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-md shadow-lg'>
-                      {/* Heroicon name: outline/refresh */}
-                      <svg
-                        className='h-6 w-6 text-white'
-                        xmlns='http://www.w3.org/2000/svg'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                        aria-hidden='true'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15'
-                        />
-                      </svg>
-                    </span>
+                <div className='mt-10 mx-auto max-w-md lg:m-0 lg:max-w-none lg:col-start-6 lg:col-end-8 lg:row-start-2 lg:row-end-3'>
+                  <div className='h-full flex flex-col rounded-lg shadow-lg overflow-hidden lg:rounded-none lg:rounded-r-lg'>
+                    <div className='flex-1 flex flex-col'>
+                      <div className='bg-white px-6 py-10'>
+                        <div>
+                          <h3
+                            className='text-center text-2xl font-medium text-gray-900'
+                            id='tier-scale'
+                          >
+                            Premium
+                          </h3>
+                          <div className='mt-4 flex items-center justify-center'>
+                            <span className='px-3 flex items-start text-6xl tracking-tight text-gray-900'>
+                              <span className='mt-2 mr-2 text-4xl font-medium'>
+                                $
+                              </span>
+                              <span className='font-extrabold'>75</span>
+                            </span>
+                            <span className='text-xl font-medium text-gray-500'>
+                              /hour
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='flex-1 flex flex-col justify-between border-t-2 border-gray-100 p-6 bg-gray-50 sm:p-10 lg:p-6 xl:p-10'>
+                        <ul className='space-y-4'>
+                          <li className='flex items-start'>
+                            <div className='flex-shrink-0'>
+                              <svg
+                                className='flex-shrink-0 h-6 w-6 text-green-500'
+                                xmlns='http://www.w3.org/2000/svg'
+                                fill='none'
+                                viewBox='0 0 24 24'
+                                stroke='currentColor'
+                                aria-hidden='true'
+                              >
+                                <path
+                                  strokeLinecap='round'
+                                  strokeLinejoin='round'
+                                  strokeWidth={2}
+                                  d='M5 13l4 4L19 7'
+                                />
+                              </svg>
+                            </div>
+                            <p className='ml-3 text-base font-medium text-gray-500'>
+                              All Essential features
+                            </p>
+                          </li>
+                          <li className='flex items-start'>
+                            <div className='flex-shrink-0'>
+                              <svg
+                                className='flex-shrink-0 h-6 w-6 text-green-500'
+                                xmlns='http://www.w3.org/2000/svg'
+                                fill='none'
+                                viewBox='0 0 24 24'
+                                stroke='currentColor'
+                                aria-hidden='true'
+                              >
+                                <path
+                                  strokeLinecap='round'
+                                  strokeLinejoin='round'
+                                  strokeWidth={2}
+                                  d='M5 13l4 4L19 7'
+                                />
+                              </svg>
+                            </div>
+                            <p className='ml-3 text-base font-medium text-gray-500'>
+                              Enterprise applications
+                            </p>
+                          </li>
+                          <li className='flex items-start'>
+                            <div className='flex-shrink-0'>
+                              <svg
+                                className='flex-shrink-0 h-6 w-6 text-green-500'
+                                xmlns='http://www.w3.org/2000/svg'
+                                fill='none'
+                                viewBox='0 0 24 24'
+                                stroke='currentColor'
+                                aria-hidden='true'
+                              >
+                                <path
+                                  strokeLinecap='round'
+                                  strokeLinejoin='round'
+                                  strokeWidth={2}
+                                  d='M5 13l4 4L19 7'
+                                />
+                              </svg>
+                            </div>
+                            <p className='ml-3 text-base font-medium text-gray-500'>
+                              Website and mobile app
+                            </p>
+                          </li>
+                        </ul>
+                        <div className='mt-8'>
+                          <div className='rounded-lg shadow-md'>
+                            <a
+                              href='#contact'
+                              className='block w-full text-center rounded-lg border border-transparent bg-white px-6 py-3 text-base font-medium text-cyan-600 hover:bg-gray-50'
+                              aria-describedby='tier-scale'
+                            >
+                              Get a quote
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className='mt-8 text-lg font-medium text-gray-900 tracking-tight'>
-                    Simple Queues
-                  </h3>
-                  <p className='mt-5 text-base text-gray-500'>
-                    Ac tincidunt sapien vehicula erat auctor pellentesque
-                    rhoncus. Et magna sit morbi lobortis.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className='pt-6'>
-              <div className='flow-root bg-gray-50 rounded-lg px-6 pb-8'>
-                <div className='-mt-6'>
-                  <div>
-                    <span className='inline-flex items-center justify-center p-3 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-md shadow-lg'>
-                      {/* Heroicon name: outline/shield-check */}
-                      <svg
-                        className='h-6 w-6 text-white'
-                        xmlns='http://www.w3.org/2000/svg'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                        aria-hidden='true'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                  <h3 className='mt-8 text-lg font-medium text-gray-900 tracking-tight'>
-                    Advanced Security
-                  </h3>
-                  <p className='mt-5 text-base text-gray-500'>
-                    Ac tincidunt sapien vehicula erat auctor pellentesque
-                    rhoncus. Et magna sit morbi lobortis.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className='pt-6'>
-              <div className='flow-root bg-gray-50 rounded-lg px-6 pb-8'>
-                <div className='-mt-6'>
-                  <div>
-                    <span className='inline-flex items-center justify-center p-3 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-md shadow-lg'>
-                      {/* Heroicon name: outline/cog */}
-                      <svg
-                        className='h-6 w-6 text-white'
-                        xmlns='http://www.w3.org/2000/svg'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                        aria-hidden='true'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z'
-                        />
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M15 12a3 3 0 11-6 0 3 3 0 016 0z'
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                  <h3 className='mt-8 text-lg font-medium text-gray-900 tracking-tight'>
-                    Powerful API
-                  </h3>
-                  <p className='mt-5 text-base text-gray-500'>
-                    Ac tincidunt sapien vehicula erat auctor pellentesque
-                    rhoncus. Et magna sit morbi lobortis.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className='pt-6'>
-              <div className='flow-root bg-gray-50 rounded-lg px-6 pb-8'>
-                <div className='-mt-6'>
-                  <div>
-                    <span className='inline-flex items-center justify-center p-3 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-md shadow-lg'>
-                      {/* Heroicon name: outline/server */}
-                      <svg
-                        className='h-6 w-6 text-white'
-                        xmlns='http://www.w3.org/2000/svg'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                        aria-hidden='true'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01'
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                  <h3 className='mt-8 text-lg font-medium text-gray-900 tracking-tight'>
-                    Database Backups
-                  </h3>
-                  <p id='about' className='mt-5 text-base text-gray-500'>
-                    Ac tincidunt sapien vehicula erat auctor pellentesque
-                    rhoncus. Et magna sit morbi lobortis.
-                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
