@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiCode, FiNavigation } from 'react-icons/fi';
 
 const isFeatured = repo => {
   return (
@@ -18,7 +19,7 @@ const Portfolio = ({ repos }) => {
   const featured = repos.filter(isFeatured).sort((a, b) => b.id - a.id);
   const theRest = repos.filter(isNotFeatured);
 
-  console.log(theRest);
+  console.log(featured);
 
   return (
     <>
@@ -71,54 +72,51 @@ const Portfolio = ({ repos }) => {
             {featured.map(repo => {
               return (
                 <div
-                  className='flex flex-col rounded-lg shadow-lg overflow-hidden'
                   key={repo.id}
+                  className='flex flex-col rounded-lg shadow-lg overflow-hidden hover:shadow-2xl cursor-pointer'
                 >
-                  <div className='flex-shrink-0'>
-                    <img
-                      className='h-48 w-full object-cover'
-                      // src={`https://raw.githubusercontent.com/ZachScroggins/${repo.name}/${repo.default_branch}/screenshot.png`}
-                      src='https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80'
-                    />
-                  </div>
-                  <div className='flex-1 bg-white p-6 flex flex-col justify-between'>
-                    <div className='flex-1'>
-                      <p className='text-sm font-medium text-cyan-600'>
-                        <a href='#' className='hover:underline'>
-                          Article
-                        </a>
-                      </p>
-                      <a href='#' className='block mt-2'>
-                        <p className='text-xl font-semibold text-gray-900'>
-                          {repo.name}
-                        </p>
-                        <p className='mt-3 text-base text-gray-500'>
-                          {repo.description}
-                        </p>
-                      </a>
+                  <a href={repo.homepage} className='h-96 bg-white'>
+                    <div className='flex-shrink-0'>
+                      <img
+                        className='h-48 w-full object-cover object-top'
+                        src={`https://raw.githubusercontent.com/ZachScroggins/${repo.name}/${repo.default_branch}/screenshot.png`}
+                        // src='https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80'
+                      />
                     </div>
-                    <div className='mt-6 flex items-center'>
-                      <div className='flex-shrink-0'>
-                        <a href='#'>
-                          <span className='sr-only'>Roel Aufderehar</span>
-                          <img
-                            className='h-10 w-10 rounded-full'
-                            src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-                          />
-                        </a>
-                      </div>
-                      <div className='ml-3'>
-                        <p className='text-sm font-medium text-gray-900'>
-                          <a href='#' className='hover:underline'>
-                            Roel Aufderehar
-                          </a>
+                    <div className='flex-1 bg-white p-6 flex flex-col justify-between'>
+                      <div className='flex-1'>
+                        <p className='text-sm font-medium text-cyan-600 hover:underline'>
+                          Article
                         </p>
-                        <div className='flex space-x-1 text-sm text-gray-500'>
-                          <time dateTime='2020-03-16'>Mar 16, 2020</time>
-                          <span aria-hidden='true'>·</span>
-                          <span>6 min read</span>
+                        <div className='mt-2'>
+                          <p className='text-xl font-semibold text-gray-900'>
+                            {repo.name}
+                          </p>
+                          <p className='mt-3 text-base text-gray-500'>
+                            {repo.description}
+                          </p>
                         </div>
                       </div>
+                    </div>
+                  </a>
+                  <div className='bg-white border-t border-gray-200 flex divide-x divide-gray-200'>
+                    <div className='w-0 flex-1 flex'>
+                      <a
+                        href={repo.homepage}
+                        className='relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500'
+                      >
+                        <FiNavigation className='inline align-middle text-lg' />
+                        <span className='ml-3'>Visit site</span>
+                      </a>
+                    </div>
+                    <div className='-ml-px w-0 flex-1 flex'>
+                      <a
+                        href={repo.html_url}
+                        className='relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500'
+                      >
+                        <FiCode className='inline align-middle text-lg' />
+                        <span className='ml-3'>View code</span>
+                      </a>
                     </div>
                   </div>
                 </div>
