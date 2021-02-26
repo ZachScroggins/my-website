@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import Link from 'next/link';
 import { Transition } from '@headlessui/react';
+import useClickAway from 'lib/hooks/useClickAway';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef();
+  useClickAway(menuRef, setIsOpen);
 
   return (
     <header className='fixed top-0 left-0 z-20 w-full'>
@@ -13,13 +17,15 @@ const Header = () => {
         >
           <div className='flex items-center flex-1'>
             <div className='flex items-center justify-between w-full md:w-auto'>
-              <a>
-                <span className='sr-only'>Workflow</span>
-                <img
-                  className='h-8 w-auto sm:h-10'
-                  src='https://tailwindui.com/img/logos/workflow-mark-teal-200-cyan-400.svg'
-                />
-              </a>
+              <Link href='/'>
+                <a>
+                  <span className='sr-only'>Zach Scroggins</span>
+                  <img
+                    className='h-8 w-auto sm:h-10'
+                    src='https://tailwindui.com/img/logos/workflow-mark-teal-200-cyan-400.svg'
+                  />
+                </a>
+              </Link>
               <div className='-mr-2 flex items-center md:hidden'>
                 <button
                   type='button'
@@ -48,47 +54,35 @@ const Header = () => {
               </div>
             </div>
             <div className='hidden space-x-8 md:flex md:ml-10'>
-              <a
-                href='#portfolio'
-                className='text-base font-medium text-white hover:text-gray-300'
-              >
-                Portfolio
-              </a>
-              <a
-                href='#services'
-                className='text-base font-medium text-white hover:text-gray-300'
-              >
-                Services
-              </a>
-              <a
-                href='#about'
-                className='text-base font-medium text-white hover:text-gray-300'
-              >
-                About
-              </a>
-              {/* <a className='text-base font-medium text-white hover:text-gray-300'>
-                Blog
-              </a> */}
-              <a
-                href='#contact'
-                className='text-base font-medium text-white hover:text-gray-300'
-              >
-                Contact
-              </a>
+              <Link href='/#portfolio'>
+                <a className='text-base font-medium text-white hover:text-gray-300'>
+                  Portfolio
+                </a>
+              </Link>
+              <Link href='/#services'>
+                <a className='text-base font-medium text-white hover:text-gray-300'>
+                  Services
+                </a>
+              </Link>
+              <Link href='/#about'>
+                <a className='text-base font-medium text-white hover:text-gray-300'>
+                  About
+                </a>
+              </Link>
+              <Link href='/#contact'>
+                <a className='text-base font-medium text-white hover:text-gray-300'>
+                  Contact
+                </a>
+              </Link>
+              <Link href='/blog'>
+                <a className='text-base font-medium text-white hover:text-gray-300'>
+                  Blog
+                </a>
+              </Link>
             </div>
           </div>
         </nav>
       </div>
-      {/*
-  Mobile menu, show/hide based on menu open state.
-
-  Entering: "duration-150 ease-out"
-    From: "opacity-0 scale-95"
-    To: "opacity-100 scale-100"
-  Leaving: "duration-100 ease-in"
-    From: "opacity-100 scale-100"
-    To: "opacity-0 scale-95"
-*/}
       <Transition
         show={isOpen}
         enter='duration-150 ease-out'
@@ -98,14 +92,22 @@ const Header = () => {
         leaveFrom='opacity-100 scale-100'
         leaveTo='opacity-0 scale-95'
       >
-        <div className='absolute top-0 inset-x-0 z-30 p-2 transition transform origin-top md:hidden'>
+        <div
+          className='absolute top-0 inset-x-0 z-30 p-2 transition transform origin-top md:hidden'
+          onClick={() => setIsOpen(false)}
+          ref={menuRef}
+        >
           <div className='rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden'>
             <div className='px-5 pt-4 flex items-center justify-between'>
               <div>
-                <img
-                  className='h-8 w-auto'
-                  src='https://tailwindui.com/img/logos/workflow-mark-teal-500-cyan-600.svg'
-                />
+                <Link href='/'>
+                  <a>
+                    <img
+                      className='h-8 w-auto'
+                      src='https://tailwindui.com/img/logos/workflow-mark-teal-500-cyan-600.svg'
+                    />
+                  </a>
+                </Link>
               </div>
               <div className='-mr-2'>
                 <button
@@ -135,38 +137,33 @@ const Header = () => {
             </div>
             <div className='pt-5 pb-6'>
               <div className='px-2 space-y-1'>
-                <a
-                  href='#portfolio'
-                  className='block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50'
-                >
-                  Portfolio
-                </a>
-                <a
-                  href='#'
-                  className='block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50'
-                >
-                  Services
-                </a>
-                <a
-                  href='#'
-                  className='block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50'
-                >
-                  About
-                </a>
-                {/* <a
-                  href='#'
-                  className='block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50'
-                >
-                  Blog
-                </a> */}
+                <Link href='/#portfolio'>
+                  <a className='block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50'>
+                    Portfolio
+                  </a>
+                </Link>
+                <Link href='/#services'>
+                  <a className='block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50'>
+                    Services
+                  </a>
+                </Link>
+                <Link href='/#about'>
+                  <a className='block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50'>
+                    About
+                  </a>
+                </Link>
+                <Link href='/blog'>
+                  <a className='block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50'>
+                    Blog
+                  </a>
+                </Link>
               </div>
               <div className='mt-6 px-5'>
-                <a
-                  href='#'
-                  className='block text-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700'
-                >
-                  Contact me
-                </a>
+                <Link href='/#contact'>
+                  <a className='block text-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700'>
+                    Contact me
+                  </a>
+                </Link>
               </div>
             </div>
           </div>

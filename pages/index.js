@@ -1,17 +1,14 @@
-import Header from 'components/Header';
 import Hero from 'components/home/Hero';
 import Portfolio from 'components/home/Portfolio';
 import Services from 'components/home/Services';
 import About from 'components/home/About';
 import Contact from 'components/home/Contact';
-import Footer from 'components/Footer';
 
 export default function Home({ repos }) {
   return (
     <>
       <div className='bg-white'>
         <div className='relative overflow-hidden'>
-          <Header />
           <main className='pt-16'>
             <Hero />
             {repos ? <Portfolio repos={repos} /> : <></>}
@@ -19,7 +16,6 @@ export default function Home({ repos }) {
             <About />
             <Contact />
           </main>
-          <Footer />
         </div>
       </div>
     </>

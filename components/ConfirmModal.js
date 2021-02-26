@@ -1,6 +1,11 @@
+import { useRef } from 'react';
 import { Transition } from '@headlessui/react';
+import useClickAway from 'lib/hooks/useClickAway';
 
 const ConfirmModal = ({ open, setOpen, title, message, type }) => {
+  const modalRef = useRef();
+  useClickAway(modalRef, setOpen);
+
   return (
     <Transition show={open} appear={true}>
       <div className='fixed z-10 inset-0 overflow-y-auto'>
@@ -39,6 +44,7 @@ const ConfirmModal = ({ open, setOpen, title, message, type }) => {
               role='dialog'
               aria-modal='true'
               aria-labelledby='modal-headline'
+              ref={modalRef}
             >
               <div>
                 {type === 'success' && (
