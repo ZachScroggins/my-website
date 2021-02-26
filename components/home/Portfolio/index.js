@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { FiCode, FiNavigation } from 'react-icons/fi';
 
 const isFeatured = repo => {
@@ -16,6 +16,7 @@ const isNotFeatured = repo => {
 };
 
 const Portfolio = ({ repos }) => {
+  const [allProjectsShowing, setAllProjectsShowing] = useState(false);
   const featured = repos.filter(isFeatured).sort((a, b) => b.id - a.id);
   const theRest = repos.filter(isNotFeatured);
 
@@ -136,7 +137,7 @@ const Portfolio = ({ repos }) => {
           <div className='mx-auto max-w-screen-lg px-4 xl:px-0'>
             <div className='bg-white shadow overflow-hidden rounded-lg'>
               <ul className='divide-y divide-gray-200'>
-                {theRest.map(repo => {
+                {theRest.slice(0, 6).map(repo => {
                   return (
                     <li key={repo.id}>
                       <a
@@ -154,13 +155,7 @@ const Portfolio = ({ repos }) => {
                               </div>
                               <p className='mt-2'>{repo.description}</p>
                             </div>
-                            {/* <div className='mt-4 flex-shrink-0 sm:mt-0 py-6 pl-6 border-l border-gray-200'>
-                              <div className='flex overflow-hidden'>
-                                <p>{repo.created_at.slice(0, 10)}</p>
-                              </div>
-                            </div> */}
                           </div>
-
                           <div className='ml-5 flex-shrink-0'>
                             <svg
                               className='h-5 w-5 text-gray-400'
@@ -181,8 +176,62 @@ const Portfolio = ({ repos }) => {
                     </li>
                   );
                 })}
+                {allProjectsShowing && (
+                  <>
+                    {theRest.slice(6).map(repo => {
+                      return (
+                        <li key={repo.id}>
+                          <a
+                            href={repo.html_url}
+                            className='block hover:bg-gray-50'
+                          >
+                            <div className='px-4 py-4 flex items-center sm:px-6'>
+                              <div className='min-w-0 flex-1 sm:flex sm:items-center sm:justify-between'>
+                                <div>
+                                  <div className='flex text-sm font-medium text-indigo-600 truncate'>
+                                    {repo.language}
+                                  </div>
+                                  <div className='mt-2 text-lg font-bold'>
+                                    {repo.name}
+                                  </div>
+                                  <p className='mt-2'>{repo.description}</p>
+                                </div>
+                              </div>
+                              <div className='ml-5 flex-shrink-0'>
+                                <svg
+                                  className='h-5 w-5 text-gray-400'
+                                  xmlns='http://www.w3.org/2000/svg'
+                                  viewBox='0 0 20 20'
+                                  fill='currentColor'
+                                  aria-hidden='true'
+                                >
+                                  <path
+                                    fillRule='evenodd'
+                                    d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z'
+                                    clipRule='evenodd'
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </>
+                )}
               </ul>
             </div>
+            {!allProjectsShowing && (
+              <div className='mt-6'>
+                <button
+                  type='button'
+                  className='w-full flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50'
+                  onClick={() => setAllProjectsShowing(true)}
+                >
+                  View all
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

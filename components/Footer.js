@@ -76,16 +76,22 @@ const Footer = () => {
               <span className='sr-only'>LinkedIn</span>
               <FiLinkedin className='text-xl' />
             </a>
-            <a href='#' className='text-gray-400 hover:text-gray-500'>
+            <a
+              href='https://twitter.com/scroggins_zach'
+              className='text-gray-400 hover:text-gray-500'
+            >
               <span className='sr-only'>Twitter</span>
               <FiTwitter className='text-xl' />
             </a>
-            <a href='#' className='text-gray-400 hover:text-gray-500'>
+            <a
+              href='https://www.facebook.com/scroggins.zach'
+              className='text-gray-400 hover:text-gray-500'
+            >
               <span className='sr-only'>Facebook</span>
               <FiFacebook className='text-xl' />
             </a>
             <a
-              href='https://www.instagram.com/zach_scroggins'
+              href='https://www.instagram.com/scroggins_zach'
               className='text-gray-400 hover:text-gray-500'
             >
               <span className='sr-only'>Instagram</span>
