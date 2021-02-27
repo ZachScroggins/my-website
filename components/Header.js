@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { Transition } from '@headlessui/react';
 import useClickAway from 'lib/hooks/useClickAway';
+import Logo from './Logo';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,11 +21,14 @@ const Header = () => {
               <Link href='/'>
                 <a>
                   <span className='sr-only'>Zach Scroggins</span>
-                  <img
+                  {/* <img
                     className='h-8 w-auto sm:h-10'
                     src='https://tailwindui.com/img/logos/workflow-mark-teal-200-cyan-400.svg'
                     alt='Logo'
-                  />
+                  /> */}
+                  <div>
+                    <Logo className='w-10 h-10' />
+                  </div>
                 </a>
               </Link>
               <div className='-mr-2 flex items-center md:hidden'>
