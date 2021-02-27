@@ -1,3 +1,4 @@
+import { NextSeo } from 'next-seo';
 import Hero from 'components/home/Hero';
 import Portfolio from 'components/home/Portfolio';
 import Services from 'components/home/Services';
@@ -7,6 +8,10 @@ import Contact from 'components/home/Contact';
 export default function Home({ repos }) {
   return (
     <>
+      <NextSeo
+        title='Zach Scroggins | Freelance Full Stack Developer'
+        description='I love building websites and web apps with cutting edge technologies. I specialize in JavaScript and have the most experience working with React and Node. I really enjoy the JAMstack, but I am also familiar with the LAMP stack, Python, Java, C#, and C++.'
+      />
       <div className='bg-white'>
         <div className='relative overflow-hidden'>
           <main className='pt-16'>

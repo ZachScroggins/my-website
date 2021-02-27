@@ -21,7 +21,7 @@ const Portfolio = ({ repos }) => {
   const theRest = repos.filter(isNotFeatured);
 
   return (
-    <>
+    <section>
       <div className='relative bg-gray-0 pt-32 lg:pt-24'>
         <div className='mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl'>
           <div>
@@ -67,14 +67,15 @@ const Portfolio = ({ repos }) => {
           </div>
           <div className='mt-12 -mx-6'>
             <img
-              // className='rounded-lg shadow-xl ring-1 ring-black ring-opacity-5'
               src='/pc-mockup.png'
+              alt='Paulita Carlotta Website Mockup Image'
             />
           </div>
           <div className='mt-12 pb-12'>
             <img
               className='rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5'
               src='/paulita-carlotta.png'
+              alt='Paulita Carlotta Website Screenshot'
             />
           </div>
         </div>
@@ -82,12 +83,12 @@ const Portfolio = ({ repos }) => {
       <div className='relative py-16 sm:py-24 lg:py-32'>
         <div className='relative'>
           <div className='text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl'>
-            <h2 className='text-base font-semibold tracking-wider text-cyan-600 uppercase'>
+            <h3 className='text-base font-semibold tracking-wider text-cyan-600 uppercase'>
               Personal
-            </h2>
-            <p className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
+            </h3>
+            <h4 className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
               Featured
-            </p>
+            </h4>
             <p className='mt-5 mx-auto max-w-prose text-xl text-gray-500'>
               The personal projects I have put the most time and effort in to.
               For me, web development is more than just a hobby. It's a passion.
@@ -108,6 +109,7 @@ const Portfolio = ({ repos }) => {
                       <img
                         className='h-48 w-full object-cover object-top'
                         src={`https://raw.githubusercontent.com/ZachScroggins/${repo.name}/${repo.default_branch}/screenshot.png`}
+                        alt={`${repo.name} screenshot`}
                       />
                     </div>
                     <div className='flex-1 bg-white p-6 flex flex-col justify-between'>
@@ -151,9 +153,9 @@ const Portfolio = ({ repos }) => {
             })}
           </div>
           <div className='text-center my-16'>
-            <p className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
+            <h4 className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
               Other Projects
-            </p>
+            </h4>
             <p className='mt-5 mx-auto max-w-prose text-xl text-gray-500'>
               Programs, websites, and apps, written in a variety of languages. I
               am always learning, and I learn best by trying things myself!
@@ -260,7 +262,7 @@ const Portfolio = ({ repos }) => {
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

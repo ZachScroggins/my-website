@@ -2,8 +2,7 @@ import { FiArrowRight } from 'react-icons/fi';
 
 const index = () => {
   return (
-    // <div className='pt-10 bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden'>
-    <div className='pt-10 bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden'>
+    <section className='pt-10 bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden'>
       <div className='mx-auto max-w-7xl lg:px-8'>
         <div className='lg:grid lg:grid-cols-2 lg:gap-8'>
           <div className='mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center'>
@@ -50,12 +49,13 @@ const index = () => {
               <img
                 className='w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none'
                 src='https://tailwindui.com/img/component-images/cloud-illustration-teal-cyan.svg'
+                alt='Hero Image'
               />
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

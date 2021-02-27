@@ -2,7 +2,7 @@ import React from 'react';
 
 const index = () => {
   return (
-    <div
+    <section
       id='about'
       className='pb-16 bg-gradient-to-r from-teal-500 to-cyan-600 lg:pb-0 lg:z-10 lg:relative'
       style={{ scrollMarginTop: '100px' }}
@@ -18,6 +18,7 @@ const index = () => {
               <img
                 className='object-cover lg:h-full lg:w-full'
                 src='/profile-pic.jpg'
+                alt='Profile Picture'
               />
             </div>
           </div>
@@ -46,7 +47,7 @@ const index = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

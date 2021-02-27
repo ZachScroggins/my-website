@@ -46,11 +46,12 @@ export const index = () => {
 
   return (
     <>
-      <div id='contact' className='relative bg-gray-900 lg:mt-20'>
+      <section id='contact' className='relative bg-gray-900 lg:mt-20'>
         <div className='relative h-56 bg-indigo-600 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2'>
           <img
             className='w-full h-full object-cover'
             src='https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&sat=-100'
+            alt='Contact Image'
           />
           <div
             aria-hidden='true'
@@ -60,12 +61,12 @@ export const index = () => {
         </div>
         <div className='relative mx-auto max-w-md px-4 py-12 sm:max-w-7xl sm:px-6 sm:py-20 md:py-28 lg:px-8 lg:py-32'>
           <div className='md:ml-auto md:w-1/2 md:pl-10'>
-            <p className='mt-2 mb-6 text-4xl font-extrabold text-white tracking-tight sm:text-5xl'>
+            <h2 className='mt-2 mb-6 text-4xl font-extrabold text-white tracking-tight sm:text-5xl'>
               Contact
-            </p>
-            <p className='mt-2 mb-6 text-3xl font-bold text-white tracking-tight sm:text-4xl'>
+            </h2>
+            <h3 className='mt-2 mb-6 text-3xl font-bold text-white tracking-tight sm:text-4xl'>
               Send me a message
-            </p>
+            </h3>
             <form
               className='grid grid-cols-1 gap-y-6'
               onSubmit={e => sendMessage(e)}
@@ -178,7 +179,7 @@ export const index = () => {
             </form>
           </div>
         </div>
-      </div>
+      </section>
       <ConfirmModal
         open={success}
         setOpen={setSuccess}

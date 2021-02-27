@@ -3,7 +3,7 @@ import React from 'react';
 const index = () => {
   return (
     <>
-      <div className='bg-gray-900 pt-10 lg:pt-4'>
+      <section className='bg-gray-900 pt-10 lg:pt-4'>
         <div className='pt-12 px-4 sm:px-6 lg:px-8 lg:pt-20'>
           <div className='text-center'>
             <h2
@@ -409,7 +409,7 @@ const index = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };
