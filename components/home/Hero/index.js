@@ -15,12 +15,12 @@ const index = () => {
                 </span>
               </h1>
               <p className='mt-3 text-base text-gray-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl'>
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-                Lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-                fugiat.
+                Let's work together to create memorable websites and apps,
+                tailored to your needs. As a team, we can craft more than just a
+                web presence for you or your business.
               </p>
               <div className='mt-10 sm:mt-12'>
-                <form action='#' className='sm:max-w-xl sm:mx-auto lg:mx-0'>
+                <div className='sm:max-w-xl sm:mx-auto lg:mx-0'>
                   <div className='sm:flex'>
                     <div className='mt-3 sm:mt-0'>
                       <a
@@ -40,7 +40,7 @@ const index = () => {
                       </a>
                     </div>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FiCode, FiNavigation } from 'react-icons/fi';
+import { FiArrowRight, FiCode, FiNavigation } from 'react-icons/fi';
 
 const isFeatured = repo => {
   return (
@@ -22,49 +22,71 @@ const Portfolio = ({ repos }) => {
 
   return (
     <>
-      <div
-        id='portfolio'
-        className='relative bg-gray-50 pt-16 sm:pt-24 lg:pt-32'
-      >
+      <div id='portfolio' className='relative bg-gray-0 pt-32 lg:pt-24'>
         <div className='mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl'>
           <div>
-            <h2 className='text-6xl tracking-tight font-extrabold sm:text-8xl xl:text-8xl mb-10 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-cyan-600 block'>
+            <h2 className='text-6xl tracking-tight font-extrabold sm:text-8xl xl:text-8xl mb-10 lg:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-cyan-600 block'>
               Portfolio
             </h2>
             <h3 className='text-base font-semibold tracking-wider text-cyan-600 uppercase'>
               Professional
             </h3>
-            <p className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
-              Paulita Carlotta
-            </p>
+            <a href='https://paulitacarlotta.com' className='hover:underline'>
+              <p className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
+                PaulitaCarlotta.com
+              </p>
+            </a>
             <p className='mt-5 max-w-prose mx-auto text-xl text-gray-500'>
               Ecommerce store for women's fashion and jewelry. Blog with
-              headless content management system integration. Lorem ipsum dolor
-              sit amet consectetur adipisicing elit. Nam hic alias et tempore
-              cumque amet libero.
+              headless content management system integration. Deployed globally
+              across a blazing fast CDN, Google Cloud, and Amazon Web Services.
             </p>
+            <div className='flex justify-center mt-5'>
+              <div className='mt-3 sm:mt-0'>
+                <a
+                  href='https://paulitacarlotta.com'
+                  className='block w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900'
+                >
+                  Visit the site
+                </a>
+              </div>
+              <div className='mt-3 sm:mt-0 sm:ml-3'>
+                <a
+                  href='#'
+                  className='block w-full py-3 px-4 rounded-md text-teal-500 font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900'
+                >
+                  How it's made
+                  <FiArrowRight className='inline ml-1 align-middle' />
+                </a>
+              </div>
+            </div>
           </div>
-          <div className='mt-12 -mb-10 sm:-mb-24 '>
+          <div className='mt-12 -mx-6'>
             <img
-              className='rounded-lg shadow-xl ring-1 ring-black ring-opacity-5'
+              // className='rounded-lg shadow-xl ring-1 ring-black ring-opacity-5'
+              src='/pc-mockup.png'
+            />
+          </div>
+          <div className='mt-12'>
+            <img
+              className='rounded-xl pb-12 shadow-2xl ring-1 ring-black ring-opacity-5'
               src='/paulita-carlotta.png'
             />
           </div>
         </div>
       </div>
-      <div className='relative bg-gray-100 py-16 sm:py-24 lg:py-32'>
+      <div className='relative py-16 sm:py-24 lg:py-32'>
         <div className='relative'>
           <div className='text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl'>
             <h2 className='text-base font-semibold tracking-wider text-cyan-600 uppercase'>
               Personal
             </h2>
             <p className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
-              Featured Projects
+              Featured
             </p>
             <p className='mt-5 mx-auto max-w-prose text-xl text-gray-500'>
-              Phasellus lorem quam molestie id quisque diam aenean nulla in.
-              Accumsan in quis quis nunc, ullamcorper malesuada. Eleifend
-              condimentum id viverra nulla.
+              The personal projects I have put the most time and effort in to.
+              For me, web development is more than just a hobby. It's a passion.
             </p>
           </div>
           <div className='mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl'>
@@ -129,9 +151,8 @@ const Portfolio = ({ repos }) => {
               Other Projects
             </p>
             <p className='mt-5 mx-auto max-w-prose text-xl text-gray-500'>
-              Phasellus lorem quam molestie id quisque diam aenean nulla in.
-              Accumsan in quis quis nunc, ullamcorper malesuada. Eleifend
-              condimentum id viverra nulla.
+              Programs, websites, and apps, written in a variety of languages. I
+              am always learning, and I learn best by trying things myself!
             </p>
           </div>
           <div className='mx-auto max-w-screen-lg px-4 xl:px-0'>
@@ -147,7 +168,7 @@ const Portfolio = ({ repos }) => {
                         <div className='px-4 py-4 flex items-center sm:px-6'>
                           <div className='min-w-0 flex-1 sm:flex sm:items-center sm:justify-between'>
                             <div>
-                              <div className='flex text-sm font-medium text-indigo-600 truncate'>
+                              <div className='flex text-sm font-medium text-cyan-600 truncate'>
                                 {repo.language}
                               </div>
                               <div className='mt-2 text-lg font-bold'>
@@ -188,7 +209,7 @@ const Portfolio = ({ repos }) => {
                             <div className='px-4 py-4 flex items-center sm:px-6'>
                               <div className='min-w-0 flex-1 sm:flex sm:items-center sm:justify-between'>
                                 <div>
-                                  <div className='flex text-sm font-medium text-indigo-600 truncate'>
+                                  <div className='flex text-sm font-medium text-cyan-600 truncate'>
                                     {repo.language}
                                   </div>
                                   <div className='mt-2 text-lg font-bold'>
