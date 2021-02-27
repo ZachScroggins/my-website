@@ -11,7 +11,6 @@ import {
 const Footer = () => {
   return (
     <>
-      {/* This example requires Tailwind CSS v2.0+ */}
       <footer className='bg-white'>
         <div className='max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8'>
           <nav
