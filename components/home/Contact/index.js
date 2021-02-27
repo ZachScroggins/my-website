@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ConfirmModal from 'components/ConfirmModal';
+import ContactSvg from './ContactSvg';
 
 export const index = () => {
   const [name, setName] = useState('');
@@ -46,21 +47,17 @@ export const index = () => {
 
   return (
     <>
-      <section id='contact' className='relative bg-gray-900 lg:mt-20'>
-        <div className='relative h-56 bg-indigo-600 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2'>
-          <img
-            className='w-full h-full object-cover'
-            src='https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixqx=jjcbxallJd&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&sat=-100'
-            alt='Contact Image'
-          />
-          <div
-            aria-hidden='true'
-            className='absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-600'
-            style={{ mixBlendMode: 'multiply' }}
-          />
+      <section
+        id='contact'
+        className='grid md:grid-cols-2 relative bg-gray-900 lg:mt-20'
+      >
+        <div>
+          <ContactSvg className='w-full h-full' />
         </div>
-        <div className='relative mx-auto max-w-md px-4 py-12 sm:max-w-7xl sm:px-6 sm:py-20 md:py-28 lg:px-8 lg:py-32'>
-          <div className='md:ml-auto md:w-1/2 md:pl-10'>
+        {/* <div className='relative mx-auto max-w-md px-4 py-12 sm:max-w-7xl sm:px-6 sm:py-20 md:py-28 lg:px-8 lg:py-32'> */}
+        <div className='w-full relative p-6 lg:p-10 xl:p-20'>
+          {/* <div className='md:ml-auto md:w-1/2 md:pl-10'> */}
+          <div className=''>
             <h2 className='mt-2 mb-6 text-4xl font-extrabold text-white tracking-tight sm:text-5xl'>
               Contact
             </h2>

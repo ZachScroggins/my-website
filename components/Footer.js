@@ -53,13 +53,13 @@ const Footer = () => {
                 </a>
               </Link>
             </div>
-            <div className='px-5 py-2'>
+            {/* <div className='px-5 py-2'>
               <Link href='/blog'>
                 <a className='text-base text-gray-500 hover:text-gray-900'>
                   Blog
                 </a>
               </Link>
-            </div>
+            </div> */}
           </nav>
           <div className='mt-8 flex justify-center space-x-6'>
             <a
@@ -102,7 +102,7 @@ const Footer = () => {
             href='/'
             className='block mt-8 text-center text-base text-gray-400 hover:text-gray-500'
           >
-            © {new Date().getFullYear()} Zach Scroggins. All rights reserved.
+            © {new Date().getFullYear()} Zach Scroggins
           </a>
         </div>
       </footer>

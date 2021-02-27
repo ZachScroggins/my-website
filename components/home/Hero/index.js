@@ -2,7 +2,7 @@ import { FiArrowRight } from 'react-icons/fi';
 
 const index = () => {
   return (
-    <section className='pt-10 bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden'>
+    <section className='pt-10 pb-14 bg-gray-900 sm:pt-16 lg:pt-8 lg:overflow-hidden'>
       <div className='mx-auto max-w-7xl lg:px-8'>
         <div className='lg:grid lg:grid-cols-2 lg:gap-8'>
           <div className='mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center'>
@@ -20,7 +20,7 @@ const index = () => {
               </p>
               <div className='mt-10 sm:mt-12'>
                 <div className='sm:max-w-xl sm:mx-auto lg:mx-0'>
-                  <div className='sm:flex'>
+                  <div className='sm:flex sm:justify-center lg:justify-start'>
                     <div className='mt-3 sm:mt-0'>
                       <a
                         href='/#portfolio'
@@ -43,7 +43,7 @@ const index = () => {
               </div>
             </div>
           </div>
-          <div className='mt-12 -mb-16 sm:-mb-48 lg:m-0 lg:relative'>
+          <div className='mt-12 lg:relative'>
             <div className='mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0'>
               <img
                 className='w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none'

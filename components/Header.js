@@ -75,11 +75,11 @@ const Header = () => {
                   Contact
                 </a>
               </Link>
-              <Link href='/blog'>
+              {/* <Link href='/blog'>
                 <a className='text-base font-medium text-white hover:text-gray-300'>
                   Blog
                 </a>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </nav>
@@ -153,11 +153,11 @@ const Header = () => {
                     About
                   </a>
                 </Link>
-                <Link href='/blog'>
+                {/* <Link href='/blog'>
                   <a className='block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50'>
                     Blog
                   </a>
-                </Link>
+                </Link> */}
               </div>
               <div className='mt-6 px-5'>
                 <Link href='/#contact'>

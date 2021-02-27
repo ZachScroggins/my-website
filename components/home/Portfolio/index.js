@@ -22,7 +22,7 @@ const Portfolio = ({ repos }) => {
 
   return (
     <section>
-      <div className='relative bg-gray-0 pt-32 lg:pt-24'>
+      <div className='relative bg-gray-0 pt-16 lg:pt-24'>
         <div className='mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl'>
           <div>
             <h2
@@ -80,7 +80,7 @@ const Portfolio = ({ repos }) => {
           </div>
         </div>
       </div>
-      <div className='relative py-16 sm:py-24 lg:py-32'>
+      <div className='relative py-8'>
         <div className='relative'>
           <div className='text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl'>
             <h3 className='text-base font-semibold tracking-wider text-cyan-600 uppercase'>
@@ -156,7 +156,7 @@ const Portfolio = ({ repos }) => {
             <h4 className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
               Other Projects
             </h4>
-            <p className='mt-5 mx-auto max-w-prose text-xl text-gray-500'>
+            <p className='mt-5 mx-auto px-2 sm:px-8 lg:px-0 max-w-prose text-xl text-gray-500'>
               Programs, websites, and apps, written in a variety of languages. I
               am always learning, and I learn best by trying things myself!
             </p>
