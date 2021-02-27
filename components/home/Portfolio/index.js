@@ -54,7 +54,7 @@ const Portfolio = ({ repos }) => {
                   Visit the site
                 </a>
               </div>
-              <div className='mt-3 sm:mt-0 sm:ml-3'>
+              {/* <div className='mt-3 sm:mt-0 sm:ml-3'>
                 <a
                   href='#'
                   className='block w-full py-3 px-4 rounded-md text-teal-500 font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900'
@@ -62,7 +62,7 @@ const Portfolio = ({ repos }) => {
                   How it's made
                   <FiArrowRight className='inline ml-1 align-middle' />
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className='mt-12 -mx-6'>
