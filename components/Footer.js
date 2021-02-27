@@ -98,12 +98,11 @@ const Footer = () => {
               <FiInstagram className='text-xl' />
             </a>
           </div>
-          <a
-            href='/'
-            className='block mt-8 text-center text-base text-gray-400 hover:text-gray-500'
-          >
-            © {new Date().getFullYear()} Zach Scroggins
-          </a>
+          <Link href='/'>
+            <a className='block mt-8 text-center text-base text-gray-400 hover:text-gray-500'>
+              © {new Date().getFullYear()} Zach Scroggins
+            </a>
+          </Link>
         </div>
       </footer>
     </>
