@@ -31,11 +31,11 @@ const Portfolio = ({ repos }) => {
             <h3 className='text-base font-semibold tracking-wider text-cyan-600 uppercase'>
               Professional
             </h3>
-            <a href='https://paulitacarlotta.com' className='hover:underline'>
-              <p className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
+            <p className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
+              <a href='https://paulitacarlotta.com' className='hover:underline'>
                 PaulitaCarlotta.com
-              </p>
-            </a>
+              </a>
+            </p>
             <p className='mt-5 max-w-prose mx-auto text-xl text-gray-500'>
               Ecommerce store for women's fashion and jewelry. Blog with
               headless content management system integration. Deployed globally
