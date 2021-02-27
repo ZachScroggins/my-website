@@ -22,10 +22,14 @@ const Portfolio = ({ repos }) => {
 
   return (
     <>
-      <div id='portfolio' className='relative bg-gray-0 pt-32 lg:pt-24'>
+      <div className='relative bg-gray-0 pt-32 lg:pt-24'>
         <div className='mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl'>
           <div>
-            <h2 className='text-6xl tracking-tight font-extrabold sm:text-8xl xl:text-8xl mb-10 lg:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-cyan-600 block'>
+            <h2
+              id='portfolio'
+              className='text-6xl tracking-tight font-extrabold sm:text-8xl xl:text-8xl mb-10 lg:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-cyan-600 block'
+              style={{ scrollMarginTop: '100px' }}
+            >
               Portfolio
             </h2>
             <h3 className='text-base font-semibold tracking-wider text-cyan-600 uppercase'>
@@ -67,9 +71,9 @@ const Portfolio = ({ repos }) => {
               src='/pc-mockup.png'
             />
           </div>
-          <div className='mt-12'>
+          <div className='mt-12 pb-12'>
             <img
-              className='rounded-xl pb-12 shadow-2xl ring-1 ring-black ring-opacity-5'
+              className='rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5'
               src='/paulita-carlotta.png'
             />
           </div>

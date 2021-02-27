@@ -3,10 +3,13 @@ import React from 'react';
 const index = () => {
   return (
     <>
-      <div id='services' className='bg-gray-900'>
+      <div className='bg-gray-900 pt-10 lg:pt-4'>
         <div className='pt-12 px-4 sm:px-6 lg:px-8 lg:pt-20'>
           <div className='text-center'>
-            <h2 className='text-lg leading-6 font-semibold text-gray-300 uppercase tracking-wider'>
+            <h2
+              id='services'
+              className='text-lg leading-6 font-semibold text-gray-300 uppercase tracking-wider'
+            >
               Services
             </h2>
             <p className='mt-2 text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl'>
