@@ -100,7 +100,7 @@ const Footer = () => {
           </div>
           <a
             href='/'
-            className='block mt-8 text-center text-base text-gray-400'
+            className='block mt-8 text-center text-base text-gray-400 hover:text-gray-500'
           >
             © {new Date().getFullYear()} Zach Scroggins. All rights reserved.
           </a>
