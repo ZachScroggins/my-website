@@ -14,12 +14,6 @@ export default {
         height: 630,
         alt: 'Logo',
       },
-      {
-        url: 'https://zachscroggins.com/android-chrome-512x512.png',
-        width: 512,
-        height: 512,
-        alt: 'Logo',
-      },
     ],
   },
   twitter: {
