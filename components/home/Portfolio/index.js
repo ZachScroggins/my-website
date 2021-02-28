@@ -22,7 +22,7 @@ const Portfolio = ({ repos }) => {
 
   return (
     <section>
-      <div className='relative bg-gray-0 pt-16 lg:pt-24'>
+      <div className='relative pt-16 lg:pt-24'>
         <div className='mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl'>
           <div>
             <h2
