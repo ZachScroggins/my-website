@@ -98,7 +98,7 @@ const Footer = () => {
             </a>
           </div>
           <Link href='/'>
-            <a className='block mt-8 text-center text-base text-gray-400 hover:text-gray-500'>
+            <a className='block mt-8 text-center text-base text-gray-500 hover:text-gray-900'>
               © {new Date().getFullYear()} Zach Scroggins
             </a>
           </Link>

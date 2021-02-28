@@ -32,7 +32,7 @@ const Portfolio = ({ repos }) => {
             >
               Portfolio
             </h2>
-            <h3 className='text-base font-semibold tracking-wider text-cyan-600 uppercase'>
+            <h3 className='text-base font-semibold tracking-wider text-cyan-700 uppercase'>
               Professional
             </h3>
             <p className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
@@ -83,7 +83,7 @@ const Portfolio = ({ repos }) => {
       <div className='relative py-8'>
         <div className='relative'>
           <div className='text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl'>
-            <h3 className='text-base font-semibold tracking-wider text-cyan-600 uppercase'>
+            <h3 className='text-base font-semibold tracking-wider text-cyan-700 uppercase'>
               Personal
             </h3>
             <h4 className='mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl'>
@@ -115,7 +115,7 @@ const Portfolio = ({ repos }) => {
                     <div className='flex-1 bg-white p-6 flex flex-col justify-between'>
                       <div className='flex-1'>
                         <div className='mt-2'>
-                          <p className='text-sm font-medium text-cyan-600'>
+                          <p className='text-sm font-medium text-cyan-700'>
                             {repo.language}
                           </p>
                           <p className='text-xl font-semibold text-gray-900 truncate hover:underline'>
@@ -174,7 +174,7 @@ const Portfolio = ({ repos }) => {
                         <div className='px-4 py-4 flex items-center sm:px-6'>
                           <div className='min-w-0 flex-1 sm:flex sm:items-center sm:justify-between'>
                             <div>
-                              <div className='flex text-sm font-medium text-cyan-600 truncate'>
+                              <div className='flex text-sm font-medium text-cyan-700 truncate'>
                                 {repo.language}
                               </div>
                               <div className='mt-2 text-lg font-bold'>
