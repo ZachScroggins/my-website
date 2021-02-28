@@ -94,61 +94,72 @@ const Portfolio = ({ repos }) => {
               For me, web development is more than just a hobby. It's a passion.
             </p>
           </div>
-          <div className='mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl'>
+          {/* <div className='mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl'> */}
+          <div className='mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-2 lg:max-w-7xl'>
             {featured.map(repo => {
               return (
-                <div
-                  key={repo.id}
-                  className='flex flex-col rounded-lg shadow-lg overflow-hidden hover:shadow-2xl cursor-pointer focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-teal-400'
-                >
-                  <a
-                    href={repo.homepage}
-                    className='h-96 bg-white overflow-hidden'
-                  >
-                    <div className='flex-shrink-0'>
-                      <img
-                        className='h-48 w-full object-cover object-top'
-                        src={`https://raw.githubusercontent.com/ZachScroggins/${repo.name}/${repo.default_branch}/screenshot.png`}
-                        alt={`${repo.name} screenshot`}
-                      />
-                    </div>
-                    <div className='flex-1 bg-white p-6 flex flex-col justify-between'>
-                      <div className='flex-1'>
-                        <div className='mt-2'>
-                          <p className='text-sm font-medium text-cyan-700'>
-                            {repo.language}
-                          </p>
-                          <p className='text-xl font-semibold text-gray-900 truncate hover:underline'>
-                            {repo.name}
-                          </p>
-                          <p className='mt-3 text-base text-gray-500 line-clamp-3'>
-                            {repo.description}
-                          </p>
+                <>
+                  {repo.name === 'nasa-api-explorer' ? (
+                    <div key={repo.id} className='hidden'></div>
+                  ) : (
+                    <div
+                      key={repo.id}
+                      className='flex flex-col rounded-lg shadow-lg overflow-hidden hover:shadow-2xl cursor-pointer focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-teal-400'
+                    >
+                      <a
+                        href={
+                          repo.name === 'nasa-api-explorer'
+                            ? '#'
+                            : repo.homepage
+                        }
+                        className='h-96 bg-white overflow-hidden'
+                      >
+                        <div className='flex-shrink-0'>
+                          <img
+                            className='h-48 w-full object-cover object-top'
+                            src={`https://raw.githubusercontent.com/ZachScroggins/${repo.name}/${repo.default_branch}/screenshot.png`}
+                            alt={`${repo.name} screenshot`}
+                          />
+                        </div>
+                        <div className='flex-1 bg-white p-6 flex flex-col justify-between'>
+                          <div className='flex-1'>
+                            <div className='mt-2'>
+                              <p className='text-sm font-medium text-cyan-700'>
+                                {repo.language}
+                              </p>
+                              <p className='text-xl font-semibold text-gray-900 truncate hover:underline'>
+                                {repo.name}
+                              </p>
+                              <p className='mt-3 text-base text-gray-500 line-clamp-3'>
+                                {repo.description}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                      <div className='bg-white border-t border-gray-200 flex divide-x divide-gray-200'>
+                        <div className='w-0 flex-1 flex'>
+                          <a
+                            href={repo.homepage}
+                            className='relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400'
+                          >
+                            <FiNavigation className='inline align-middle text-lg' />
+                            <span className='ml-3'>Visit site</span>
+                          </a>
+                        </div>
+                        <div className='-ml-px w-0 flex-1 flex'>
+                          <a
+                            href={repo.html_url}
+                            className='relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400'
+                          >
+                            <FiCode className='inline align-middle text-lg' />
+                            <span className='ml-3'>View code</span>
+                          </a>
                         </div>
                       </div>
                     </div>
-                  </a>
-                  <div className='bg-white border-t border-gray-200 flex divide-x divide-gray-200'>
-                    <div className='w-0 flex-1 flex'>
-                      <a
-                        href={repo.homepage}
-                        className='relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400'
-                      >
-                        <FiNavigation className='inline align-middle text-lg' />
-                        <span className='ml-3'>Visit site</span>
-                      </a>
-                    </div>
-                    <div className='-ml-px w-0 flex-1 flex'>
-                      <a
-                        href={repo.html_url}
-                        className='relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400'
-                      >
-                        <FiCode className='inline align-middle text-lg' />
-                        <span className='ml-3'>View code</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                  )}
+                </>
               );
             })}
           </div>
