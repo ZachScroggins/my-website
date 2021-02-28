@@ -11,6 +11,7 @@ export default function Home({ repos }) {
       <NextSeo
         title='Zach Scroggins | Freelance Full Stack Developer'
         description='I love building websites and web apps with cutting edge technologies. I specialize in JavaScript and have the most experience working with React and Node. I really enjoy the JAMstack, but I am also familiar with the LAMP stack, Python, Java, C#, and C++.'
+        canonical='https://zachscroggins.com/'
       />
       <div className='bg-white'>
         <div className='relative overflow-hidden'>
