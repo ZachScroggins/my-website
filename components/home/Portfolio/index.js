@@ -94,7 +94,6 @@ const Portfolio = ({ repos }) => {
               For me, web development is more than just a hobby. It's a passion.
             </p>
           </div>
-          {/* <div className='mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl'> */}
           <div className='mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-2 lg:max-w-7xl'>
             {featured.map(repo => {
               return (

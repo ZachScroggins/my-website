@@ -107,10 +107,7 @@ const Header = () => {
               <div>
                 <Link href='/'>
                   <a>
-                    <img
-                      className='h-8 w-auto'
-                      src='https://tailwindui.com/img/logos/workflow-mark-teal-500-cyan-600.svg'
-                    />
+                    <Logo className='w-10 h-10' />
                   </a>
                 </Link>
               </div>
