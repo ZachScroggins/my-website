@@ -49,19 +49,19 @@ export const index = () => {
     <>
       <section
         id='contact'
-        className='grid md:grid-cols-2 relative bg-gray-900 lg:mt-20'
+        className='relative bg-gray-900 grid md:grid-cols-2 lg:mt-20'
       >
         <div>
           <ContactSvg className='w-full h-full' />
         </div>
-        {/* <div className='relative mx-auto max-w-md px-4 py-12 sm:max-w-7xl sm:px-6 sm:py-20 md:py-28 lg:px-8 lg:py-32'> */}
-        <div className='w-full relative p-6 lg:p-10 xl:p-20'>
+        {/* <div className='relative max-w-md px-4 py-12 mx-auto sm:max-w-7xl sm:px-6 sm:py-20 md:py-28 lg:px-8 lg:py-32'> */}
+        <div className='relative w-full p-6 lg:p-10 xl:p-20'>
           {/* <div className='md:ml-auto md:w-1/2 md:pl-10'> */}
           <div className=''>
-            <h2 className='mt-2 mb-6 text-4xl font-extrabold text-white tracking-tight sm:text-5xl'>
+            <h2 className='mt-2 mb-6 text-4xl font-extrabold tracking-tight text-white sm:text-5xl'>
               Contact
             </h2>
-            <h3 className='mt-2 mb-6 text-3xl font-bold text-white tracking-tight sm:text-4xl'>
+            <h3 className='mt-2 mb-6 text-3xl font-bold tracking-tight text-white sm:text-4xl'>
               Send me a message
             </h3>
             <form
@@ -69,7 +69,7 @@ export const index = () => {
               onSubmit={e => sendMessage(e)}
             >
               <div>
-                <label htmlFor='full_name' className='block text-white mb-2'>
+                <label htmlFor='full_name' className='block mb-2 text-white'>
                   Full name
                 </label>
                 <input
@@ -77,7 +77,7 @@ export const index = () => {
                   name='full_name'
                   id='full_name'
                   autoComplete='name'
-                  className='block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
+                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 rounded-md'
                   placeholder='John Doe'
                   required
                   value={name}
@@ -85,7 +85,7 @@ export const index = () => {
                 />
               </div>
               <div>
-                <label htmlFor='email' className='block text-white mb-2'>
+                <label htmlFor='email' className='block mb-2 text-white'>
                   Email
                 </label>
                 <input
@@ -93,7 +93,7 @@ export const index = () => {
                   name='email'
                   type='email'
                   autoComplete='email'
-                  className='block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
+                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 rounded-md'
                   placeholder='jdoe@gmail.com'
                   required
                   value={email}
@@ -101,7 +101,7 @@ export const index = () => {
                 />
               </div>
               <div>
-                <label htmlFor='phone' className='block text-white mb-2'>
+                <label htmlFor='phone' className='block mb-2 text-white'>
                   Phone
                 </label>
                 <input
@@ -109,21 +109,21 @@ export const index = () => {
                   name='phone'
                   id='phone'
                   autoComplete='tel'
-                  className='block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
+                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 rounded-md'
                   placeholder='Optional'
                   value={phone}
                   onChange={e => setPhone(e.target.value)}
                 />
               </div>
               <div>
-                <label htmlFor='message' className='block text-white mb-2'>
+                <label htmlFor='message' className='block mb-2 text-white'>
                   Message
                 </label>
                 <textarea
                   id='message'
                   name='message'
                   rows={4}
-                  className='block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
+                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 rounded-md'
                   placeholder='What would you like to build?'
                   required
                   value={message}
@@ -139,7 +139,7 @@ export const index = () => {
                 >
                   {loading ? (
                     <svg
-                      className='animate-spin -ml-1 mr-3 h-5 w-5 text-white'
+                      className='w-5 h-5 mr-3 -ml-1 text-white animate-spin'
                       xmlns='http://www.w3.org/2000/svg'
                       fill='none'
                       viewBox='0 0 24 24'
@@ -160,7 +160,7 @@ export const index = () => {
                     </svg>
                   ) : (
                     <svg
-                      className='-ml-1 mr-3 h-5 w-5'
+                      className='w-5 h-5 mr-3 -ml-1'
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 20 20'
                       fill='currentColor'
