@@ -21,13 +21,13 @@ export default async (req, res) => {
         from: 'contact-form@zachscroggins.com', // Change to your verified sender
         subject: 'New message from contact form',
         text: `
-          Name: ${name}
+Name: ${name}
     
-          Email: ${email}
+Email: ${email}
     
-          Phone: ${phone}
+Phone: ${phone}
           
-          ${message}
+${message}
         `,
       };
 
