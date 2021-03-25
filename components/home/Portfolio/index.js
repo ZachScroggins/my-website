@@ -49,7 +49,7 @@ const Portfolio = ({ repos }) => {
               <div className='mt-3 sm:mt-0'>
                 <a
                   href='https://paulitacarlotta.com'
-                  className='block w-full px-4 py-3 font-medium text-white shadow rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900'
+                  className='block w-full px-4 py-3 font-medium text-white rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900'
                 >
                   Visit the site
                 </a>
@@ -94,17 +94,17 @@ const Portfolio = ({ repos }) => {
               For me, web development is more than just a hobby. It's a passion.
             </p>
           </div>
-          <div className='max-w-md px-4 mx-auto mt-12 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-2 lg:max-w-7xl'>
+          <div className='grid max-w-md gap-8 px-4 mx-auto mt-12 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl'>
             {featured.map(repo => {
               return (
                 <div
                   key={repo.id}
-                  className={`${
-                    repo.name === 'nasa-api-explorer' ? 'hidden ' : ''
-                  }flex flex-col rounded-lg shadow-lg overflow-hidden hover:shadow-2xl cursor-pointer focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-teal-400`}
+                  className='flex flex-col overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-teal-400'
                 >
                   <a
-                    href={repo.homepage}
+                    href={
+                      repo.name === 'my-website' ? repo.html_url : repo.homepage
+                    }
                     className='overflow-hidden bg-white h-96'
                   >
                     <div className='flex-shrink-0'>
@@ -131,7 +131,11 @@ const Portfolio = ({ repos }) => {
                     </div>
                   </a>
                   <div className='flex bg-white border-t border-gray-200 divide-x divide-gray-200'>
-                    <div className='flex flex-1 w-0'>
+                    <div
+                      className={`flex flex-1 w-0 ${
+                        repo.name === 'my-website' ? 'hidden' : ''
+                      }`}
+                    >
                       <a
                         href={repo.homepage}
                         className='relative inline-flex items-center justify-center flex-1 w-0 py-4 -mr-px text-sm font-medium text-gray-700 border border-transparent rounded-bl-lg hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400'
@@ -163,7 +167,7 @@ const Portfolio = ({ repos }) => {
               am always learning, and I learn best by trying things myself!
             </p>
           </div>
-          <div className='px-4 mx-auto max-w-screen-lg xl:px-0'>
+          <div className='max-w-screen-lg px-4 mx-auto xl:px-0'>
             <div className='overflow-hidden bg-white rounded-lg shadow'>
               <ul className='divide-y divide-gray-200'>
                 {theRest.slice(0, 6).map(repo => {
@@ -254,7 +258,7 @@ const Portfolio = ({ repos }) => {
               <div className='mt-6'>
                 <button
                   type='button'
-                  className='flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 shadow-sm rounded-md hover:bg-gray-50'
+                  className='flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50'
                   onClick={() => setAllProjectsShowing(true)}
                 >
                   View all
