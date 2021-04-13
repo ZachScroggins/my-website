@@ -18,6 +18,6 @@ export default {
   twitter: {
     handle: '@scroggins_zach',
     site: '@scroggins_zach',
-    cardType: 'summary_large_image',
+    cardType: 'summary',
   },
 };
