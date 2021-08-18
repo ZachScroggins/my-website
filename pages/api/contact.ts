@@ -4,13 +4,13 @@ export default async (req, res) => {
   // using Twilio SendGrid's v3 Node.js Library
   // https://github.com/sendgrid/sendgrid-nodejs
 
-  const response = { success: false };
+  const response = { success: false, message: '' };
   let status = 405;
 
   if (req.method === 'POST') {
     status = 400;
     response.message = 'Please provide your full name, email, and a mesaage.';
-    const { name, email, phone, message } = req.body;
+    const { name, email, phone, message, honeyPot } = req.body;
 
     if (name && email && message) {
       status = 500;
@@ -26,6 +26,8 @@ Name: ${name}
 Email: ${email}
     
 Phone: ${phone}
+
+Honey Pot: ${honeyPot}
           
 ${message}
         `,

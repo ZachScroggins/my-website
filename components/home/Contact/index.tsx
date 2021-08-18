@@ -7,6 +7,7 @@ export const index = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
+  const [honeyPot, setHoneyPot] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
@@ -25,7 +26,7 @@ export const index = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, phone, message }),
+        body: JSON.stringify({ name, email, phone, message, honeyPot }),
       });
       const json = await res.json();
       if (json?.success) {
@@ -49,7 +50,7 @@ export const index = () => {
     <>
       <section
         id='contact'
-        className='relative bg-gray-900 grid md:grid-cols-2 lg:mt-20'
+        className='relative grid bg-gray-900 md:grid-cols-2 lg:mt-20'
       >
         <div>
           <ContactSvg className='w-full h-full' />
@@ -68,6 +69,13 @@ export const index = () => {
               className='grid grid-cols-1 gap-y-6'
               onSubmit={e => sendMessage(e)}
             >
+              <input
+                type='hidden'
+                name='contact_honey'
+                id='contact_honey'
+                value={honeyPot}
+                onChange={e => setHoneyPot(e.target.value)}
+              />
               <div>
                 <label htmlFor='full_name' className='block mb-2 text-white'>
                   Full name
@@ -77,7 +85,7 @@ export const index = () => {
                   name='full_name'
                   id='full_name'
                   autoComplete='name'
-                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 rounded-md'
+                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500'
                   placeholder='John Doe'
                   required
                   value={name}
@@ -93,7 +101,7 @@ export const index = () => {
                   name='email'
                   type='email'
                   autoComplete='email'
-                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 rounded-md'
+                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500'
                   placeholder='jdoe@gmail.com'
                   required
                   value={email}
@@ -109,7 +117,7 @@ export const index = () => {
                   name='phone'
                   id='phone'
                   autoComplete='tel'
-                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 rounded-md'
+                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500'
                   placeholder='Optional'
                   value={phone}
                   onChange={e => setPhone(e.target.value)}
@@ -123,7 +131,7 @@ export const index = () => {
                   id='message'
                   name='message'
                   rows={4}
-                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 rounded-md'
+                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500'
                   placeholder='What would you like to build?'
                   required
                   value={message}
