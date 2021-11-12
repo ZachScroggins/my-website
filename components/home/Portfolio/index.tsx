@@ -3,7 +3,7 @@ import { FiArrowRight, FiCode, FiNavigation } from 'react-icons/fi';
 
 const isFeatured = repo => {
   return (
-    repo.id === 266747152 || repo.id === 342325181 || repo.id === 266298269
+    repo.id === 266747152 || repo.id === 342325181 || repo.id === 427423678
   );
 };
 
@@ -11,13 +11,13 @@ const isNotFeatured = repo => {
   return !(
     repo.id === 266747152 ||
     repo.id === 342325181 ||
-    repo.id === 266298269
+    repo.id === 427423678
   );
 };
 
 const Portfolio = ({ repos }) => {
   const [allProjectsShowing, setAllProjectsShowing] = useState(false);
-  const featured = repos.filter(isFeatured).sort((a, b) => b.id - a.id);
+  const featured = repos.filter(isFeatured);
   const theRest = repos.filter(isNotFeatured);
 
   return (
@@ -110,7 +110,11 @@ const Portfolio = ({ repos }) => {
                     <div className='flex-shrink-0'>
                       <img
                         className='object-cover object-top w-full h-48'
-                        src={`https://raw.githubusercontent.com/ZachScroggins/${repo.name}/${repo.default_branch}/screenshot.png`}
+                        src={
+                          repo.id === 427423678
+                            ? `https://raw.githubusercontent.com/ZachScroggins/${repo.name}/${repo.default_branch}/public/images/og-image.png`
+                            : `https://raw.githubusercontent.com/ZachScroggins/${repo.name}/${repo.default_branch}/screenshot.png`
+                        }
                         alt={`${repo.name} screenshot`}
                       />
                     </div>
@@ -118,7 +122,7 @@ const Portfolio = ({ repos }) => {
                       <div className='flex-1'>
                         <div className='mt-2'>
                           <p className='text-sm font-medium text-cyan-700'>
-                            {repo.language}
+                            {repo.language || 'TypeScript'}
                           </p>
                           <p className='text-xl font-semibold text-gray-900 truncate hover:underline'>
                             {repo.name}
