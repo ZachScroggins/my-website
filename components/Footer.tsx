@@ -1,3 +1,10 @@
+import {
+  FACEBOOK_URL,
+  GITHUB_URL,
+  INSTAGRAM_URL,
+  LINKEDIN_URL,
+  TWITTER_URL,
+} from 'lib/socialLinks';
 import Link from 'next/link';
 import React from 'react';
 import {
@@ -62,35 +69,50 @@ const Footer = () => {
           </nav>
           <div className='flex justify-center mt-8 space-x-6'>
             <a
-              href='https://github.com/ZachScroggins'
+              href={GITHUB_URL}
+              target='_blank'
+              rel='noopener'
+              title='GitHub Profile'
               className='text-gray-400 hover:text-gray-500'
             >
               <span className='sr-only'>GitHub</span>
               <FiGithub className='text-xl' />
             </a>
             <a
-              href='https://www.linkedin.com/in/zachscroggins/'
+              href={LINKEDIN_URL}
+              target='_blank'
+              rel='noopener'
+              title='LinkedIn Profile'
               className='text-gray-400 hover:text-gray-500'
             >
               <span className='sr-only'>LinkedIn</span>
               <FiLinkedin className='text-xl' />
             </a>
             <a
-              href='https://twitter.com/scroggins_zach'
+              href={TWITTER_URL}
+              target='_blank'
+              rel='noopener'
+              title='Twitter Profile'
               className='text-gray-400 hover:text-gray-500'
             >
               <span className='sr-only'>Twitter</span>
               <FiTwitter className='text-xl' />
             </a>
             <a
-              href='https://www.facebook.com/scroggins.zach'
+              href={FACEBOOK_URL}
+              target='_blank'
+              rel='noopener'
+              title='Facebook Profile'
               className='text-gray-400 hover:text-gray-500'
             >
               <span className='sr-only'>Facebook</span>
               <FiFacebook className='text-xl' />
             </a>
             <a
-              href='https://www.instagram.com/scroggins_zach'
+              href={INSTAGRAM_URL}
+              target='_blank'
+              rel='noopener'
+              title='Instagram Profile'
               className='text-gray-400 hover:text-gray-500'
             >
               <span className='sr-only'>Instagram</span>

@@ -21,16 +21,18 @@ const Portfolio = ({ repos }) => {
   const theRest = repos.filter(isNotFeatured);
 
   return (
-    <section>
+    <section className='bg-gray-900'>
       <div className='relative pt-16 lg:pt-24'>
         <div className='max-w-md px-4 mx-auto text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl'>
           <div>
             <h2
               id='portfolio'
-              className='block mb-10 text-6xl font-extrabold tracking-tight text-transparent sm:text-8xl xl:text-8xl lg:mb-16 bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-600'
+              className='block mb-10 text-6xl font-extrabold tracking-tight text-transparent sm:text-8xl xl:text-8xl lg:mb-16'
               style={{ scrollMarginTop: '100px' }}
             >
-              Portfolio
+              <span className='text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
+                Portfolio
+              </span>
             </h2>
             <h3 className='text-base font-semibold tracking-wider uppercase text-cyan-700'>
               Professional
