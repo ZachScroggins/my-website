@@ -16,9 +16,12 @@ const index = () => {
           <div className='max-w-md px-4 mx-auto sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full'>
             <div className='overflow-hidden shadow-xl aspect-w-10 aspect-h-6 rounded-xl sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full'>
               <img
-                className='object-cover lg:h-full lg:w-full'
                 src='/profile-pic.jpg'
                 alt='Profile Picture'
+                width={2778}
+                height={3023}
+                loading='lazy'
+                className='object-cover lg:h-full lg:w-full'
               />
             </div>
           </div>
@@ -31,8 +34,8 @@ const index = () => {
                   I love building websites and web apps with cutting edge
                   technologies. I specialize in JavaScript and have the most
                   experience working with React and Node. I really enjoy the
-                  JAMstack, but I am also familiar with the LAMP stack, Python,
-                  Java, C#, and C++.
+                  JAMstack, but I am also proficient with the LAMP stack,
+                  Python, Java, C#, and C++.
                 </p>
               </div>
               <footer className='mt-6'>

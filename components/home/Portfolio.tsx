@@ -71,13 +71,19 @@ const Portfolio = ({ repos }) => {
             <img
               src='/pc-mockup.png'
               alt='Paulita Carlotta Website Mockup Image'
+              width={4096}
+              height={2160}
+              loading='lazy'
             />
           </div>
           <div className='pb-12 mt-12'>
             <img
-              className='shadow-2xl rounded-xl ring-1 ring-black ring-opacity-5'
               src='/paulita-carlotta.png'
               alt='Paulita Carlotta Website Screenshot'
+              width={3584}
+              height={2155}
+              loading='lazy'
+              className='shadow-2xl rounded-xl ring-1 ring-black ring-opacity-5'
             />
           </div>
         </div>
@@ -111,13 +117,14 @@ const Portfolio = ({ repos }) => {
                   >
                     <div className='flex-shrink-0'>
                       <img
-                        className='object-cover object-top w-full h-48'
                         src={
                           repo.id === 427423678
                             ? `https://raw.githubusercontent.com/ZachScroggins/${repo.name}/${repo.default_branch}/public/images/og-image.png`
                             : `https://raw.githubusercontent.com/ZachScroggins/${repo.name}/${repo.default_branch}/screenshot.png`
                         }
                         alt={`${repo.name} screenshot`}
+                        loading='lazy'
+                        className='object-cover object-top w-full h-48'
                       />
                     </div>
                     <div className='flex flex-col justify-between flex-1 p-6 bg-white'>
