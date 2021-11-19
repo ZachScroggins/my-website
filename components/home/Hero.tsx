@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import React from 'react';
 import { FiArrowRight, FiMail, FiMessageSquare } from 'react-icons/fi';
+import x from 'public/web-dev-mobile.jpg';
 
 const index = () => {
   return (
@@ -41,20 +43,23 @@ const index = () => {
               </div>
             </div>
           </div>
-          <img
-            className='w-full h-full lg:hidden'
-            src='/web-dev-mobile.jpg'
-            alt='Web development graphic'
-            width={3840}
-            height={3146}
-          />
-          <div className='relative hidden w-full bg-gray-900 lg:rounded-bl-3xl lg:block h-80 sm:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full'>
-            <img
-              className='absolute inset-0 object-cover object-top w-full h-full lg:rounded-bl-3xl lg:object-contain lg:object-left-top max-w-7xl'
-              src='/web-dev-mobile.jpg'
+          <div className='w-full h-full lg:hidden'>
+            <Image
+              src={x}
               alt='Web development graphic'
               width={3840}
               height={3146}
+              // layout='fill'
+            />
+          </div>
+          <div className='relative hidden w-full bg-gray-900 lg:rounded-bl-3xl lg:block h-80 sm:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full'>
+            <Image
+              className='absolute inset-0 object-cover object-top w-full h-full lg:rounded-bl-3xl lg:object-contain lg:object-left-top max-w-7xl'
+              src={x}
+              alt='Web development graphic'
+              objectFit='contain'
+              layout='fill'
+              placeholder='blur'
             />
           </div>
         </div>
