@@ -49,13 +49,6 @@ const index = () => {
             height={3510}
           />
           <div className='relative hidden w-full bg-gray-900 lg:rounded-bl-3xl lg:block h-80 sm:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full'>
-            {/* <img
-              className='absolute inset-0 object-cover object-top w-full h-full 2xl:object-contain lg:object-left-top max-w-7xl'
-              src='/web-dev-mobile.svg'
-              alt=''
-              width={4284.278}
-              height={3510}
-            /> */}
             <img
               className='absolute inset-0 object-cover object-top w-full h-full lg:rounded-bl-3xl lg:object-contain lg:object-left-top max-w-7xl'
               src='/web-dev-mobile.jpg'
