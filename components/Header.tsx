@@ -38,11 +38,11 @@ const Header = () => {
                   Portfolio
                 </a>
               </Link>
-              <Link href='/#services'>
+              {/* <Link href='/#services'>
                 <a className='text-base font-medium text-white hover:text-gray-300'>
                   Services
                 </a>
-              </Link>
+              </Link> */}
               <Link href='/#about'>
                 <a className='text-base font-medium text-white hover:text-gray-300'>
                   About

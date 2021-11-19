@@ -21,7 +21,7 @@ const Portfolio = ({ repos }) => {
   const theRest = repos.filter(isNotFeatured);
 
   return (
-    <section className='bg-gray-900'>
+    <section className='bg-gray-100 dark:bg-gray-900'>
       <div className='relative pt-16 lg:pt-24'>
         <div className='max-w-md px-4 mx-auto text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl'>
           <div>
@@ -34,15 +34,15 @@ const Portfolio = ({ repos }) => {
                 Portfolio
               </span>
             </h2>
-            <h3 className='text-base font-semibold tracking-wider uppercase text-cyan-700'>
+            <h3 className='text-base font-semibold tracking-wider text-green-400 uppercase'>
               Professional
             </h3>
-            <p className='mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
+            <p className='mt-2 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl'>
               <a href='https://paulitacarlotta.com' className='hover:underline'>
                 PaulitaCarlotta.com
               </a>
             </p>
-            <p className='mx-auto mt-5 text-xl text-gray-500 max-w-prose'>
+            <p className='mx-auto mt-5 text-xl text-gray-500 dark:text-gray-300 max-w-prose'>
               Ecommerce store for women's fashion and jewelry. Blog with
               headless content management system integration. Deployed globally
               across a blazing fast CDN, Google Cloud, and Amazon Web Services.
@@ -85,13 +85,13 @@ const Portfolio = ({ repos }) => {
       <div className='relative py-8'>
         <div className='relative'>
           <div className='max-w-md px-4 mx-auto text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl'>
-            <h3 className='text-base font-semibold tracking-wider uppercase text-cyan-700'>
+            <h3 className='text-base font-semibold tracking-wider text-green-400 uppercase'>
               Personal
             </h3>
-            <h4 className='mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
+            <h4 className='mt-2 text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 sm:text-4xl'>
               Featured
             </h4>
-            <p className='mx-auto mt-5 text-xl text-gray-500 max-w-prose'>
+            <p className='mx-auto mt-5 text-xl text-gray-500 dark:text-gray-300 max-w-prose'>
               The personal projects I have put the most time and effort in to.
               For me, web development is more than just a hobby. It's a passion.
             </p>
@@ -165,10 +165,10 @@ const Portfolio = ({ repos }) => {
             })}
           </div>
           <div className='my-16 text-center'>
-            <h4 className='mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
+            <h4 className='mt-2 text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 sm:text-4xl'>
               Other Projects
             </h4>
-            <p className='px-2 mx-auto mt-5 text-xl text-gray-500 sm:px-8 lg:px-0 max-w-prose'>
+            <p className='px-2 mx-auto mt-5 text-xl text-gray-500 dark:text-gray-300 sm:px-8 lg:px-0 max-w-prose'>
               Programs, websites, and apps, written in a variety of languages. I
               am always learning, and I learn best by trying things myself!
             </p>
@@ -181,12 +181,12 @@ const Portfolio = ({ repos }) => {
                     <li key={repo.id}>
                       <a
                         href={repo.html_url}
-                        className='block hover:bg-gray-50'
+                        className='block dark:bg-gray-900 hover:bg-gray-50'
                       >
                         <div className='flex items-center px-4 py-4 sm:px-6'>
                           <div className='flex-1 min-w-0 sm:flex sm:items-center sm:justify-between'>
                             <div>
-                              <div className='flex text-sm font-medium truncate text-cyan-700'>
+                              <div className='flex text-sm font-medium text-green-400 truncate'>
                                 {repo.language}
                               </div>
                               <div className='mt-2 text-lg font-bold'>

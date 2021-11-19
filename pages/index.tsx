@@ -16,7 +16,7 @@ export default function Home({ repos }) {
       <main className='relative pt-16 overflow-hidden'>
         <Hero />
         {repos ? <Portfolio repos={repos} /> : <></>}
-        <Services />
+        {/* <Services /> */}
         <About />
         <Contact />
       </main>

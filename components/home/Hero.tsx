@@ -9,7 +9,7 @@ const index = () => {
         <div className='lg:relative'>
           <div className='w-full pt-16 pb-20 mx-auto text-center max-w-7xl lg:py-48 lg:text-left'>
             <div className='px-4 lg:w-1/2'>
-              <h1 className='text-4xl font-extrabold tracking-tight text-center text-gray-900 dark:text-white md:text-left sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl'>
+              <h1 className='text-4xl font-extrabold tracking-tight text-center text-gray-800 dark:text-white md:text-left sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl'>
                 <span className='block xl:inline'>Zach Scroggins</span>{' '}
                 <span className='block mt-2 text-3xl text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
                   Full Stack JavaScript / TypeScript Developer
@@ -48,13 +48,20 @@ const index = () => {
             width={4284.278}
             height={3510}
           />
-          <div className='relative hidden w-full bg-gray-900 lg:block h-80 sm:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full'>
-            <img
+          <div className='relative hidden w-full bg-gray-900 lg:rounded-bl-3xl lg:block h-80 sm:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full'>
+            {/* <img
               className='absolute inset-0 object-cover object-top w-full h-full 2xl:object-contain lg:object-left-top max-w-7xl'
               src='/web-dev-mobile.svg'
               alt=''
               width={4284.278}
               height={3510}
+            /> */}
+            <img
+              className='absolute inset-0 object-cover object-top w-full h-full lg:rounded-bl-3xl lg:object-contain lg:object-left-top max-w-7xl'
+              src='/web-dev-mobile.jpg'
+              alt='Web development graphic'
+              width={3840}
+              height={3146}
             />
           </div>
         </div>
