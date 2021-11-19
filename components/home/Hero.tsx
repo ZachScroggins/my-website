@@ -43,10 +43,10 @@ const index = () => {
           </div>
           <img
             className='w-full h-full lg:hidden'
-            src='/web-dev-mobile.svg'
-            alt=''
-            width={4284.278}
-            height={3510}
+            src='/web-dev-mobile.jpg'
+            alt='Web development graphic'
+            width={3840}
+            height={3146}
           />
           <div className='relative hidden w-full bg-gray-900 lg:rounded-bl-3xl lg:block h-80 sm:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full'>
             <img
