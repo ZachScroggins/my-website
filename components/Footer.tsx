@@ -39,13 +39,6 @@ const Footer = () => {
               </Link>
             </div>
             <div className='px-5 py-2'>
-              <Link href='/#services'>
-                <a className='text-base text-gray-500 hover:text-gray-900'>
-                  Services
-                </a>
-              </Link>
-            </div>
-            <div className='px-5 py-2'>
               <Link href='/#about'>
                 <a className='text-base text-gray-500 hover:text-gray-900'>
                   About

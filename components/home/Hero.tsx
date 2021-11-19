@@ -55,7 +55,6 @@ const index = () => {
               alt='Web development graphic'
               width={1280}
               height={1049}
-              // loading='eager'
               className='absolute inset-0 object-cover object-top w-full h-full bg-gray-900 lg:rounded-bl-3xl xl:object-contain lg:object-left-top max-w-7xl'
             />
           </div>

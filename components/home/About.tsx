@@ -4,7 +4,7 @@ const index = () => {
   return (
     <section
       id='about'
-      className='pb-16 bg-gradient-to-r from-teal-500 to-cyan-600 lg:pb-0 lg:z-10 lg:relative'
+      className='pb-16 bg-gradient-to-r from-green-400 to-blue-500 lg:pb-0 lg:z-10 lg:relative'
       style={{ scrollMarginTop: '100px' }}
     >
       <div className='lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-8'>

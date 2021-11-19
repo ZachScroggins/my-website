@@ -21,7 +21,7 @@ const Portfolio = ({ repos }) => {
   const theRest = repos.filter(isNotFeatured);
 
   return (
-    <section className='bg-gray-100 dark:bg-gray-900'>
+    <section className='mb-16 bg-gray-100 dark:bg-gray-900'>
       <div className='relative pt-16 lg:pt-24'>
         <div className='max-w-md px-4 mx-auto text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl'>
           <div>
@@ -51,7 +51,7 @@ const Portfolio = ({ repos }) => {
               <div className='mt-3 sm:mt-0'>
                 <a
                   href='https://paulitacarlotta.com'
-                  className='block w-full px-4 py-3 font-medium text-white rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900'
+                  className='block w-full px-4 py-3 font-medium text-white rounded-md shadow bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900'
                 >
                   Visit the site
                 </a>
@@ -94,8 +94,10 @@ const Portfolio = ({ repos }) => {
             <h3 className='text-base font-semibold tracking-wider text-green-400 uppercase'>
               Personal
             </h3>
-            <h4 className='mt-2 text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 sm:text-4xl'>
-              Featured
+            <h4 className='mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl'>
+              <span className='text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
+                Featured
+              </span>
             </h4>
             <p className='mx-auto mt-5 text-xl text-gray-500 dark:text-gray-300 max-w-prose'>
               The personal projects I have put the most time and effort in to.
@@ -172,8 +174,10 @@ const Portfolio = ({ repos }) => {
             })}
           </div>
           <div className='my-16 text-center'>
-            <h4 className='mt-2 text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 sm:text-4xl'>
-              Other Projects
+            <h4 className='mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl'>
+              <span className='text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
+                Other Projects
+              </span>
             </h4>
             <p className='px-2 mx-auto mt-5 text-xl text-gray-500 dark:text-gray-300 sm:px-8 lg:px-0 max-w-prose'>
               Programs, websites, and apps, written in a variety of languages. I
@@ -271,7 +275,7 @@ const Portfolio = ({ repos }) => {
               <div className='mt-6'>
                 <button
                   type='button'
-                  className='flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50'
+                  className='flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-clip-border bg-gradient-to-r from-green-400 to-blue-500'
                   onClick={() => setAllProjectsShowing(true)}
                 >
                   View all
