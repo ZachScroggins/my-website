@@ -199,7 +199,7 @@ const Portfolio = ({ repos }) => {
                 Other Projects
               </span>
             </h4>
-            <p className='px-2 mx-auto mt-5 text-xl text-gray-500 dark:text-gray-300 sm:px-8 lg:px-0 max-w-prose'>
+            <p className='px-2 mx-auto mt-5 text-xl text-gray-600 dark:text-gray-300 sm:px-8 lg:px-0 max-w-prose'>
               Programs, websites, and apps, written in a variety of languages. I
               am always learning, and I learn best by trying things myself!
             </p>
@@ -220,10 +220,10 @@ const Portfolio = ({ repos }) => {
                               <div className='flex text-sm font-medium text-green-400 truncate'>
                                 {repo.language}
                               </div>
-                              <div className='mt-2 text-lg font-bold dark:text-gray-100'>
+                              <div className='mt-2 text-lg font-bold text-gray-900 dark:text-gray-100'>
                                 {repo.name}
                               </div>
-                              <p className='mt-2 dark:text-gray-300'>
+                              <p className='mt-2 text-gray-800 dark:text-gray-300'>
                                 {repo.description}
                               </p>
                             </div>
@@ -255,18 +255,20 @@ const Portfolio = ({ repos }) => {
                         <li key={repo.id}>
                           <a
                             href={repo.html_url}
-                            className='block hover:bg-gray-50'
+                            className='block dark:bg-gray-900 hover:bg-gray-50'
                           >
                             <div className='flex items-center px-4 py-4 sm:px-6'>
                               <div className='flex-1 min-w-0 sm:flex sm:items-center sm:justify-between'>
                                 <div>
-                                  <div className='flex text-sm font-medium truncate text-cyan-600'>
+                                  <div className='flex text-sm font-medium text-green-400 truncate'>
                                     {repo.language}
                                   </div>
-                                  <div className='mt-2 text-lg font-bold'>
+                                  <div className='mt-2 text-lg font-bold text-gray-900 dark:text-gray-100'>
                                     {repo.name}
                                   </div>
-                                  <p className='mt-2'>{repo.description}</p>
+                                  <p className='mt-2 text-gray-800 dark:text-gray-300'>
+                                    {repo.description}
+                                  </p>
                                 </div>
                               </div>
                               <div className='flex-shrink-0 ml-5'>

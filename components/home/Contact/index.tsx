@@ -52,7 +52,7 @@ export const index = () => {
         id='contact'
         className='relative grid dark:bg-gray-900 md:grid-cols-2 lg:mt-20'
       >
-        <div className='bg-gray-900 rounded-tr-3xl'>
+        <div className='bg-gray-900 md:rounded-tr-3xl'>
           <ContactSvg className='w-full h-full' />
         </div>
         {/* <div className='relative max-w-md px-4 py-12 mx-auto sm:max-w-7xl sm:px-6 sm:py-20 md:py-28 lg:px-8 lg:py-32'> */}
