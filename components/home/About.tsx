@@ -16,7 +16,7 @@ const index = () => {
           <div className='max-w-md px-4 mx-auto sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full'>
             <div className='overflow-hidden shadow-xl aspect-w-10 aspect-h-6 rounded-xl sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full'>
               <img
-                src='/profile-pic.jpg'
+                src='/images/profile-pic.jpg'
                 alt='Profile Picture'
                 width={2778}
                 height={3023}

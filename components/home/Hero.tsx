@@ -7,7 +7,7 @@ const index = () => {
     <React.Fragment>
       <section className='relative bg-gray-100 dark:bg-gray-900'>
         <div className='lg:relative'>
-          <div className='w-full pt-16 pb-20 mx-auto text-center max-w-7xl lg:py-48 lg:text-left'>
+          <div className='w-full pt-16 pb-20 mx-auto text-center max-w-7xl lg:py-32 lg:text-left'>
             <div className='px-4 lg:w-1/2'>
               <h1 className='text-4xl font-extrabold tracking-tight text-center text-gray-800 dark:text-white lg:text-left sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl'>
                 <span className='block xl:inline'>Zach Scroggins</span>{' '}
@@ -43,7 +43,7 @@ const index = () => {
           </div>
           <div className='w-full h-full lg:hidden'>
             <img
-              src='/web-dev-mobile.png'
+              src='/images/web-dev-mobile.png'
               alt='Web development graphic'
               width={1280}
               height={1049}
@@ -51,7 +51,7 @@ const index = () => {
           </div>
           <div className='relative hidden w-full bg-gray-900 lg:rounded-bl-3xl lg:block h-80 sm:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full'>
             <img
-              src='/web-dev-mobile.png'
+              src='/images/web-dev-mobile.png'
               alt='Web development graphic'
               width={1280}
               height={1049}

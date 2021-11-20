@@ -50,7 +50,7 @@ export const index = () => {
     <>
       <section
         id='contact'
-        className='relative grid bg-gray-900 md:grid-cols-2 lg:mt-20'
+        className='relative grid dark:bg-gray-900 md:grid-cols-2 lg:mt-20'
       >
         <div>
           <ContactSvg className='w-full h-full' />
@@ -59,10 +59,12 @@ export const index = () => {
         <div className='relative w-full p-6 lg:p-10 xl:p-20'>
           {/* <div className='md:ml-auto md:w-1/2 md:pl-10'> */}
           <div className=''>
-            <h2 className='mt-2 mb-6 text-4xl font-extrabold tracking-tight text-white sm:text-5xl'>
-              Contact
+            <h2 className='mt-2 mb-6 text-4xl font-extrabold tracking-tight sm:text-5xl'>
+              <span className='text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
+                Contact
+              </span>
             </h2>
-            <h3 className='mt-2 mb-6 text-3xl font-bold tracking-tight text-white sm:text-4xl'>
+            <h3 className='mt-2 mb-6 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl'>
               Send me a message
             </h3>
             <form
@@ -77,7 +79,10 @@ export const index = () => {
                 onChange={e => setHoneyPot(e.target.value)}
               />
               <div>
-                <label htmlFor='full_name' className='block mb-2 text-white'>
+                <label
+                  htmlFor='full_name'
+                  className='block mb-2 dark:text-white'
+                >
                   Full name
                 </label>
                 <input
@@ -85,7 +90,7 @@ export const index = () => {
                   name='full_name'
                   id='full_name'
                   autoComplete='name'
-                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500'
+                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm dark:placeholder-gray-300 dark:text-gray-100 dark:border-gray-500 dark:bg-gray-900 focus:ring-cyan-400 focus:border-cyan-400'
                   placeholder='John Doe'
                   required
                   value={name}
@@ -93,7 +98,10 @@ export const index = () => {
                 />
               </div>
               <div>
-                <label htmlFor='email' className='block mb-2 text-white'>
+                <label
+                  htmlFor='email'
+                  className='block mb-2 text-gray-900 dark:text-gray-100'
+                >
                   Email
                 </label>
                 <input
@@ -101,7 +109,7 @@ export const index = () => {
                   name='email'
                   type='email'
                   autoComplete='email'
-                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500'
+                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm dark:placeholder-gray-300 dark:text-gray-100 dark:border-gray-500 dark:bg-gray-900 focus:ring-cyan-400 focus:border-cyan-400'
                   placeholder='jdoe@gmail.com'
                   required
                   value={email}
@@ -109,7 +117,10 @@ export const index = () => {
                 />
               </div>
               <div>
-                <label htmlFor='phone' className='block mb-2 text-white'>
+                <label
+                  htmlFor='phone'
+                  className='block mb-2 text-gray-900 dark:text-gray-100'
+                >
                   Phone
                 </label>
                 <input
@@ -117,21 +128,24 @@ export const index = () => {
                   name='phone'
                   id='phone'
                   autoComplete='tel'
-                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500'
+                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm dark:placeholder-gray-300 dark:text-gray-100 dark:border-gray-500 dark:bg-gray-900 focus:ring-cyan-400 focus:border-cyan-400'
                   placeholder='Optional'
                   value={phone}
                   onChange={e => setPhone(e.target.value)}
                 />
               </div>
               <div>
-                <label htmlFor='message' className='block mb-2 text-white'>
+                <label
+                  htmlFor='message'
+                  className='block mb-2 text-gray-900 dark:text-gray-100'
+                >
                   Message
                 </label>
                 <textarea
                   id='message'
                   name='message'
                   rows={4}
-                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500'
+                  className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm dark:placeholder-gray-300 dark:text-gray-100 dark:border-gray-500 dark:bg-gray-900 focus:ring-cyan-400 focus:border-cyan-400'
                   placeholder='What would you like to build?'
                   required
                   value={message}
