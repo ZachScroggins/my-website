@@ -17,7 +17,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className='bg-white dark:bg-gray-900'>
+    <footer className='bg-gray-900'>
       <div className='flex justify-center px-4 mx-auto max-w-7xl sm:px-6 lg:px-8'>
         <span className='w-full h-full pb-6 dark:border-t dark:border-gray-700'></span>
       </div>
@@ -28,28 +28,28 @@ const Footer = () => {
         >
           <div className='px-5 py-2'>
             <Link href='/'>
-              <a className='text-base text-gray-500 dark:text-gray-400 dark:hover:text-gray-100 hover:text-gray-900'>
+              <a className='text-base text-gray-400 hover:text-gray-100'>
                 Home
               </a>
             </Link>
           </div>
           <div className='px-5 py-2'>
             <Link href='/#portfolio'>
-              <a className='text-base text-gray-500 dark:text-gray-400 dark:hover:text-gray-100 hover:text-gray-900'>
+              <a className='text-base text-gray-400 hover:text-gray-100'>
                 Portfolio
               </a>
             </Link>
           </div>
           <div className='px-5 py-2'>
             <Link href='/#about'>
-              <a className='text-base text-gray-500 dark:text-gray-400 dark:hover:text-gray-100 hover:text-gray-900'>
+              <a className='text-base text-gray-400 hover:text-gray-100'>
                 About
               </a>
             </Link>
           </div>
           <div className='px-5 py-2'>
             <Link href='/#contact'>
-              <a className='text-base text-gray-500 dark:text-gray-400 dark:hover:text-gray-100 hover:text-gray-900'>
+              <a className='text-base text-gray-400 hover:text-gray-100'>
                 Contact
               </a>
             </Link>
@@ -68,7 +68,7 @@ const Footer = () => {
             target='_blank'
             rel='noopener'
             title='GitHub Profile'
-            className='text-gray-400 hover:text-gray-500 dark:hover:text-gray-100'
+            className='text-gray-400 hover:text-gray-100'
           >
             <span className='sr-only'>GitHub</span>
             <FiGithub className='text-xl' />
@@ -78,7 +78,7 @@ const Footer = () => {
             target='_blank'
             rel='noopener'
             title='LinkedIn Profile'
-            className='text-gray-400 hover:text-gray-500 dark:hover:text-gray-100'
+            className='text-gray-400 hover:text-gray-100'
           >
             <span className='sr-only'>LinkedIn</span>
             <FiLinkedin className='text-xl' />
@@ -88,7 +88,7 @@ const Footer = () => {
             target='_blank'
             rel='noopener'
             title='Twitter Profile'
-            className='text-gray-400 hover:text-gray-500 dark:hover:text-gray-100'
+            className='text-gray-400 hover:text-gray-100'
           >
             <span className='sr-only'>Twitter</span>
             <FiTwitter className='text-xl' />
@@ -98,7 +98,7 @@ const Footer = () => {
             target='_blank'
             rel='noopener'
             title='Facebook Profile'
-            className='text-gray-400 hover:text-gray-500 dark:hover:text-gray-100'
+            className='text-gray-400 hover:text-gray-100'
           >
             <span className='sr-only'>Facebook</span>
             <FiFacebook className='text-xl' />
@@ -108,14 +108,14 @@ const Footer = () => {
             target='_blank'
             rel='noopener'
             title='Instagram Profile'
-            className='text-gray-400 hover:text-gray-500 dark:hover:text-gray-100'
+            className='text-gray-400 hover:text-gray-100'
           >
             <span className='sr-only'>Instagram</span>
             <FiInstagram className='text-xl' />
           </a>
         </div>
         <Link href='/'>
-          <a className='block mt-8 text-base text-center text-gray-500 dark:text-gray-400 dark:hover:text-gray-100 hover:text-gray-900'>
+          <a className='block mt-8 text-base text-center text-gray-400 hover:text-gray-100'>
             © {new Date().getFullYear()} Zach Scroggins
           </a>
         </Link>
