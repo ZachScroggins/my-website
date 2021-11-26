@@ -16,9 +16,10 @@ const index = () => {
                 </span>
               </h1>
               <p className='mx-auto mt-3 text-lg text-center textgray-5 dark:text-gray-300 lg:text-left sm:text-xl md:mt-5'>
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-                lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-                fugiat aliqua.
+                I'm a web developer with a passion for creating exceptional,
+                one-of-a-kind user experiences, leveraging cutting-edge
+                technologies for better performance, higher security, and
+                superior scalability.
               </p>
               <div className='mt-10 sm:flex sm:justify-center lg:justify-start'>
                 <div className='rounded-md shadow'>
@@ -33,7 +34,7 @@ const index = () => {
                     <a className='flex items-center justify-center w-full px-8 py-3 text-base font-medium text-transparent bg-gray-100 rounded-md dark:bg-gray-900 hover:bg-gray-50 md:py-4 md:text-lg md:px-10'>
                       <FiMail className='inline mr-2 text-green-400' />
                       <span className='bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
-                        Contact me
+                        Get in touch
                       </span>
                     </a>
                   </Link>
