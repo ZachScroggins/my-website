@@ -23,7 +23,7 @@ const Portfolio = ({ repos }) => {
   return (
     <section className='mb-16 bg-gray-100 dark:bg-gray-900'>
       <div className='relative pt-16 lg:pt-24'>
-        <div className='max-w-md px-4 mx-auto text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl'>
+        <div className='max-w-md px-4 mx-auto text-center sm:px-6 sm:max-w-3xl lg:max-w-7xl'>
           <div>
             <h2
               id='portfolio'
@@ -104,7 +104,7 @@ const Portfolio = ({ repos }) => {
       </div> */}
       <div className='relative py-8'>
         <div className='relative'>
-          <div className='max-w-md px-4 mx-auto text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl'>
+          <div className='max-w-md px-4 mx-auto text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl'>
             <h3 className='text-base font-semibold tracking-wider text-green-400 uppercase'>
               Personal
             </h3>
@@ -118,7 +118,7 @@ const Portfolio = ({ repos }) => {
               For me, web development is more than just a hobby. It's a passion.
             </p>
           </div>
-          <div className='grid max-w-md gap-8 px-4 mx-auto mt-12 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl'>
+          <div className='grid max-w-md gap-8 px-4 mx-auto mt-12 sm:max-w-lg sm:px-6 lg:grid-cols-3 lg:max-w-7xl'>
             {featured.map(repo => {
               return (
                 <div

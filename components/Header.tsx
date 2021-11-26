@@ -38,11 +38,6 @@ const Header = () => {
                   Portfolio
                 </a>
               </Link>
-              {/* <Link href='/#services'>
-                <a className='text-base font-medium text-white hover:text-gray-300'>
-                  Services
-                </a>
-              </Link> */}
               <Link href='/#about'>
                 <a className='text-base font-medium text-white hover:text-gray-300'>
                   About
@@ -53,11 +48,6 @@ const Header = () => {
                   Contact
                 </a>
               </Link>
-              {/* <Link href='/blog'>
-                <a className='text-base font-medium text-white hover:text-gray-300'>
-                  Blog
-                </a>
-              </Link> */}
             </div>
           </div>
           <div className='flex items-center -mr-2 space-x-3'>
