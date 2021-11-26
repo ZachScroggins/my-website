@@ -79,7 +79,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
                     className='flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700'
                   >
                     <Logo className='w-9 h-9' />
-                    <div className='ml-4 text-xl font-bold text-gray-900 dark:text-gray-50'>
+                    <div className='ml-4 text-2xl font-bold text-gray-900 dark:text-gray-50'>
                       Zach Scroggins
                     </div>
                   </a>
@@ -91,16 +91,16 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
                     <a
                       onClick={() => toggle(false)}
                       className={classNames(
-                        'flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700',
-                        false
-                          ? 'bg-gray-100 dark:bg-gray-900'
-                          : 'bg-white dark:bg-gray-800'
+                        'flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700'
+                        // false
+                        //   ? 'bg-gray-100 dark:bg-gray-900'
+                        //   : 'bg-white dark:bg-gray-800'
                       )}
                     >
-                      <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
+                      <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-gray-900 rounded-md dark:text-gray-50 bg-primary'>
                         <FiCalendar className='w-6 h-6' />
                       </div>
-                      <div className='ml-4 text-base font-medium text-gray-900 dark:text-gray-50'>
+                      <div className='ml-4 text-lg font-semibold text-gray-900 dark:text-gray-50'>
                         Portfolio
                       </div>
                     </a>
@@ -109,16 +109,16 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
                     <a
                       onClick={() => toggle(false)}
                       className={classNames(
-                        'flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700',
-                        false
-                          ? 'bg-gray-100 dark:bg-gray-900'
-                          : 'bg-white dark:bg-gray-800'
+                        'flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700'
+                        // false
+                        //   ? 'bg-gray-100 dark:bg-gray-900'
+                        //   : 'bg-white dark:bg-gray-800'
                       )}
                     >
-                      <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
+                      <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-gray-900 rounded-md dark:text-gray-50 bg-primary'>
                         <FiInfo className='w-6 h-6' />
                       </div>
-                      <div className='ml-4 text-base font-medium text-gray-900 dark:text-gray-50'>
+                      <div className='ml-4 text-lg font-semibold text-gray-900 dark:text-gray-50'>
                         About
                       </div>
                     </a>
@@ -127,16 +127,16 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
                     <a
                       onClick={() => toggle(false)}
                       className={classNames(
-                        'flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700',
-                        false
-                          ? 'bg-gray-100 dark:bg-gray-900'
-                          : 'bg-white dark:bg-gray-800'
+                        'flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700'
+                        // false
+                        //   ? 'bg-gray-100 dark:bg-gray-900'
+                        //   : 'bg-white dark:bg-gray-800'
                       )}
                     >
-                      <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-primary'>
+                      <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-gray-900 rounded-md dark:text-gray-50 bg-primary'>
                         <FiMail className='w-6 h-6' />
                       </div>
-                      <div className='ml-4 text-base font-medium text-gray-900 dark:text-gray-50'>
+                      <div className='ml-4 text-lg font-semibold text-gray-900 dark:text-gray-50'>
                         Contact
                       </div>
                     </a>
@@ -146,9 +146,9 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
             </div>
             <div className='flex-shrink-0 px-5 py-6 border-t border-gray-200'>
               <a
-                href={process.env.NEXT_PUBLIC_DISCORD_INVITE_URL}
-                target='_blank'
-                rel='noopener'
+                href='/Zach-Scroggins-Resume.pdf'
+                // target='_blank'
+                // rel='noopener'
                 className='flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-gradient-to-r from-green-400 to-blue-500'
                 onClick={() => toggle(false)}
               >

@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiDownload } from 'react-icons/fi';
 
 const index = () => {
   return (
@@ -30,7 +31,7 @@ const index = () => {
           <div className='max-w-md px-4 mx-auto sm:max-w-2xl sm:px-6 lg:px-0 lg:py-20 lg:max-w-none'>
             <blockquote>
               <div>
-                <p className='mt-6 text-2xl font-medium text-white'>
+                <p className='mt-6 text-2xl font-medium text-white lg:mt-0'>
                   I love building websites and web apps with cutting edge
                   technologies. I specialize in JavaScript and have the most
                   experience working with React and Node. I really enjoy the
@@ -43,10 +44,19 @@ const index = () => {
                   Zach Scroggins
                 </p>
                 <p className='text-base font-medium text-cyan-100'>
-                  Freelance Full Stack Developer
+                  Full Stack Web Developer
                 </p>
               </footer>
             </blockquote>
+            <a
+              href='/Zach-Scroggins-Resume.pdf'
+              target='_blank'
+              rel='noopener'
+              className='inline-flex items-center justify-center p-2 mt-6 font-medium text-white border border-white rounded-md'
+            >
+              <FiDownload className='mr-2' />
+              Download Resume
+            </a>
           </div>
         </div>
       </div>
