@@ -159,11 +159,7 @@ const Portfolio = ({ repos }) => {
                   >
                     <div className='flex-shrink-0 rounded-t-lg'>
                       <img
-                        src={
-                          repo.id === 427423678
-                            ? `https://raw.githubusercontent.com/ZachScroggins/${repo.name}/${repo.default_branch}/public/images/og-image.png`
-                            : `https://raw.githubusercontent.com/ZachScroggins/${repo.name}/${repo.default_branch}/screenshot.png`
-                        }
+                        src={`https://raw.githubusercontent.com/ZachScroggins/${repo.name}/${repo.default_branch}/public/images/og-image.png`}
                         alt={`${repo.name} screenshot`}
                         loading='lazy'
                         className='object-cover object-top w-full h-48 rounded-t-lg'

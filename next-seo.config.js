@@ -3,7 +3,7 @@ export default {
     type: 'website',
     locale: 'en_IE',
     url: 'https://zachscroggins.com/',
-    title: 'Zach Scroggins | Freelance Full Stack Developer',
+    title: 'Zach Scroggins | Full Stack JavaScript TypeScript Developer',
     description:
       'I love building websites and web apps with cutting edge technologies. I specialize in JavaScript and have the most experience working with React and Node. I really enjoy the JAMstack, but I am also familiar with the LAMP stack, Python, Java, C#, and C++.',
     images: [

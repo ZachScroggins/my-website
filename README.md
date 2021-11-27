@@ -2,4 +2,6 @@
 
 My personal website.
 
-![Screenshot](./screenshot.png)
+- Portfolio
+- About Me
+- Contact
