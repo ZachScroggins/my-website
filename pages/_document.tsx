@@ -1,10 +1,12 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import PreloadFonts from 'components/PreloadFonts';
 
 export default class MyDocument extends Document {
   render() {
     return (
       <Html lang='en'>
         <Head>
+          <PreloadFonts />
           <link
             rel='apple-touch-icon'
             sizes='180x180'

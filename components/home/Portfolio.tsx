@@ -161,6 +161,8 @@ const Portfolio = ({ repos }) => {
                       <img
                         src={`https://raw.githubusercontent.com/ZachScroggins/${repo.name}/${repo.default_branch}/public/images/og-image.png`}
                         alt={`${repo.name} screenshot`}
+                        width={1200}
+                        height={630}
                         loading='lazy'
                         className='object-cover object-top w-full h-48 rounded-t-lg'
                       />
