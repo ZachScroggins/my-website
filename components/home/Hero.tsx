@@ -15,7 +15,7 @@ const index = () => {
                   Full Stack JavaScript / TypeScript Developer
                 </span>
               </h1>
-              <p className='mx-auto mt-3 text-lg text-center textgray-5 dark:text-gray-300 lg:text-left sm:text-xl md:mt-5'>
+              <p className='mx-auto mt-3 text-lg text-center text-gray-700 dark:text-gray-300 lg:text-left sm:text-xl md:mt-5'>
                 I'm a web developer with a passion for creating exceptional,
                 one-of-a-kind user experiences, leveraging cutting-edge
                 technologies for better performance, higher security, and

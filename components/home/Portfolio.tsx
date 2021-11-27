@@ -48,7 +48,7 @@ const Portfolio = ({ repos }) => {
                 PaulitaCarlotta.com
               </a>
             </p>
-            <p className='mx-auto mt-5 text-xl text-gray-500 dark:text-gray-300 max-w-prose'>
+            <p className='mx-auto mt-5 text-xl text-gray-700 dark:text-gray-300 max-w-prose'>
               E-commerce store for women's fashion and jewelry. Blog with
               headless content management system integration. Deployed globally
               across a blazing fast CDN, Google Cloud, and Amazon Web Services.
@@ -78,7 +78,7 @@ const Portfolio = ({ repos }) => {
               <h4 className='text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-3xl'>
                 Next Generation E-commerce
               </h4>
-              <p className='mt-3 text-lg text-gray-500 dark:text-gray-300'>
+              <p className='mt-3 text-lg text-gray-700 dark:text-gray-300'>
                 Headless e-commerce with the BigCommerce API decouples the
                 frontend application from the e-commerce platform, enabling a
                 highly customized end-user experience while maintaining seamless
@@ -91,11 +91,11 @@ const Portfolio = ({ repos }) => {
                     <div className='absolute flex items-center justify-center w-12 h-12 text-white rounded-md bg-gradient-to-r from-green-400 to-blue-500'>
                       <FiZap className='w-6 h-6' aria-hidden='true' />
                     </div>
-                    <p className='ml-16 text-lg font-medium leading-6 text-gray-900 dark:text-white'>
+                    <p className='ml-16 text-lg font-semibold leading-6 text-gray-900 dark:text-white'>
                       Dynamic Data | Static Speed
                     </p>
                   </dt>
-                  <dd className='mt-2 ml-16 text-base text-gray-500 dark:text-gray-300'>
+                  <dd className='mt-2 ml-16 text-base text-gray-700 dark:text-gray-300'>
                     Statically-generated React app with Incremental Static
                     Regeneration. Instant page transitions without sacrificing
                     search engine optimization.
@@ -106,11 +106,11 @@ const Portfolio = ({ repos }) => {
                     <div className='absolute flex items-center justify-center w-12 h-12 text-white rounded-md bg-gradient-to-r from-green-400 to-blue-500'>
                       <FiServer className='w-6 h-6' aria-hidden='true' />
                     </div>
-                    <p className='ml-16 text-lg font-medium leading-6 text-gray-900 dark:text-white'>
+                    <p className='ml-16 text-lg font-semibold leading-6 text-gray-900 dark:text-white'>
                       Highly Scalable Infrastructure
                     </p>
                   </dt>
-                  <dd className='mt-2 ml-16 text-base text-gray-500 dark:text-gray-300'>
+                  <dd className='mt-2 ml-16 text-base text-gray-700 dark:text-gray-300'>
                     Serverless Node.js REST API with microservices architecture
                     provides user authentication and communicates securely with
                     BigCommerce API.
@@ -139,7 +139,7 @@ const Portfolio = ({ repos }) => {
                 Featured
               </span>
             </h4>
-            <p className='mx-auto mt-5 text-xl text-gray-500 dark:text-gray-300 max-w-prose'>
+            <p className='mx-auto mt-5 text-xl text-gray-700 dark:text-gray-300 max-w-prose'>
               The personal projects I have put the most time and effort in to.
               For me, web development is more than just a hobby. It's a passion.
             </p>
@@ -225,7 +225,7 @@ const Portfolio = ({ repos }) => {
                 Other Projects
               </span>
             </h4>
-            <p className='px-2 mx-auto mt-5 text-xl text-gray-600 dark:text-gray-300 sm:px-8 lg:px-0 max-w-prose'>
+            <p className='px-2 mx-auto mt-5 text-xl text-gray-700 dark:text-gray-300 sm:px-8 lg:px-0 max-w-prose'>
               Programs, websites, and apps, written in a variety of languages. I
               am always learning, and I learn best by trying things myself!
             </p>
@@ -249,7 +249,7 @@ const Portfolio = ({ repos }) => {
                               <div className='mt-2 text-lg font-bold text-gray-900 dark:text-gray-100'>
                                 {repo.name}
                               </div>
-                              <p className='mt-2 text-gray-800 dark:text-gray-300'>
+                              <p className='mt-2 text-gray-500 dark:text-gray-300'>
                                 {repo.description}
                               </p>
                             </div>

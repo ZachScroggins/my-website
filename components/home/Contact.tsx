@@ -47,9 +47,9 @@ export const index = () => {
 
   return (
     <>
-      <section className='relative mt-16 bg-gray-100 dark:bg-gray-900'>
+      <section className='relative bg-gray-100 lg:mt-16 dark:bg-gray-900'>
         <div className='lg:relative'>
-          <div className='w-full h-full lg:hidden'>
+          <div className='w-full h-full py-4 bg-gray-900 lg:hidden'>
             <img
               src='/images/web-dev-laptop.png'
               alt='Web development graphic'
@@ -65,16 +65,13 @@ export const index = () => {
               width={1280}
               height={1104}
               loading='lazy'
-              className='absolute top-0 right-0 object-contain object-right w-full h-full py-16 bg-gray-900 rounded-tr-3xl max-w-7xl'
+              className='absolute top-0 right-0 object-contain object-right w-full h-full py-8 bg-gray-900 rounded-tr-3xl max-w-7xl'
             />
           </div>
-          <div
-            id='contact'
-            className='w-full pt-16 pb-20 mx-auto text-left max-w-7xl lg:py-16'
-          >
+          <div id='contact' className='w-full py-8 mx-auto text-left max-w-7xl'>
             <div className='px-4 sm:px-6 lg:w-1/2 lg:ml-auto'>
               <div className=''>
-                <h2 className='mt-2 mb-6 text-4xl font-extrabold tracking-tight sm:text-5xl'>
+                <h2 className='mt-2 mb-4 text-4xl font-extrabold tracking-tight sm:text-5xl'>
                   <span className='text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
                     Contact
                   </span>
@@ -96,7 +93,7 @@ export const index = () => {
                   <div>
                     <label
                       htmlFor='full_name'
-                      className='block mb-2 dark:text-white'
+                      className='block mb-2 text-gray-700 dark:text-white'
                     >
                       Full name
                     </label>
@@ -106,53 +103,55 @@ export const index = () => {
                       id='full_name'
                       autoComplete='name'
                       className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm dark:placeholder-gray-300 dark:text-gray-100 dark:border-gray-500 dark:bg-gray-900 focus:ring-cyan-400 focus:border-cyan-400'
-                      placeholder='John Doe'
+                      placeholder='Tim Cook'
                       required
                       value={name}
                       onChange={e => setName(e.target.value)}
                     />
                   </div>
-                  <div>
-                    <label
-                      htmlFor='email'
-                      className='block mb-2 text-gray-900 dark:text-gray-100'
-                    >
-                      Email
-                    </label>
-                    <input
-                      id='email'
-                      name='email'
-                      type='email'
-                      autoComplete='email'
-                      className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm dark:placeholder-gray-300 dark:text-gray-100 dark:border-gray-500 dark:bg-gray-900 focus:ring-cyan-400 focus:border-cyan-400'
-                      placeholder='jdoe@gmail.com'
-                      required
-                      value={email}
-                      onChange={e => setEmail(e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor='phone'
-                      className='block mb-2 text-gray-900 dark:text-gray-100'
-                    >
-                      Phone
-                    </label>
-                    <input
-                      type='tel'
-                      name='phone'
-                      id='phone'
-                      autoComplete='tel'
-                      className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm dark:placeholder-gray-300 dark:text-gray-100 dark:border-gray-500 dark:bg-gray-900 focus:ring-cyan-400 focus:border-cyan-400'
-                      placeholder='Optional'
-                      value={phone}
-                      onChange={e => setPhone(e.target.value)}
-                    />
+                  <div className='w-full space-y-6 md:flex md:flex-grow md:space-y-0 md:space-x-6'>
+                    <div className='w-full'>
+                      <label
+                        htmlFor='email'
+                        className='block mb-2 text-gray-700 dark:text-gray-100'
+                      >
+                        Email
+                      </label>
+                      <input
+                        id='email'
+                        name='email'
+                        type='email'
+                        autoComplete='email'
+                        className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm dark:placeholder-gray-300 dark:text-gray-100 dark:border-gray-500 dark:bg-gray-900 focus:ring-cyan-400 focus:border-cyan-400'
+                        placeholder='tim@apple.com'
+                        required
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                      />
+                    </div>
+                    <div className='w-full'>
+                      <label
+                        htmlFor='phone'
+                        className='block mb-2 text-gray-700 dark:text-gray-100'
+                      >
+                        Phone
+                      </label>
+                      <input
+                        type='tel'
+                        name='phone'
+                        id='phone'
+                        autoComplete='tel'
+                        className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm dark:placeholder-gray-300 dark:text-gray-100 dark:border-gray-500 dark:bg-gray-900 focus:ring-cyan-400 focus:border-cyan-400'
+                        placeholder='Optional'
+                        value={phone}
+                        onChange={e => setPhone(e.target.value)}
+                      />
+                    </div>
                   </div>
                   <div>
                     <label
                       htmlFor='message'
-                      className='block mb-2 text-gray-900 dark:text-gray-100'
+                      className='block mb-2 text-gray-700 dark:text-gray-100'
                     >
                       Message
                     </label>
@@ -161,7 +160,7 @@ export const index = () => {
                       name='message'
                       rows={4}
                       className='block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm dark:placeholder-gray-300 dark:text-gray-100 dark:border-gray-500 dark:bg-gray-900 focus:ring-cyan-400 focus:border-cyan-400'
-                      placeholder='What would you like to build?'
+                      placeholder='What would you like to say?'
                       required
                       value={message}
                       onChange={e => setMessage(e.target.value)}
