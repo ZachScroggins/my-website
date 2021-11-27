@@ -40,14 +40,11 @@ const Portfolio = ({ repos }) => {
                 Portfolio
               </span>
             </h2>
-            <h3 className='text-base font-semibold tracking-wider text-green-400 uppercase'>
-              Professional
-            </h3>
-            <p className='mt-2 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl'>
+            <h3 className='mt-2 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl'>
               <a href='https://paulitacarlotta.com' className='hover:underline'>
                 PaulitaCarlotta.com
               </a>
-            </p>
+            </h3>
             <p className='mx-auto mt-5 text-xl text-gray-700 dark:text-gray-300 max-w-prose'>
               E-commerce store for women's fashion and jewelry. Blog with
               headless content management system integration. Deployed globally
@@ -91,9 +88,9 @@ const Portfolio = ({ repos }) => {
                     <div className='absolute flex items-center justify-center w-12 h-12 text-white rounded-md bg-gradient-to-r from-green-400 to-blue-500'>
                       <FiZap className='w-6 h-6' aria-hidden='true' />
                     </div>
-                    <p className='ml-16 text-lg font-semibold leading-6 text-gray-900 dark:text-white'>
+                    <h5 className='ml-16 text-lg font-semibold leading-6 text-gray-900 dark:text-white'>
                       Dynamic Data | Static Speed
-                    </p>
+                    </h5>
                   </dt>
                   <dd className='mt-2 ml-16 text-base text-gray-700 dark:text-gray-300'>
                     Statically-generated React app with Incremental Static
@@ -106,9 +103,9 @@ const Portfolio = ({ repos }) => {
                     <div className='absolute flex items-center justify-center w-12 h-12 text-white rounded-md bg-gradient-to-r from-green-400 to-blue-500'>
                       <FiServer className='w-6 h-6' aria-hidden='true' />
                     </div>
-                    <p className='ml-16 text-lg font-semibold leading-6 text-gray-900 dark:text-white'>
+                    <h5 className='ml-16 text-lg font-semibold leading-6 text-gray-900 dark:text-white'>
                       Highly Scalable Infrastructure
-                    </p>
+                    </h5>
                   </dt>
                   <dd className='mt-2 ml-16 text-base text-gray-700 dark:text-gray-300'>
                     Serverless Node.js REST API with microservices architecture
@@ -131,17 +128,15 @@ const Portfolio = ({ repos }) => {
       <div className='relative py-8'>
         <div className='relative'>
           <div className='max-w-md px-4 mx-auto text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl'>
-            <h3 className='text-base font-semibold tracking-wider text-green-400 uppercase'>
-              Personal
-            </h3>
-            <h4 className='mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl'>
+            <h3 className='mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl'>
               <span className='text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
-                Featured
+                Featured Projects
               </span>
-            </h4>
+            </h3>
             <p className='mx-auto mt-5 text-xl text-gray-700 dark:text-gray-300 max-w-prose'>
-              The personal projects I have put the most time and effort in to.
-              For me, web development is more than just a hobby. It's a passion.
+              Websites and web apps I have put considerable time and effort
+              into. For me, web development is more than just a hobby. It's a
+              passion.
             </p>
           </div>
           <div className='grid max-w-md gap-8 px-4 mx-auto mt-12 sm:max-w-lg sm:px-6 lg:grid-cols-3 lg:max-w-7xl'>
@@ -152,9 +147,7 @@ const Portfolio = ({ repos }) => {
                   className='flex flex-col border border-transparent rounded-lg shadow-lg cursor-pointer dark:border-gray-700 filter dark:hover:drop-shadow-2xl hover:shadow-2xl focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-teal-400'
                 >
                   <a
-                    href={
-                      repo.name === 'my-website' ? repo.html_url : repo.homepage
-                    }
+                    href={repo.id === 342325181 ? repo.html_url : repo.homepage}
                     className='overflow-hidden bg-white rounded-t-lg dark:bg-gray-900 h-96'
                   >
                     <div className='flex-shrink-0 rounded-t-lg'>
@@ -185,12 +178,12 @@ const Portfolio = ({ repos }) => {
                   </a>
                   <div
                     className={`flex bg-white border-t border-gray-200 divide-gray-200 rounded-b-lg dark:divide-gray-700 dark:border-gray-700 dark:bg-gray-900 ${
-                      repo.name === 'my-website' ? '' : 'divide-x'
+                      repo.id === 342325181 ? '' : 'divide-x'
                     }`}
                   >
                     <div
                       className={`flex flex-1 w-0 rounded-bl-lg ${
-                        repo.name === 'my-website' ? 'hidden' : ''
+                        repo.id === 342325181 ? 'hidden' : ''
                       }`}
                     >
                       <a
@@ -203,13 +196,13 @@ const Portfolio = ({ repos }) => {
                     </div>
                     <div
                       className={`flex flex-1 w-0  ${
-                        repo.name === 'my-website' ? 'rounded-b-lg' : ''
+                        repo.id === 342325181 ? 'rounded-b-lg' : ''
                       }`}
                     >
                       <a
                         href={repo.html_url}
                         className={`${
-                          repo.name === 'my-website' ? 'rounded-bl-lg' : ''
+                          repo.id === 342325181 ? 'rounded-bl-lg' : ''
                         } relative inline-flex items-center justify-center flex-1 w-0 py-4 text-sm font-medium text-gray-700 rounded-br-lg dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400`}
                       >
                         <FiCode className='inline text-lg align-middle' />
@@ -222,14 +215,15 @@ const Portfolio = ({ repos }) => {
             })}
           </div>
           <div className='my-16 text-center'>
-            <h4 className='mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl'>
+            <h3 className='mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl'>
               <span className='text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
-                Other Projects
+                Other Work
               </span>
-            </h4>
-            <p className='px-2 mx-auto mt-5 text-xl text-gray-700 dark:text-gray-300 sm:px-8 lg:px-0 max-w-prose'>
-              Programs, websites, and apps, written in a variety of languages. I
-              am always learning, and I learn best by trying things myself!
+            </h3>
+            <p className='px-4 mx-auto mt-5 text-xl text-gray-700 dark:text-gray-300 sm:px-8 lg:px-0 max-w-prose'>
+              Programs, websites, and apps, written in a variety of languages.
+              I'm constantly improving my skills and enjoy learning new
+              technologies through firsthand experience.
             </p>
           </div>
           <div className='max-w-screen-lg px-4 mx-auto xl:px-0'>
