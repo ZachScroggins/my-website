@@ -149,13 +149,13 @@ const Portfolio = ({ repos }) => {
               return (
                 <div
                   key={repo.id}
-                  className='flex flex-col overflow-hidden rounded-lg shadow-lg cursor-pointer filter dark:hover:drop-shadow-2xl hover:shadow-2xl focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-teal-400'
+                  className='flex flex-col border border-transparent rounded-lg shadow-lg cursor-pointer dark:border-gray-700 filter dark:hover:drop-shadow-2xl hover:shadow-2xl focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-teal-400'
                 >
                   <a
                     href={
                       repo.name === 'my-website' ? repo.html_url : repo.homepage
                     }
-                    className='overflow-hidden bg-white rounded-t-lg dark:border dark:border-gray-700 dark:bg-gray-900 h-96'
+                    className='overflow-hidden bg-white rounded-t-lg dark:bg-gray-900 h-96'
                   >
                     <div className='flex-shrink-0 rounded-t-lg'>
                       <img
@@ -183,7 +183,11 @@ const Portfolio = ({ repos }) => {
                       </div>
                     </div>
                   </a>
-                  <div className='flex bg-white border-t border-gray-200 divide-x divide-gray-200 rounded-b-lg dark:divide-gray-700 dark:border-none dark:bg-gray-900'>
+                  <div
+                    className={`flex bg-white border-t border-gray-200 divide-gray-200 rounded-b-lg dark:divide-gray-700 dark:border-gray-700 dark:bg-gray-900 ${
+                      repo.name === 'my-website' ? '' : 'divide-x'
+                    }`}
+                  >
                     <div
                       className={`flex flex-1 w-0 rounded-bl-lg ${
                         repo.name === 'my-website' ? 'hidden' : ''
@@ -191,14 +195,14 @@ const Portfolio = ({ repos }) => {
                     >
                       <a
                         href={repo.homepage}
-                        className='relative inline-flex items-center justify-center flex-1 w-0 py-4 -mr-px text-sm font-medium text-gray-700 border border-transparent rounded-bl-lg dark:text-gray-400 dark:border-l dark:border-b dark:border-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400'
+                        className='relative inline-flex items-center justify-center flex-1 w-0 py-4 text-sm font-medium text-gray-700 rounded-bl-lg dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400'
                       >
                         <FiNavigation className='inline text-lg align-middle' />
                         <span className='ml-3'>Visit site</span>
                       </a>
                     </div>
                     <div
-                      className={`flex flex-1 w-0 -ml-px ${
+                      className={`flex flex-1 w-0  ${
                         repo.name === 'my-website' ? 'rounded-b-lg' : ''
                       }`}
                     >
@@ -206,7 +210,7 @@ const Portfolio = ({ repos }) => {
                         href={repo.html_url}
                         className={`${
                           repo.name === 'my-website' ? 'rounded-bl-lg' : ''
-                        } relative inline-flex items-center justify-center flex-1 w-0 py-4 text-sm font-medium text-gray-700 border border-transparent rounded-br-lg dark:text-gray-400 dark:border dark:border-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400`}
+                        } relative inline-flex items-center justify-center flex-1 w-0 py-4 text-sm font-medium text-gray-700 rounded-br-lg dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400`}
                       >
                         <FiCode className='inline text-lg align-middle' />
                         <span className='ml-3'>View code</span>
