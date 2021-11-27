@@ -24,21 +24,11 @@ const index = () => {
               <div className='mt-10 sm:flex sm:justify-center lg:justify-start'>
                 <div className='rounded-md shadow'>
                   <Link href='/#portfolio'>
-                    <a className='flex items-center justify-center w-full px-8 py-3.5 text-base font-bold text-white filter hover:brightness-110 border border-transparent rounded-md bg-gradient-to-r from-green-400 to-blue-500 md:py-5 md:text-lg md:px-10'>
+                    <a className='flex items-center justify-center w-full px-8 py-3.5 text-base font-bold text-white filter hover:brightness-110 rounded-md bg-gradient-to-r from-green-400 to-blue-500 md:py-5 md:text-lg md:px-10'>
                       Check out my work
                     </a>
                   </Link>
                 </div>
-                {/* <div className='p-1 mt-3 rounded-md shadow bg-gradient-to-r from-green-400 to-blue-500 sm:mt-0 sm:ml-3'>
-                  <Link href='/#contact'>
-                    <a className='flex items-center justify-center w-full px-8 py-3 text-base font-medium text-transparent bg-gray-100 rounded-md dark:bg-gray-900 hover:bg-gray-50 md:py-4 md:text-lg md:px-10'>
-                      <FiMail className='inline mr-2 text-green-400' />
-                      <span className='bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
-                        Get in touch
-                      </span>
-                    </a>
-                  </Link>
-                </div> */}
                 <Link href='/#contact'>
                   <a className='flex items-center justify-center p-px mt-3 rounded-md sm:mt-0 sm:ml-3 bg-gradient-to-r from-green-400 to-blue-500'>
                     <span className='flex items-center justify-center w-full h-full px-8 py-3 text-base font-bold rounded-md bg-gray-50 hover:bg-white dark:hover:bg-opacity-95 dark:bg-gray-900 md:py-4 md:text-lg md:px-10'>

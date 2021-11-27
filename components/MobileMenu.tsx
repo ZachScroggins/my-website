@@ -6,7 +6,7 @@ import { GITHUB_URL, LINKEDIN_URL, TWITTER_URL } from 'lib/socialLinks';
 import Logo from 'components/Logo';
 import ThemeChanger from 'components/ThemeChanger';
 import {
-  FiCalendar,
+  FiAward,
   FiDownload,
   FiGithub,
   FiInfo,
@@ -97,10 +97,10 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
                         //   : 'bg-white dark:bg-gray-800'
                       )}
                     >
-                      <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-gray-900 rounded-md dark:text-gray-50 bg-primary'>
-                        <FiCalendar className='w-6 h-6' />
+                      <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 rounded-md bg-gradient-to-r from-green-400 to-cyan-500 dark:to-blue-500 text-gray-50'>
+                        <FiAward className='w-6 h-6' />
                       </div>
-                      <div className='ml-4 text-lg font-semibold text-gray-900 dark:text-gray-50'>
+                      <div className='ml-4 text-lg text-gray-900 dark:text-gray-50'>
                         Portfolio
                       </div>
                     </a>
@@ -115,10 +115,10 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
                         //   : 'bg-white dark:bg-gray-800'
                       )}
                     >
-                      <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-gray-900 rounded-md dark:text-gray-50 bg-primary'>
+                      <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 rounded-md bg-gradient-to-r from-green-400 to-cyan-500 dark:to-blue-500 text-gray-50 bg-primary'>
                         <FiInfo className='w-6 h-6' />
                       </div>
-                      <div className='ml-4 text-lg font-semibold text-gray-900 dark:text-gray-50'>
+                      <div className='ml-4 text-lg text-gray-900 dark:text-gray-50'>
                         About
                       </div>
                     </a>
@@ -133,10 +133,10 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
                         //   : 'bg-white dark:bg-gray-800'
                       )}
                     >
-                      <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-gray-900 rounded-md dark:text-gray-50 bg-primary'>
+                      <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 rounded-md bg-gradient-to-r from-green-400 to-cyan-500 dark:to-blue-500 text-gray-50 bg-primary'>
                         <FiMail className='w-6 h-6' />
                       </div>
-                      <div className='ml-4 text-lg font-semibold text-gray-900 dark:text-gray-50'>
+                      <div className='ml-4 text-lg text-gray-900 dark:text-gray-50'>
                         Contact
                       </div>
                     </a>
@@ -147,9 +147,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
             <div className='flex-shrink-0 px-5 py-6 border-t border-gray-200'>
               <a
                 href='/Zach-Scroggins-Resume.pdf'
-                // target='_blank'
-                // rel='noopener'
-                className='flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-gradient-to-r from-green-400 to-blue-500'
+                className='flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white rounded-md shadow-sm bg-gradient-to-r from-green-400 to-blue-500'
                 onClick={() => toggle(false)}
               >
                 <FiDownload className='mr-2' />
