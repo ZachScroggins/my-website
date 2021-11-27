@@ -54,7 +54,8 @@ export const index = () => {
               src='/images/web-dev-laptop.png'
               alt='Web development graphic'
               width={1280}
-              height={1049}
+              height={1104}
+              loading='lazy'
             />
           </div>
           <div className='relative hidden w-full bg-gray-900 lg:rounded-tr-3xl lg:block h-80 sm:h-96 lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2 lg:h-full'>
@@ -63,7 +64,7 @@ export const index = () => {
               alt='Web development graphic'
               width={1280}
               height={1104}
-              // className='absolute inset-0 object-cover object-top w-full h-full bg-gray-900 lg:rounded-tr-3xl xl:object-contain lg:object-right-top xl:object-right max-w-7xl'
+              loading='lazy'
               className='absolute top-0 right-0 object-contain object-right w-full h-full py-16 bg-gray-900 rounded-tr-3xl max-w-7xl'
             />
           </div>
