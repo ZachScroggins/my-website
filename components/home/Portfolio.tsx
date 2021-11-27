@@ -57,7 +57,7 @@ const Portfolio = ({ repos }) => {
               <div className='mt-3 sm:mt-0'>
                 <a
                   href='https://paulitacarlotta.com'
-                  className='block w-full px-4 py-3 font-medium text-white rounded-md shadow bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900'
+                  className='block w-full px-4 py-3 font-medium text-white rounded-md shadow bg-gradient-to-r from-green-400 to-blue-500 filter hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900'
                 >
                   Visit the site
                 </a>
@@ -149,7 +149,7 @@ const Portfolio = ({ repos }) => {
               return (
                 <div
                   key={repo.id}
-                  className='flex flex-col overflow-hidden rounded-lg shadow-lg cursor-pointer dark:shadow-2xl hover:shadow-2xl focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-teal-400'
+                  className='flex flex-col overflow-hidden rounded-lg shadow-lg cursor-pointer filter dark:hover:drop-shadow-2xl hover:shadow-2xl focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-teal-400'
                 >
                   <a
                     href={
@@ -323,7 +323,7 @@ const Portfolio = ({ repos }) => {
               <div className='mt-6'>
                 <button
                   type='button'
-                  className='flex items-center justify-center w-full px-4 py-2 font-medium text-white border border-transparent rounded-md shadow-sm bg-clip-border bg-gradient-to-r from-green-400 to-blue-500'
+                  className='flex items-center justify-center w-full px-4 py-2 font-medium text-white border border-transparent rounded-md shadow-sm filter hover:brightness-110 bg-clip-border bg-gradient-to-r from-green-400 to-blue-500'
                   onClick={() => setAllProjectsShowing(true)}
                 >
                   View all

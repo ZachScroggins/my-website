@@ -52,7 +52,7 @@ const index = () => {
               href='/Zach-Scroggins-Resume.pdf'
               target='_blank'
               rel='noopener'
-              className='inline-flex items-center justify-center p-2 mt-6 font-medium text-white border border-white rounded-md'
+              className='inline-flex items-center justify-center p-2 mt-6 font-medium border rounded-md text-cyan-50 border-cyan-100 hover:text-white hover:border-white'
             >
               <FiDownload className='mr-2' />
               Download Resume

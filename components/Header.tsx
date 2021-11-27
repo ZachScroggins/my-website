@@ -5,7 +5,7 @@ import useClickAway from 'lib/hooks/useClickAway';
 import Logo from 'components/Logo';
 import ThemeChanger from 'components/ThemeChanger';
 import MobileMenu from 'components/MobileMenu';
-import { FiGithub, FiLinkedin } from 'react-icons/fi';
+import { FiDownload, FiGithub, FiLinkedin } from 'react-icons/fi';
 import { GITHUB_URL, LINKEDIN_URL } from 'lib/socialLinks';
 import { classNames } from 'lib/classNames';
 
@@ -34,23 +34,23 @@ const Header = () => {
             </div>
             <div className='hidden space-x-8 md:flex md:ml-10'>
               <Link href='/#portfolio'>
-                <a className='text-base font-medium text-white hover:text-gray-300'>
+                <a className='text-base font-semibold text-gray-300 hover:text-gray-100'>
                   Portfolio
                 </a>
               </Link>
               <Link href='/#about'>
-                <a className='text-base font-medium text-white hover:text-gray-300'>
+                <a className='text-base font-semibold text-gray-300 hover:text-gray-100'>
                   About
                 </a>
               </Link>
               <Link href='/#contact'>
-                <a className='text-base font-medium text-white hover:text-gray-300'>
+                <a className='text-base font-semibold text-gray-300 hover:text-gray-100'>
                   Contact
                 </a>
               </Link>
             </div>
           </div>
-          <div className='flex items-center -mr-2 space-x-3'>
+          <div className='flex items-center -mr-2 space-x-3 md:-mr-0'>
             <Link href={LINKEDIN_URL}>
               <a
                 target='_blank'
@@ -58,7 +58,7 @@ const Header = () => {
                 title='LinkedIn Profile'
                 className='p-2'
               >
-                <FiLinkedin className='w-6 h-6 text-gray-400 rounded hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-100' />
+                <FiLinkedin className='w-6 h-6 text-gray-400 rounded hover:text-gray-100' />
               </a>
             </Link>
             <Link href={GITHUB_URL}>
@@ -68,13 +68,25 @@ const Header = () => {
                 title='GitHub Profile'
                 className='p-2'
               >
-                <FiGithub className='w-6 h-6 text-gray-400 rounded hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-100' />
+                <FiGithub className='w-6 h-6 text-gray-400 rounded hover:text-gray-100' />
               </a>
             </Link>
-            <ThemeChanger className='p-2 text-gray-400 rounded hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-100' />
+            <ThemeChanger className='p-2 text-gray-400 rounded hover:text-gray-100' />
+            <a
+              href='/Zach-Scroggins-Resume.pdf'
+              target='_blank'
+              rel='noopener'
+              className='items-center justify-center hidden p-px font-medium rounded-md bg-opacity-90 hover:bg-opacity-100 bg-gradient-to-r from-green-400 to-blue-500 md:inline-flex'
+            >
+              <span className='px-2 py-1 bg-gray-900 rounded-md hover:bg-opacity-95'>
+                <span className='text-transparent bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text'>
+                  Resume
+                </span>
+              </span>
+            </a>
             <button
               type='button'
-              className='inline-flex items-center justify-center p-2 text-gray-400 bg-gray-900 rounded-md md:hidden hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white'
+              className='inline-flex items-center justify-center p-2 text-gray-400 bg-gray-900 rounded-md md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white'
               aria-expanded={isOpen}
               onClick={() => setIsOpen(true)}
             >

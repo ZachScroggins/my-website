@@ -171,7 +171,7 @@ export const index = () => {
                       type='submit'
                       className={`${
                         loading ? 'pointer-events-none ' : ''
-                      }inline-flex items-center px-6 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-gradient-to-r from-green-400 to-blue-500 hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900`}
+                      }inline-flex items-center px-6 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-gradient-to-r from-green-400 to-blue-500 filter hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900`}
                     >
                       {loading ? (
                         <svg
