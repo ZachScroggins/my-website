@@ -1,5 +1,11 @@
 import { useState } from 'react';
-import { FiArrowRight, FiCode, FiNavigation } from 'react-icons/fi';
+import {
+  FiArrowRight,
+  FiCode,
+  FiNavigation,
+  FiServer,
+  FiZap,
+} from 'react-icons/fi';
 
 const isFeatured = repo => {
   return (
@@ -43,7 +49,7 @@ const Portfolio = ({ repos }) => {
               </a>
             </p>
             <p className='mx-auto mt-5 text-xl text-gray-500 dark:text-gray-300 max-w-prose'>
-              Ecommerce store for women's fashion and jewelry. Blog with
+              E-commerce store for women's fashion and jewelry. Blog with
               headless content management system integration. Deployed globally
               across a blazing fast CDN, Google Cloud, and Amazon Web Services.
             </p>
@@ -56,52 +62,72 @@ const Portfolio = ({ repos }) => {
                   Visit the site
                 </a>
               </div>
-              {/* <div className='mt-3 sm:mt-0 sm:ml-3'>
-                <a
-                  href='#'
-                  className='block w-full px-4 py-3 font-medium text-teal-500 rounded-md hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900'
-                >
-                  How it's made
-                  <FiArrowRight className='inline ml-1 align-middle' />
-                </a>
-              </div> */}
             </div>
           </div>
           <div className='mt-12 -mx-6'>
             <img
-              src='/images/pc-mockup-new.png'
+              src='/images/pc-mockup.png'
               alt='Paulita Carlotta Website Mockup Image'
-              width={4096}
-              height={2160}
+              width={2048}
+              height={929}
               loading='lazy'
             />
           </div>
           <div className='grid pb-12 mt-12 lg:grid-cols-2'>
-            <div>
-              <p className='mb-12 text-xl text-left text-gray-500 dark:text-gray-300 lg:pr-16'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Delectus qui voluptates unde eligendi ad quis officia non. Odio
-                ab eveniet modi sed reprehenderit earum deserunt obcaecati.
-                Alias fugit placeat eligendi ut rem veritatis laborum numquam
-                explicabo, exercitationem asperiores cupiditate tempora. Nihil
-                fuga maxime dicta ab eveniet! Dolorem suscipit eveniet a!
+            <div className='relative mb-12 text-left lg:pr-16'>
+              <h4 className='text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-3xl'>
+                Next Generation E-commerce
+              </h4>
+              <p className='mt-3 text-lg text-gray-500 dark:text-gray-300'>
+                Headless e-commerce with the BigCommerce API decouples the
+                frontend application from the e-commerce platform, enabling a
+                highly customized end-user experience while maintaining seamless
+                order and inventory management through the BigCommerce
+                dashboard.
               </p>
+              <dl className='mt-8 space-y-10'>
+                <div className='relative'>
+                  <dt>
+                    <div className='absolute flex items-center justify-center w-12 h-12 text-white rounded-md bg-gradient-to-r from-green-400 to-blue-500'>
+                      <FiZap className='w-6 h-6' aria-hidden='true' />
+                    </div>
+                    <p className='ml-16 text-lg font-medium leading-6 text-gray-900 dark:text-white'>
+                      Dynamic Data | Static Speed
+                    </p>
+                  </dt>
+                  <dd className='mt-2 ml-16 text-base text-gray-500 dark:text-gray-300'>
+                    Statically-generated React app with Incremental Static
+                    Regeneration. Instant page transitions without sacrificing
+                    search engine optimization.
+                  </dd>
+                </div>
+                <div className='relative'>
+                  <dt>
+                    <div className='absolute flex items-center justify-center w-12 h-12 text-white rounded-md bg-gradient-to-r from-green-400 to-blue-500'>
+                      <FiServer className='w-6 h-6' aria-hidden='true' />
+                    </div>
+                    <p className='ml-16 text-lg font-medium leading-6 text-gray-900 dark:text-white'>
+                      Highly Scalable Infrastructure
+                    </p>
+                  </dt>
+                  <dd className='mt-2 ml-16 text-base text-gray-500 dark:text-gray-300'>
+                    Serverless Node.js REST API with microservices architecture
+                    provides user authentication and communicates securely with
+                    BigCommerce API.
+                  </dd>
+                </div>
+              </dl>
             </div>
             <img
-              src='/images/paulita-carlotta.png'
+              src='/images/paulita-carlotta-fine-jewelry.png'
               alt='Paulita Carlotta Website Screenshot'
-              width={3584}
-              height={2155}
+              width={2096}
+              height={1721}
               loading='lazy'
-              // className='shadow-2xl rounded-xl ring-1 ring-black ring-opacity-5'
             />
           </div>
         </div>
       </div>
-      {/* <div className='flex justify-between w-full h-auto'>
-        <img src='/images/iphone.png' alt='' />
-        <img src='/images/iphone-light.png' alt='' />
-      </div> */}
       <div className='relative py-8'>
         <div className='relative'>
           <div className='max-w-md px-4 mx-auto text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl'>
