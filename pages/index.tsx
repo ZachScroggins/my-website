@@ -9,7 +9,7 @@ export default function Home({ repos }) {
     <>
       <NextSeo
         title='Zach Scroggins | Full Stack JavaScript TypeScript Developer'
-        description='I love building websites and web apps with cutting edge technologies. I specialize in JavaScript and have the most experience working with React and Node. I really enjoy the JAMstack, but I am also familiar with the LAMP stack, Python, Java, C#, and C++.'
+        description="I'm a web developer with a passion for creating exceptional, one-of-a-kind user experiences, leveraging cutting-edge technologies for better performance, higher security, and superior scalability."
         canonical='https://zachscroggins.com/'
       />
       <main className='relative pt-16 overflow-hidden bg-gray-100 dark:bg-gray-900'>
