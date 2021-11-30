@@ -1,4 +1,5 @@
 import path from 'path';
+import { bundleMDX } from 'mdx-bundler';
 
 export const prepareMDX = async (
   source: string
@@ -25,13 +26,13 @@ export const prepareMDX = async (
     );
   }
 
-  const { bundleMDX } = await import('mdx-bundler');
+  // const { bundleMDX } = await import('mdx-bundler');
 
-  const { code, errors } = await bundleMDX({ source });
+  const { code } = await bundleMDX({ source });
 
-  if (errors.length > 0) {
-    console.dir(errors.map(({ detail }) => detail));
-  }
+  // if (errors.length > 0) {
+  //   console.dir(errors.map(({ detail }) => detail));
+  // }
 
   return code;
 };
