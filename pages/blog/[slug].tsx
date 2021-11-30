@@ -8,6 +8,7 @@ import Callout from 'components/Callout';
 import Logo from 'components/Logo';
 import Link from 'next/link';
 import MdxLink from 'components/MdxLink';
+import { prepareMDX } from 'lib/utils/prepare-mdx';
 
 const Post = ({
   postData,
@@ -63,7 +64,9 @@ export const getStaticProps = async ({ params }) => {
     );
   }
 
-  const { code } = await bundleMDX({ source: postData.content });
+  // const { code } = await bundleMDX({ source: postData.content });
+
+  const code = await prepareMDX(postData.content);
 
   return {
     props: {
