@@ -36,7 +36,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: allPost.map(p => `/blog/${p.slug.current}`),
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
@@ -46,25 +46,6 @@ export const getStaticProps = async ({ params }) => {
   const { allPost } = await client.GetPost({ slug });
 
   const [postData] = allPost;
-
-  // if (process.platform === 'win32') {
-  //   process.env.ESBUILD_BINARY_PATH = path.join(
-  //     process.cwd(),
-  //     'node_modules',
-  //     'esbuild',
-  //     'esbuild.exe'
-  //   );
-  // } else {
-  //   process.env.ESBUILD_BINARY_PATH = path.join(
-  //     process.cwd(),
-  //     'node_modules',
-  //     'esbuild',
-  //     'bin',
-  //     'esbuild'
-  //   );
-  // }
-
-  // const { code } = await bundleMDX({ source: postData.content });
 
   const code = await prepareMDX(postData.content);
 
