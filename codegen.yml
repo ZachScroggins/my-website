@@ -1,0 +1,12 @@
+overwrite: true
+schema: 'https://pg6c9qr0.api.sanity.io/v1/graphql/production/default'
+documents: 'lib/graphql/**/*.graphql'
+generates:
+  lib/generated/index.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-graphql-request'
+  ./graphql.schema.json:
+    plugins:
+      - 'introspection'

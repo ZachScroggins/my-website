@@ -1,0 +1,10 @@
+query GetAllPosts {
+  allPost {
+    title
+    _createdAt
+    _updatedAt
+    slug {
+      current
+    }
+  }
+}

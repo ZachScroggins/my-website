@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "generate": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.2",
@@ -17,6 +18,10 @@
     "@tailwindcss/line-clamp": "^0.2.2",
     "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.4.0",
+    "esbuild": "^0.13.15",
+    "graphql": "^15.7.2",
+    "graphql-request": "^3.6.1",
+    "mdx-bundler": "^8.0.0",
     "next": "^12.0.4",
     "next-seo": "^4.26.0",
     "next-themes": "^0.0.15",
@@ -27,6 +32,11 @@
     "tailwindcss": "^2.2.19"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.3.0",
+    "@graphql-codegen/introspection": "2.1.0",
+    "@graphql-codegen/typescript": "2.4.1",
+    "@graphql-codegen/typescript-graphql-request": "^4.3.1",
+    "@graphql-codegen/typescript-operations": "2.2.1",
     "@types/node": "^16.11.8",
     "@types/react": "^17.0.35",
     "next-sitemap": "^1.6.203",

@@ -1,0 +1,8 @@
+query GetPost($slug: String!) {
+  allPost(where: { slug: { current: { eq: $slug } } }) {
+    title
+    _createdAt
+    _updatedAt
+    content
+  }
+}
