@@ -43,6 +43,11 @@ const Header = () => {
                   About
                 </a>
               </Link>
+              <Link href='/blog'>
+                <a className='text-base font-semibold text-gray-300 hover:text-gray-100'>
+                  Blog
+                </a>
+              </Link>
               <Link href='/#contact'>
                 <a className='text-base font-semibold text-gray-300 hover:text-gray-100'>
                   Contact

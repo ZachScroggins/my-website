@@ -48,19 +48,19 @@ const Footer = () => {
             </Link>
           </div>
           <div className='px-5 py-2'>
+            <Link href='/blog'>
+              <a className='text-base text-gray-400 hover:text-gray-100'>
+                Blog
+              </a>
+            </Link>
+          </div>
+          <div className='px-5 py-2'>
             <Link href='/#contact'>
               <a className='text-base text-gray-400 hover:text-gray-100'>
                 Contact
               </a>
             </Link>
           </div>
-          {/* <div className='px-5 py-2'>
-              <Link href='/blog'>
-                <a className='text-base text-gray-500 hover:text-gray-900'>
-                  Blog
-                </a>
-              </Link>
-            </div> */}
         </nav>
         <div className='flex justify-center mt-8 space-x-6'>
           <a

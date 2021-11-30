@@ -8,6 +8,7 @@ import ThemeChanger from 'components/ThemeChanger';
 import {
   FiAward,
   FiDownload,
+  FiFileText,
   FiGithub,
   FiInfo,
   FiLinkedin,
@@ -120,6 +121,24 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
                       </div>
                       <div className='ml-4 text-lg text-gray-900 dark:text-gray-50'>
                         About
+                      </div>
+                    </a>
+                  </Link>
+                  <Link href='/blog'>
+                    <a
+                      onClick={() => toggle(false)}
+                      className={classNames(
+                        'flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700'
+                        // false
+                        //   ? 'bg-gray-100 dark:bg-gray-900'
+                        //   : 'bg-white dark:bg-gray-800'
+                      )}
+                    >
+                      <div className='flex items-center justify-center flex-shrink-0 w-10 h-10 rounded-md bg-gradient-to-r from-green-400 to-cyan-500 dark:to-blue-500 text-gray-50 bg-primary'>
+                        <FiFileText className='w-6 h-6' />
+                      </div>
+                      <div className='ml-4 text-lg text-gray-900 dark:text-gray-50'>
+                        Blog
                       </div>
                     </a>
                   </Link>
