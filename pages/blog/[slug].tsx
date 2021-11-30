@@ -1,7 +1,7 @@
-import path from 'path';
+// import path from 'path';
 import client from 'lib/graphql';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
-import { bundleMDX } from 'mdx-bundler';
+// import { bundleMDX } from 'mdx-bundler';
 import { getMDXComponent } from 'mdx-bundler/client';
 import React from 'react';
 import Callout from 'components/Callout';
@@ -47,22 +47,22 @@ export const getStaticProps = async ({ params }) => {
 
   const [postData] = allPost;
 
-  if (process.platform === 'win32') {
-    process.env.ESBUILD_BINARY_PATH = path.join(
-      process.cwd(),
-      'node_modules',
-      'esbuild',
-      'esbuild.exe'
-    );
-  } else {
-    process.env.ESBUILD_BINARY_PATH = path.join(
-      process.cwd(),
-      'node_modules',
-      'esbuild',
-      'bin',
-      'esbuild'
-    );
-  }
+  // if (process.platform === 'win32') {
+  //   process.env.ESBUILD_BINARY_PATH = path.join(
+  //     process.cwd(),
+  //     'node_modules',
+  //     'esbuild',
+  //     'esbuild.exe'
+  //   );
+  // } else {
+  //   process.env.ESBUILD_BINARY_PATH = path.join(
+  //     process.cwd(),
+  //     'node_modules',
+  //     'esbuild',
+  //     'bin',
+  //     'esbuild'
+  //   );
+  // }
 
   // const { code } = await bundleMDX({ source: postData.content });
 
