@@ -1,8 +1,24 @@
 query GetPost($slug: String!) {
   allPost(where: { slug: { current: { eq: $slug } } }) {
     title
+    description
     _createdAt
     _updatedAt
+    image {
+      asset {
+        title
+        description
+        altText
+        path
+        url
+        metadata {
+          dimensions {
+            height
+            width
+          }
+        }
+      }
+    }
     content
   }
 }

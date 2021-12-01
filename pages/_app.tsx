@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <DefaultSeo {...SEO} />
-      <ThemeProvider attribute='class'>
+      <ThemeProvider attribute='class' defaultTheme='dark'>
         <Header />
         <Component {...pageProps} />
         <Footer />

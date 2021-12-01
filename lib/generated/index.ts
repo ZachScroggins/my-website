@@ -205,6 +205,44 @@ export type IntFilter = {
   neq?: InputMaybe<Scalars['Int']>;
 };
 
+export type MediaTag = Document & {
+  __typename?: 'MediaTag';
+  /** Date the document was created */
+  _createdAt?: Maybe<Scalars['DateTime']>;
+  /** Document ID */
+  _id?: Maybe<Scalars['ID']>;
+  _key?: Maybe<Scalars['String']>;
+  /** Current document revision */
+  _rev?: Maybe<Scalars['String']>;
+  /** Document type */
+  _type?: Maybe<Scalars['String']>;
+  /** Date the document was last modified */
+  _updatedAt?: Maybe<Scalars['DateTime']>;
+  name?: Maybe<Slug>;
+};
+
+export type MediaTagFilter = {
+  /** Apply filters on document level */
+  _?: InputMaybe<Sanity_DocumentFilter>;
+  _createdAt?: InputMaybe<DatetimeFilter>;
+  _id?: InputMaybe<IdFilter>;
+  _key?: InputMaybe<StringFilter>;
+  _rev?: InputMaybe<StringFilter>;
+  _type?: InputMaybe<StringFilter>;
+  _updatedAt?: InputMaybe<DatetimeFilter>;
+  name?: InputMaybe<SlugFilter>;
+};
+
+export type MediaTagSorting = {
+  _createdAt?: InputMaybe<SortOrder>;
+  _id?: InputMaybe<SortOrder>;
+  _key?: InputMaybe<SortOrder>;
+  _rev?: InputMaybe<SortOrder>;
+  _type?: InputMaybe<SortOrder>;
+  _updatedAt?: InputMaybe<SortOrder>;
+  name?: InputMaybe<SlugSorting>;
+};
+
 export type Post = Document & {
   __typename?: 'Post';
   /** Date the document was created */
@@ -219,6 +257,8 @@ export type Post = Document & {
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars['DateTime']>;
   content?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  image?: Maybe<Image>;
   slug?: Maybe<Slug>;
   title?: Maybe<Scalars['String']>;
 };
@@ -233,6 +273,8 @@ export type PostFilter = {
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
   content?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
   slug?: InputMaybe<SlugFilter>;
   title?: InputMaybe<StringFilter>;
 };
@@ -245,6 +287,8 @@ export type PostSorting = {
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
   content?: InputMaybe<SortOrder>;
+  description?: InputMaybe<SortOrder>;
+  image?: InputMaybe<ImageSorting>;
   slug?: InputMaybe<SlugSorting>;
   title?: InputMaybe<SortOrder>;
 };
@@ -252,10 +296,12 @@ export type PostSorting = {
 export type RootQuery = {
   __typename?: 'RootQuery';
   Document?: Maybe<Document>;
+  MediaTag?: Maybe<MediaTag>;
   Post?: Maybe<Post>;
   SanityFileAsset?: Maybe<SanityFileAsset>;
   SanityImageAsset?: Maybe<SanityImageAsset>;
   allDocument: Array<Document>;
+  allMediaTag: Array<MediaTag>;
   allPost: Array<Post>;
   allSanityFileAsset: Array<SanityFileAsset>;
   allSanityImageAsset: Array<SanityImageAsset>;
@@ -263,6 +309,11 @@ export type RootQuery = {
 
 
 export type RootQueryDocumentArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type RootQueryMediaTagArgs = {
   id: Scalars['ID'];
 };
 
@@ -287,6 +338,14 @@ export type RootQueryAllDocumentArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Array<DocumentSorting>>;
   where?: InputMaybe<DocumentFilter>;
+};
+
+
+export type RootQueryAllMediaTagArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  sort?: InputMaybe<Array<MediaTagSorting>>;
+  where?: InputMaybe<MediaTagFilter>;
 };
 
 
@@ -733,20 +792,21 @@ export type StringFilter = {
 export type GetAllPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllPostsQuery = { __typename?: 'RootQuery', allPost: Array<{ __typename?: 'Post', title?: string | null | undefined, _createdAt?: any | null | undefined, _updatedAt?: any | null | undefined, slug?: { __typename?: 'Slug', current?: string | null | undefined } | null | undefined }> };
+export type GetAllPostsQuery = { __typename?: 'RootQuery', allPost: Array<{ __typename?: 'Post', title?: string | null | undefined, description?: string | null | undefined, _createdAt?: any | null | undefined, _updatedAt?: any | null | undefined, slug?: { __typename?: 'Slug', current?: string | null | undefined } | null | undefined }> };
 
 export type GetPostQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
 
-export type GetPostQuery = { __typename?: 'RootQuery', allPost: Array<{ __typename?: 'Post', title?: string | null | undefined, _createdAt?: any | null | undefined, _updatedAt?: any | null | undefined, content?: string | null | undefined }> };
+export type GetPostQuery = { __typename?: 'RootQuery', allPost: Array<{ __typename?: 'Post', title?: string | null | undefined, description?: string | null | undefined, _createdAt?: any | null | undefined, _updatedAt?: any | null | undefined, content?: string | null | undefined, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', title?: string | null | undefined, description?: string | null | undefined, altText?: string | null | undefined, path?: string | null | undefined, url?: string | null | undefined, metadata?: { __typename?: 'SanityImageMetadata', dimensions?: { __typename?: 'SanityImageDimensions', height?: number | null | undefined, width?: number | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined }> };
 
 
 export const GetAllPostsDocument = gql`
     query GetAllPosts {
-  allPost {
+  allPost(sort: {_createdAt: DESC}) {
     title
+    description
     _createdAt
     _updatedAt
     slug {
@@ -759,8 +819,24 @@ export const GetPostDocument = gql`
     query GetPost($slug: String!) {
   allPost(where: {slug: {current: {eq: $slug}}}) {
     title
+    description
     _createdAt
     _updatedAt
+    image {
+      asset {
+        title
+        description
+        altText
+        path
+        url
+        metadata {
+          dimensions {
+            height
+            width
+          }
+        }
+      }
+    }
     content
   }
 }

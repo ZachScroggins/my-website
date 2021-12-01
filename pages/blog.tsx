@@ -5,8 +5,12 @@ import client from 'lib/graphql';
 const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <main className='min-h-screen bg-gray-100 dark:bg-gray-900'>
-      <article className='pt-24 mx-auto prose bg-gray-100 lg:prose-xl dark:bg-gray-900 dark:prose-dark'>
-        <h1 className='text-gray-900 dark:text-gray-50'>Blog</h1>
+      <article className='px-4 pt-24 mx-auto prose bg-gray-100 sm:px-6 md:px-0 lg:prose-xl dark:bg-gray-900 dark:prose-dark'>
+        <h1>
+          <span className='!text-transparent py-px bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
+            Blog
+          </span>
+        </h1>
         <ul>
           {posts.map(({ title, slug }) => (
             <li key={slug}>

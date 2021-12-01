@@ -1,6 +1,7 @@
 query GetAllPosts {
-  allPost {
+  allPost(sort: { _createdAt: DESC }) {
     title
+    description
     _createdAt
     _updatedAt
     slug {

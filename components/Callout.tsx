@@ -2,7 +2,7 @@ import React from 'react';
 
 const Callout: React.FC = ({ children }) => {
   return (
-    <div className='p-4 text-gray-900 border rounded-lg bg-cyan-300 border-cyan-800'>
+    <div className='p-4 text-white border rounded-lg bg-gradient-to-r from-pink-800 to-purple-900'>
       {children}
     </div>
   );
