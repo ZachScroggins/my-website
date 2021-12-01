@@ -14,7 +14,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <ul>
           {posts.map(({ title, slug }) => (
             <li key={slug}>
-              <Link href={`/blog/${slug}`}>
+              <Link href={`${slug}`}>
                 <a>{title}</a>
               </Link>
             </li>

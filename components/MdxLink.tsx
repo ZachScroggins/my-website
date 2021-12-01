@@ -5,7 +5,7 @@ const MdxLink = ({ href, ...rest }: { href: string }) => {
 
   if (isInternalLink) {
     return (
-      <Link href={href}>
+      <Link href={`${href}`}>
         <a {...rest} />
       </Link>
     );
