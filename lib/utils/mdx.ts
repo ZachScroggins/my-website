@@ -34,7 +34,7 @@ export const prepareMDX = async (source: string) => {
         ...(options?.rehypePlugins ?? []),
         rehypeSlug,
         rehypeCodeTitles,
-        rehypePrism,
+        [rehypePrism, { ignoreMissing: true }],
         [
           rehypeAutolinkHeadings,
           {

@@ -1,6 +1,9 @@
 import { createClient } from 'next-sanity';
 import { config } from './config';
 
+import { createClient as createTypedClient } from 'sanity-codegen';
+import { Documents } from 'lib/generated/schema';
+
 // Set up the client for fetching data in the getProps page functions
 export const sanityClient = createClient(config);
 
@@ -12,5 +15,11 @@ export const previewClient = createClient({
 });
 
 // Helper function for easily switching between normal client and preview client
-export const getClient = usePreview =>
+export const getClient = (usePreview?) =>
   usePreview ? previewClient : sanityClient;
+
+// typed client
+export const typedClient = createTypedClient<Documents>({
+  ...config,
+  fetch,
+});

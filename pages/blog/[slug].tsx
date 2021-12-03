@@ -14,26 +14,22 @@ import { prepareMDX } from 'lib/utils/mdx';
 
 import { groq } from 'next-sanity';
 
-import { usePreviewSubscription } from 'lib/sanity/sanity';
-import { getClient } from 'lib/sanity/sanity.server';
+import { urlFor, usePreviewSubscription } from 'lib/sanity/sanity';
+import { getClient, typedClient } from 'lib/sanity/sanity.server';
 import { filterDataToSingleItem } from 'lib/sanity/helpers';
+import { Post } from 'lib/generated/schema';
 
 const Post = ({
-  // postData,
-  // code,
   data,
   preview,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  // const Component = React.useMemo(() => getMDXComponent(code), [code]);
-  // console.log(postData);
-
   const { data: previewData } = usePreviewSubscription(data?.query, {
     params: data?.queryParams ?? {},
     initialData: data?.page,
     enabled: preview,
   });
   const [pdata, setPdata] = useState(previewData);
-  // console.log(pdata);
+  // console.log(data);
 
   useEffect(() => {
     const get = async () => {
@@ -53,8 +49,6 @@ const Post = ({
   }, [preview, previewData]);
 
   const page = preview ? pdata : filterDataToSingleItem(previewData, preview);
-
-  console.log({ preview, page, pdata, previewData });
 
   const Component = React.useMemo(
     () => getMDXComponent(page?.code),
@@ -115,14 +109,6 @@ const Post = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  // const { allPost } = await client.GetAllPosts();
-
-  // const paths = allPost.map(p => `/blog/${p.slug.current}`);
-
-  // return {
-  //   paths,
-  //   fallback: 'blocking',
-  // };
   const allSlugsQuery = groq`*[defined(slug.current)][].slug.current`;
   const pages = await getClient().fetch(allSlugsQuery);
 
@@ -139,10 +125,20 @@ export const getStaticProps = async ({ params, preview = false }) => {
   const queryParams = { slug: `/blog/${slug}` };
   const data = await getClient(preview).fetch(query, queryParams);
 
+  const x = await typedClient.getAll(
+    'post',
+    `_type == "post" && slug.current == "/blog/${slug}"`
+  );
+  console.log(x);
+
+  // const y = await typedClient.query<Post>(
+  //   `*[_type == "post"] | order(_createdAt desc)`
+  // );
+  // console.log(y);
+
   if (!data) return { notFound: true } as const;
 
   const sanityPostData = filterDataToSingleItem(data, preview);
-  // console.log({ slug, query, queryParams, data, sanityPostData });
 
   const { code, readingTime } = await prepareMDX(sanityPostData?.content);
 
@@ -159,33 +155,6 @@ export const getStaticProps = async ({ params, preview = false }) => {
     },
     revalidate: 10,
   };
-
-  // const { allPost } = await client.GetPost({ slug });
-
-  // if (allPost.length < 1) {
-  //   return {
-  //     notFound: true,
-  //     props: {},
-  //   };
-  // }
-
-  // const [sanityPostData] = allPost;
-
-  // const { code, readingTime } = await prepareMDX(sanityPostData.content);
-
-  // const postData = {
-  //   ...sanityPostData,
-  //   readingTime,
-  //   slug,
-  // };
-
-  // return {
-  //   props: {
-  //     postData,
-  //     code,
-  //   },
-  //   revalidate: 10,
-  // };
 };
 
 export default Post;
