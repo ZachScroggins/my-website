@@ -1,18 +1,18 @@
-import { useRef, useState } from 'react';
-import Link from 'next/link';
-import { Transition } from '@headlessui/react';
-import useClickAway from 'lib/hooks/useClickAway';
-import Logo from 'components/Logo';
-import ThemeChanger from 'components/ThemeChanger';
-import MobileMenu from 'components/MobileMenu';
-import { FiDownload, FiGithub, FiLinkedin } from 'react-icons/fi';
-import { GITHUB_URL, LINKEDIN_URL } from 'lib/socialLinks';
-import { classNames } from 'lib/classNames';
+import { useRef, useState } from 'react'
+import Link from 'next/link'
+import { Transition } from '@headlessui/react'
+import useClickAway from 'lib/hooks/useClickAway'
+import Logo from 'components/Logo'
+import ThemeChanger from 'components/ThemeChanger'
+import MobileMenu from 'components/MobileMenu'
+import { FiDownload, FiGithub, FiLinkedin } from 'react-icons/fi'
+import { GITHUB_URL, LINKEDIN_URL } from 'lib/socialLinks'
+import { classNames } from 'lib/utils/classNames'
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef();
-  useClickAway(menuRef, setIsOpen);
+  const [isOpen, setIsOpen] = useState(false)
+  const menuRef = useRef()
+  useClickAway(menuRef, setIsOpen)
 
   return (
     <header className='fixed top-0 left-0 right-0 z-20 w-full'>
@@ -132,7 +132,7 @@ const Header = () => {
       </div>
       <MobileMenu show={isOpen} toggle={setIsOpen} />
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

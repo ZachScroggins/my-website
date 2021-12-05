@@ -1,24 +1,8 @@
-import { Documents } from 'lib/generated/schema'
+import { createImageUrlBuilder } from 'next-sanity'
+import { config } from './config'
 
 /**
- * Helper function to return the correct version of the document
- * If we're in "preview mode" and have multiple documents, return the draft
- */
-export const filterDataToSingleItem = <T extends Documents>(
-  data: T | T[],
-  preview: boolean
-): T => {
-  if (!Array.isArray(data)) {
-    return data
-  }
-
-  if (data.length === 1) {
-    return data[0]
-  }
-
-  if (preview) {
-    return data.find(item => item._id.startsWith(`drafts.`)) || data[0]
-  }
-
-  return data[0]
-}
+ * Set up a helper function for generating Image URLs with only the asset reference data in your documents.
+ * Read more: https://www.sanity.io/docs/image-url
+ **/
+export const urlFor = source => createImageUrlBuilder(config).image(source)

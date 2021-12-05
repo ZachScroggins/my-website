@@ -1,5 +1,5 @@
 {
-  "name": "with-tailwindcss",
+  "name": "my-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "postbuild": "next-sitemap",
-    "generate": "graphql-codegen --config codegen.yml",
-    "typecheck": "tsc -b"
+    "generate": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.2",

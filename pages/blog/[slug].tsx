@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import { useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { GetStaticPaths, InferGetStaticPropsType } from 'next'
@@ -11,9 +11,8 @@ import Logo from 'components/Logo'
 import MdxLink from 'components/MdxLink'
 import { prepareMDX } from 'lib/utils/mdx'
 
+import { picoClient, sanityClient } from 'lib/sanity'
 import { useNextSanityImage } from 'next-sanity-image'
-
-import { picoClient, sanityClient } from 'lib/sanity/sanity-client'
 
 const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const Component = useMemo(() => getMDXComponent(post?.code), [post?.code])
@@ -44,6 +43,7 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 {...imageProps}
                 layout='responsive'
                 sizes='(max-width: 800px) 100vw, 800px'
+                alt={post?.image?.asset?.altText}
               />
             </div>
           )}
@@ -82,6 +82,7 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 {...imageProps}
                 layout='responsive'
                 sizes='(max-width: 800px) 100vw, 800px'
+                alt={post?.image?.asset?.altText}
                 className='rounded-lg'
               />
             </div>

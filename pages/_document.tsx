@@ -1,12 +1,10 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import PreloadFonts from 'components/PreloadFonts';
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 export default class MyDocument extends Document {
   render() {
     return (
       <Html lang='en'>
         <Head>
-          {/* <PreloadFonts /> */}
           <link
             rel='preload'
             href='/fonts/Nunito-VariableFont_wght.woff2'
@@ -53,6 +51,6 @@ export default class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }

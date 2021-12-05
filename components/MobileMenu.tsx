@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
-import Link from 'next/link';
-import { Transition, Dialog } from '@headlessui/react';
-import { classNames } from 'lib/classNames';
-import { GITHUB_URL, LINKEDIN_URL, TWITTER_URL } from 'lib/socialLinks';
-import Logo from 'components/Logo';
-import ThemeChanger from 'components/ThemeChanger';
+import React, { Fragment } from 'react'
+import Link from 'next/link'
+import { Transition, Dialog } from '@headlessui/react'
+import { classNames } from 'lib/utils/classNames'
+import { GITHUB_URL, LINKEDIN_URL, TWITTER_URL } from 'lib/socialLinks'
+import Logo from 'components/Logo'
+import ThemeChanger from 'components/ThemeChanger'
 import {
   FiAward,
   FiDownload,
@@ -13,13 +13,13 @@ import {
   FiInfo,
   FiLinkedin,
   FiMail,
-  FiTwitter,
-} from 'react-icons/fi';
-import { XIcon } from '@heroicons/react/outline';
+  FiTwitter
+} from 'react-icons/fi'
+import { XIcon } from '@heroicons/react/outline'
 
 interface MobileMenuProps {
-  show: boolean;
-  toggle: React.Dispatch<React.SetStateAction<boolean>>;
+  show: boolean
+  toggle: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
@@ -52,7 +52,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
           leaveFrom='translate-x-0'
           leaveTo='-translate-x-full'
         >
-          <div className='relative flex flex-col flex-1 w-full max-w-[16.5rem] xs:max-w-xs bg-white divide-y-2 shadow-2xl dark:bg-gray-900 dark:divide-gray-700 ring-1 ring-black ring-opacity-5 dark:ring-gray-600 divide-gray-50'>
+          <div className='relative flex flex-col flex-1 w-full max-w-[16.5rem] xs:max-w-xs bg-white shadow-2xl dark:bg-gray-900 ring-1 ring-black ring-opacity-5 dark:ring-gray-600'>
             <Transition.Child
               as={Fragment}
               enter='ease-in-out duration-300'
@@ -62,7 +62,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
               leaveFrom='opacity-100'
               leaveTo='opacity-0'
             >
-              <div className='absolute top-0 right-0 pt-2 -mr-12'>
+              <div className='absolute top-0 right-0 pt-4 -mr-12'>
                 <button
                   className='flex items-center justify-center w-10 h-10 ml-1 rounded-full focus:outline-none focus:ring-1 focus:ring-inset focus:ring-white'
                   onClick={() => toggle(false)}
@@ -163,7 +163,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
                 </nav>
               </div>
             </div>
-            <div className='flex-shrink-0 px-5 py-6 border-t border-gray-200'>
+            <div className='flex-shrink-0 px-5 py-6 border-t border-gray-200 dark:border-gray-700'>
               <a
                 href='/Zach-Scroggins-Resume.pdf'
                 className='flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white rounded-md shadow-sm bg-gradient-to-r from-green-400 to-blue-500'
@@ -213,7 +213,7 @@ const MobileMenu = ({ show, toggle }: MobileMenuProps) => {
         </div>
       </Dialog>
     </Transition.Root>
-  );
-};
+  )
+}
 
-export default MobileMenu;
+export default MobileMenu

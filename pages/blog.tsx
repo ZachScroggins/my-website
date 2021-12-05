@@ -1,8 +1,6 @@
-import { InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
-import client from 'lib/graphql'
-import { getClient, sanityClient } from 'lib/sanity/sanity-client'
-import { Post } from 'lib/generated/schema'
+import { InferGetStaticPropsType } from 'next'
+import { sanityClient } from 'lib/sanity'
 
 const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (

@@ -2,7 +2,7 @@ overwrite: true
 schema: 'https://pg6c9qr0.api.sanity.io/v1/graphql/production/default'
 documents: 'lib/graphql/**/*.graphql'
 generates:
-  lib/generated/index.ts:
+  lib/generated/sanity.ts:
     plugins:
       - 'typescript'
       - 'typescript-operations'
