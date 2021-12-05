@@ -1,22 +1,22 @@
-query GetPost($slug: String!) {
-  allPost(where: { slug: { current: { eq: $slug } } }) {
+query GetPost($slug: String!, $preview: Boolean) {
+  allPost(
+    where: { slug: { current: { eq: $slug } }, _: { is_draft: $preview } }
+  ) {
+    _id
+    _type
     title
     description
+    slug {
+      current
+    }
     _createdAt
     _updatedAt
     image {
+      _key
+      _type
       asset {
-        title
-        description
+        _id
         altText
-        path
-        url
-        metadata {
-          dimensions {
-            height
-            width
-          }
-        }
       }
     }
     content

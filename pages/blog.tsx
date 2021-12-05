@@ -1,6 +1,8 @@
-import { InferGetStaticPropsType } from 'next';
-import Link from 'next/link';
-import client from 'lib/graphql';
+import { InferGetStaticPropsType } from 'next'
+import Link from 'next/link'
+import client from 'lib/graphql'
+import { getClient, sanityClient } from 'lib/sanity/sanity-client'
+import { Post } from 'lib/generated/schema'
 
 const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
@@ -22,23 +24,22 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         </ul>
       </article>
     </main>
-  );
-};
+  )
+}
 
 export const getStaticProps = async ctx => {
-  const { allPost } = await client.GetAllPosts();
-
+  const { allPost } = await sanityClient().GetAllPosts()
   const posts = allPost.map(post => ({
     title: post.title,
-    slug: post.slug.current,
-  }));
+    slug: post.slug.current
+  }))
 
   return {
     props: {
-      posts,
+      posts
     },
-    revalidate: 10,
-  };
-};
+    revalidate: 10
+  }
+}
 
-export default Blog;
+export default Blog

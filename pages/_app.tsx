@@ -1,24 +1,23 @@
-import { DefaultSeo } from 'next-seo';
+import { ThemeProvider } from 'next-themes'
 
-import 'styles/globals.css';
+import { DefaultSeo } from 'next-seo'
+import SEO from 'next-seo.config'
 
-import Header from 'components/Header';
-import Footer from 'components/Footer';
+import Layout from 'components/Layout'
 
-import SEO from 'next-seo.config';
-import { ThemeProvider } from 'next-themes';
+import 'styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <DefaultSeo {...SEO} />
       <ThemeProvider attribute='class' enableColorScheme={false}>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp

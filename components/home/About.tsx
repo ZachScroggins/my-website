@@ -1,7 +1,7 @@
 import React from 'react';
 import { FiDownload } from 'react-icons/fi';
 
-const index = () => {
+const About = () => {
   return (
     <section
       id='about'
@@ -64,4 +64,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default About;

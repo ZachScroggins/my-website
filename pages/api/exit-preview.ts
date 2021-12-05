@@ -1,9 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default function exit(req: NextApiRequest, res: NextApiResponse) {
-  res.clearPreviewData();
+  res.clearPreviewData()
 
-  res.writeHead(307, { Location: `${req?.query?.slug}` ?? `/` });
+  res.writeHead(307, { Location: req?.query?.slug ?? `/` })
 
-  return res.end();
+  return res.end()
 }

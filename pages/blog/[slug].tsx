@@ -1,100 +1,92 @@
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { GetStaticPaths, InferGetStaticPropsType } from 'next';
-import { parseISO, format } from 'date-fns';
-import { getMDXComponent } from 'mdx-bundler/client';
-import { NextSeo } from 'next-seo';
+import { useEffect, useMemo } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { GetStaticPaths, InferGetStaticPropsType } from 'next'
+import { parseISO, format } from 'date-fns'
+import { getMDXComponent } from 'mdx-bundler/client'
+import { NextSeo } from 'next-seo'
 
-import client from 'lib/graphql';
-import Callout from 'components/Callout';
-import Logo from 'components/Logo';
-import MdxLink from 'components/MdxLink';
-import { prepareMDX } from 'lib/utils/mdx';
+import Callout from 'components/Callout'
+import Logo from 'components/Logo'
+import MdxLink from 'components/MdxLink'
+import { prepareMDX } from 'lib/utils/mdx'
 
-import { groq } from 'next-sanity';
+import { useNextSanityImage } from 'next-sanity-image'
 
-import { urlFor, usePreviewSubscription } from 'lib/sanity/sanity';
-import { getClient, typedClient } from 'lib/sanity/sanity.server';
-import { filterDataToSingleItem } from 'lib/sanity/helpers';
-import { Post } from 'lib/generated/schema';
+import { picoClient, sanityClient } from 'lib/sanity/sanity-client'
 
-const Post = ({
-  data,
-  preview,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { data: previewData } = usePreviewSubscription(data?.query, {
-    params: data?.queryParams ?? {},
-    initialData: data?.page,
-    enabled: preview,
-  });
-  const [pdata, setPdata] = useState(previewData);
-  // console.log(data);
+const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const Component = useMemo(() => getMDXComponent(post?.code), [post?.code])
 
-  useEffect(() => {
-    const get = async () => {
-      const page = filterDataToSingleItem(previewData, preview);
-      const res = await fetch('/api/preview-mdx', {
-        method: 'POST',
-        body: JSON.stringify({ content: page?.content }),
-      });
-      const json = await res.json();
-      setPdata({ ...page, code: json.code, readingTime: json.readingTime });
-    };
-    if (preview) {
-      console.log('funk');
-      get();
-    }
-    console.log('effect');
-  }, [preview, previewData]);
-
-  const page = preview ? pdata : filterDataToSingleItem(previewData, preview);
-
-  const Component = React.useMemo(
-    () => getMDXComponent(page?.code),
-    [page?.code]
-  );
+  const imageProps = post?.image
+    ? useNextSanityImage(picoClient, post?.image)
+    : null
 
   return (
     <>
       <NextSeo
-        title={`${page?.title} - Zach Scroggins`}
-        description={page?.description}
-        canonical={`https://zachscroggins.com${page?.slug.current}/`}
+        title={`${post?.title} - Zach Scroggins`}
+        description={post?.description}
+        canonical={`https://zachscroggins.com${post?.slug.current}/`}
         openGraph={{
-          url: `https://zachscroggins.com${page?.slug.current}/`,
+          url: `https://zachscroggins.com${post?.slug.current}/`,
           type: 'article',
-          title: `${page?.title} - Zach Scroggins`,
-          description: page?.description,
-          article: { publishedTime: page?._createdAt },
+          title: `${post?.title} - Zach Scroggins`,
+          description: post?.description,
+          article: { publishedTime: post?._createdAt }
         }}
       />
       <main className='min-h-screen'>
         <article className='px-4 pt-24 max-w-[65ch] lg:text-xl mx-auto sm:px-6 md:px-0'>
-          <h1 className='py-px mb-8 text-4xl font-extrabold leading-10 text-transparent lg:mb-12 lg:text-6xl bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
-            {page?.title}
-          </h1>
-          <div className='flex flex-col items-start justify-between w-full md:flex-row md:items-center'>
-            <div className='flex items-center'>
-              <span className='w-6 h-6 rounded-full md:w-10 md:h-10'>
+          {imageProps && (
+            <div className='mb-8 -mx-4 -mt-6 sm:hidden'>
+              <Image
+                {...imageProps}
+                layout='responsive'
+                sizes='(max-width: 800px) 100vw, 800px'
+              />
+            </div>
+          )}
+          <header>
+            <h1 className='py-px mb-3 text-4xl font-extrabold leading-10 text-transparent lg:mb-4 lg:text-6xl bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
+              {post?.title}
+            </h1>
+            <p className='text-2xl font-bold text-gray-900 lg:text-3xl dark:text-gray-100'>
+              {post?.description}
+            </p>
+            <div className='flex items-center mt-6 mb-8'>
+              <span className='flex items-center w-12 h-12 rounded-full lg:w-14 lg:h-1w-14'>
                 <Image
                   alt='Zach Scroggins'
                   height={2778}
                   width={3023}
                   src='/images/profile-pic.jpg'
-                  className='w-6 h-6 rounded-full'
+                  className='rounded-full'
                 />
               </span>
-              <p className='ml-2 text-sm text-gray-700 md:text-base dark:text-gray-300'>
-                {'Zach Scroggins / '}
-                {format(parseISO(page?._createdAt), 'MMMM dd, yyyy')}
-              </p>
+              <div className='w-full ml-3 text-base md:text-base lg:text-lg'>
+                <p className='font-bold text-gray-800 dark:text-gray-300'>
+                  Zach Scroggins
+                </p>
+                <div className='flex text-gray-700 sm:justify-between dark:text-gray-300'>
+                  <p>{format(parseISO(post?._createdAt), 'MMM dd, yyyy')}</p>
+                  <span className='mx-1 sm:hidden'>·</span>
+                  <p className=''>{post?.readingTime?.text}</p>
+                </div>
+              </div>
             </div>
-            <p className='mt-2 text-sm text-gray-600 md:text-base dark:text-gray-400 min-w-32 md:mt-0'>
-              {page?.readingTime?.text}
-            </p>
-          </div>
-          <div className='mt-8 prose lg:prose-xl dark:prose-dark'>
+          </header>
+          {imageProps && (
+            <div className='hidden mb-8 rounded-lg sm:block'>
+              <Image
+                {...imageProps}
+                layout='responsive'
+                sizes='(max-width: 800px) 100vw, 800px'
+                className='rounded-lg'
+              />
+            </div>
+          )}
+          <div className='prose lg:prose-xl dark:prose-dark'>
             <Component components={{ Callout, Logo, a: MdxLink }} />
             <div className='py-10'>
               <Link href='/blog'>
@@ -105,56 +97,44 @@ const Post = ({
         </article>
       </main>
     </>
-  );
-};
+  )
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allSlugsQuery = groq`*[defined(slug.current)][].slug.current`;
-  const pages = await getClient().fetch(allSlugsQuery);
+  const { allPost: pages } = await sanityClient().GetAllPosts()
 
   return {
-    paths: pages.map(slug => `${slug}`),
-    fallback: 'blocking',
-  };
-};
+    paths: pages.map(page => `${page.slug.current}`),
+    fallback: 'blocking'
+  }
+}
 
 export const getStaticProps = async ({ params, preview = false }) => {
-  const slug = params?.slug as string;
+  const slug = params?.slug as string
 
-  const query = groq`*[_type == "post" && slug.current == $slug][0]`;
-  const queryParams = { slug: `/blog/${slug}` };
-  const data = await getClient(preview).fetch(query, queryParams);
+  const { allPost } = await sanityClient(preview).GetPost({
+    slug: `/blog/${slug}`,
+    preview
+  })
 
-  const x = await typedClient.getAll(
-    'post',
-    `_type == "post" && slug.current == "/blog/${slug}"`
-  );
-  console.log(x);
+  if (allPost.length < 1) return { notFound: true } as const
 
-  // const y = await typedClient.query<Post>(
-  //   `*[_type == "post"] | order(_createdAt desc)`
-  // );
-  // console.log(y);
+  const [sanityPostData] = allPost
 
-  if (!data) return { notFound: true } as const;
+  const { code, readingTime } = await prepareMDX(sanityPostData?.content)
 
-  const sanityPostData = filterDataToSingleItem(data, preview);
-
-  const { code, readingTime } = await prepareMDX(sanityPostData?.content);
-
-  const page = {
+  const post = {
     ...sanityPostData,
     code,
-    readingTime,
-  };
+    readingTime
+  }
 
   return {
     props: {
-      preview,
-      data: { page, query, queryParams },
+      post
     },
-    revalidate: 10,
-  };
-};
+    revalidate: 10
+  }
+}
 
-export default Post;
+export default Post
