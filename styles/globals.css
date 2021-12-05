@@ -60,11 +60,11 @@
 }
 
 .prose pre {
-  @apply py-4 border border-gray-200 lg:py-6 bg-gray-50 dark:border-gray-700 dark:bg-gray-900;
+  @apply py-4 border border-gray-200 md:py-6 bg-gray-50 dark:border-gray-700 dark:bg-gray-900;
 }
 
 .prose code {
-  @apply rounded-md bg-pink-50 dark:bg-pink-900 dark:bg-opacity-10 px-1.5 py-1 border border-pink-200 dark:border-pink-900 mx-1 -my-1 before:hidden after:hidden;
+  @apply rounded-md font-medium  bg-pink-50 dark:bg-pink-900 dark:bg-opacity-10 px-1.5 py-1 border border-pink-200 dark:border-pink-900 mx-1 -my-1 before:hidden after:hidden;
 }
 
 .prose pre code {
@@ -155,7 +155,7 @@ pre {
 }
 
 .rehype-code-title {
-  @apply px-4 py-3 font-mono text-sm font-bold text-gray-800 bg-gray-200 border border-b-0 border-gray-200 rounded-t-lg lg:px-6 dark:text-gray-200 dark:border-gray-700 dark:bg-gray-800;
+  @apply px-4 py-3 font-mono text-sm font-bold text-gray-800 bg-gray-200 border border-b-0 border-gray-200 rounded-t-lg md:px-6 dark:text-gray-200 dark:border-gray-700 dark:bg-gray-800;
 }
 
 .rehype-code-title + pre {
@@ -163,7 +163,7 @@ pre {
 }
 
 .highlight-line {
-  @apply block px-3 -mx-4 bg-gray-100 border-l-4 border-blue-500 lg:px-5 lg:-mx-6 dark:bg-gray-800;
+  @apply block px-3 -mx-4 bg-gray-100 border-l-4 border-blue-500 md:px-5 md:-mx-6 dark:bg-gray-800;
 }
 
 .line-number::before {

@@ -48,10 +48,10 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
             </div>
           )}
           <header>
-            <h1 className='py-px mb-3 text-4xl font-extrabold leading-10 text-transparent lg:mb-4 lg:text-6xl bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
+            <h1 className='py-px mb-3 text-4xl font-extrabold leading-10 text-transparent lg:mb-4 md:text-5xl lg:text-6xl bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
               {post?.title}
             </h1>
-            <p className='text-2xl font-bold text-gray-900 lg:text-3xl dark:text-gray-100'>
+            <p className='text-2xl font-bold text-gray-900 md:text-3xl dark:text-gray-100'>
               {post?.description}
             </p>
             <div className='flex items-center mt-6 mb-8'>
@@ -87,7 +87,7 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
               />
             </div>
           )}
-          <div className='prose lg:prose-xl dark:prose-dark'>
+          <div className='prose md:prose-lg lg:prose-xl dark:prose-dark'>
             <Component components={{ Callout, Logo, a: MdxLink }} />
             <div className='py-10'>
               <Link href='/blog'>
