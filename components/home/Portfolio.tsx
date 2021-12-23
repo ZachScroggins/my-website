@@ -1,30 +1,30 @@
-import { useState } from 'react';
+import { useState } from 'react'
 import {
   FiArrowRight,
   FiCode,
   FiNavigation,
   FiServer,
-  FiZap,
-} from 'react-icons/fi';
+  FiZap
+} from 'react-icons/fi'
 
 const isFeatured = repo => {
-  return (
-    repo.id === 266747152 || repo.id === 342325181 || repo.id === 427423678
-  );
-};
+  return repo.id === 266747152 || repo.id === 342325181 || repo.id === 427423678
+}
 
 const isNotFeatured = repo => {
   return !(
     repo.id === 266747152 ||
     repo.id === 342325181 ||
     repo.id === 427423678
-  );
-};
+  )
+}
 
 const Portfolio = ({ repos }) => {
-  const [allProjectsShowing, setAllProjectsShowing] = useState(false);
-  const featured = repos.filter(isFeatured);
-  const theRest = repos.filter(isNotFeatured);
+  const [allProjectsShowing, setAllProjectsShowing] = useState(false)
+  const featured = repos.filter(isFeatured)
+  const theRest: any[] = repos.filter(isNotFeatured)
+  theRest.push(theRest.splice(3, 1)[0])
+  theRest.push(theRest.splice(3, 1)[0])
 
   return (
     <section className='mb-16 bg-gray-100 dark:bg-gray-900'>
@@ -211,7 +211,7 @@ const Portfolio = ({ repos }) => {
                     </div>
                   </div>
                 </div>
-              );
+              )
             })}
           </div>
           <div className='my-16 text-center'>
@@ -268,7 +268,7 @@ const Portfolio = ({ repos }) => {
                         </div>
                       </a>
                     </li>
-                  );
+                  )
                 })}
                 {allProjectsShowing && (
                   <>
@@ -311,7 +311,7 @@ const Portfolio = ({ repos }) => {
                             </div>
                           </a>
                         </li>
-                      );
+                      )
                     })}
                   </>
                 )}
@@ -332,7 +332,7 @@ const Portfolio = ({ repos }) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Portfolio;
+export default Portfolio
