@@ -1,6 +1,6 @@
-# my-website
+# My Website
 
-My personal website.
+My [personal website](https://zachscroggins.com).
 
 - Portfolio
 - About Me
