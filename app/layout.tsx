@@ -1,22 +1,20 @@
-import { Geist_Mono, Nunito } from 'next/font/google';
-
 import Footer from '@/components/footer';
 import Header from '@/components/header';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toast';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import { BASE_URL } from '@/lib/constants';
+import { BASE_URL, SITE_DESCRIPTION, SITE_TITLE } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import type { Metadata, Viewport } from 'next';
+import { Geist_Mono, Nunito } from 'next/font/google';
 import './globals.css';
 
 export const viewport: Viewport = { themeColor: '#111827' };
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
-  title: 'Zach Scroggins | Full Stack TypeScript Developer',
-  description:
-    "I'm a web developer with a passion for creating exceptional, one-of-a-kind user experiences, leveraging cutting-edge technologies for better performance, higher security, and superior scalability.",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   alternates: { canonical: '/' },
   robots: { index: true, follow: true, googleBot: 'index, follow' },
   twitter: { creator: '@scroggins_zach', card: 'summary' },
@@ -24,19 +22,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IE',
     url: '/',
-    title: 'Zach Scroggins | Full Stack TypeScript Developer',
-    siteName: 'Zach Scroggins | Full Stack TypeScript Developer',
-    description:
-      "I'm a web developer with a passion for creating exceptional, one-of-a-kind user experiences, leveraging cutting-edge technologies for better performance, higher security, and superior scalability.",
+    title: SITE_TITLE,
+    siteName: SITE_TITLE,
+    description: SITE_DESCRIPTION,
   },
 };
 
 const nunito = Nunito({ subsets: ['latin'], variable: '--font-sans' });
-
-const fontMono = Geist_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-});
+const fontMono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
 export default function RootLayout({
   children,
