@@ -8,6 +8,7 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
+  SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
@@ -45,42 +46,44 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </div>
       </SidebarHeader>
       <SidebarContent className="gap-0 p-2 pt-0 font-semibold">
-        <SidebarMenuItem className="rounded-lg">
-          <SidebarMenuButton
-            render={<Link href="/#portfolio" />}
-            onClick={toggleSidebar}
-            className="flex h-full w-full items-center rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-gray-700"
-          >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-linear-to-r from-green-400 to-cyan-500 text-gray-50 dark:to-blue-500">
-              <FiAward className="h-6! w-6!" />
-            </div>
-            <div className="ml-2 text-lg text-gray-900 dark:text-gray-50">Portfolio</div>
-          </SidebarMenuButton>
-        </SidebarMenuItem>
-        <SidebarMenuItem>
-          <SidebarMenuButton
-            render={<Link href="/#about" />}
-            onClick={toggleSidebar}
-            className="flex h-full w-full items-center rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-gray-700"
-          >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary bg-linear-to-r from-green-400 to-cyan-500 text-gray-50 dark:to-blue-500">
-              <FiInfo className="h-6! w-6!" />
-            </div>
-            <div className="ml-2 text-lg text-gray-900 dark:text-gray-50">About</div>
-          </SidebarMenuButton>
-        </SidebarMenuItem>
-        <SidebarMenuItem>
-          <SidebarMenuButton
-            render={<Link href="/#contact" />}
-            onClick={toggleSidebar}
-            className="flex h-full w-full items-center rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-gray-700"
-          >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary bg-linear-to-r from-green-400 to-cyan-500 text-gray-50 dark:to-blue-500">
-              <FiMail className="h-6! w-6!" />
-            </div>
-            <div className="ml-2 text-lg text-gray-900 dark:text-gray-50">Contact</div>
-          </SidebarMenuButton>
-        </SidebarMenuItem>
+        <SidebarMenu>
+          <SidebarMenuItem className="rounded-lg">
+            <SidebarMenuButton
+              render={<Link href="/#portfolio" />}
+              onClick={toggleSidebar}
+              className="flex h-full w-full items-center rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-gray-700"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-linear-to-r from-green-400 to-cyan-500 text-gray-50 dark:to-blue-500">
+                <FiAward className="h-6! w-6!" />
+              </div>
+              <div className="ml-2 text-lg text-gray-900 dark:text-gray-50">Portfolio</div>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              render={<Link href="/#about" />}
+              onClick={toggleSidebar}
+              className="flex h-full w-full items-center rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-gray-700"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary bg-linear-to-r from-green-400 to-cyan-500 text-gray-50 dark:to-blue-500">
+                <FiInfo className="h-6! w-6!" />
+              </div>
+              <div className="ml-2 text-lg text-gray-900 dark:text-gray-50">About</div>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              render={<Link href="/#contact" />}
+              onClick={toggleSidebar}
+              className="flex h-full w-full items-center rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-gray-700"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary bg-linear-to-r from-green-400 to-cyan-500 text-gray-50 dark:to-blue-500">
+                <FiMail className="h-6! w-6!" />
+              </div>
+              <div className="ml-2 text-lg text-gray-900 dark:text-gray-50">Contact</div>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
         {/* We create a collapsible SidebarGroup for each parent.
         {data.navMain.map((item) => (
           <Collapsible
