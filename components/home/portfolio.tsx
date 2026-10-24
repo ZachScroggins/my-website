@@ -19,7 +19,7 @@ const isNotFeatured = (repo: Repo) => {
 
 export default function Portfolio({ repos }: { repos: Repos }) {
   const [allProjectsShowing, setAllProjectsShowing] = useState(false);
-  const featured = repos.filter(isFeatured);
+  const featured = repos.filter(isFeatured).reverse();
   const theRest: Repos = repos.filter(isNotFeatured);
   theRest.push(theRest.splice(3, 1)[0]);
   theRest.push(theRest.splice(3, 1)[0]);
@@ -142,6 +142,8 @@ export default function Portfolio({ repos }: { repos: Repos }) {
                 >
                   <a
                     href={repo.id === 342325181 ? repo.html_url : `${repo.homepage}`}
+                    target="_blank"
+                    rel="noopener"
                     className="h-96 overflow-hidden rounded-t-lg bg-white dark:bg-gray-900"
                   >
                     <div className="shrink-0 rounded-t-lg">
@@ -182,6 +184,8 @@ export default function Portfolio({ repos }: { repos: Repos }) {
                     >
                       <a
                         href={`${repo.homepage}`}
+                        target="_blank"
+                        rel="noopener"
                         className="relative inline-flex w-0 flex-1 items-center justify-center rounded-bl-lg py-4 text-sm font-medium text-gray-700 hover:text-gray-500 focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
                       >
                         <FiNavigation className="inline align-middle text-lg" />
@@ -193,6 +197,8 @@ export default function Portfolio({ repos }: { repos: Repos }) {
                     >
                       <a
                         href={repo.html_url}
+                        target="_blank"
+                        rel="noopener"
                         className={`${
                           repo.id === 342325181 ? 'rounded-bl-lg' : ''
                         } relative inline-flex w-0 flex-1 items-center justify-center rounded-br-lg py-4 text-sm font-medium text-gray-700 hover:text-gray-500 focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:outline-none dark:text-gray-400 dark:hover:text-gray-100`}
@@ -223,7 +229,12 @@ export default function Portfolio({ repos }: { repos: Repos }) {
                 {theRest.slice(0, 6).map((repo) => {
                   return (
                     <li key={repo.id}>
-                      <a href={repo.html_url} className="block hover:bg-gray-50 dark:bg-gray-900">
+                      <a
+                        href={repo.html_url}
+                        target="_blank"
+                        rel="noopener"
+                        className="block hover:bg-gray-50 dark:bg-gray-900"
+                      >
                         <div className="flex items-center px-4 py-4 sm:px-6">
                           <div className="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
                             <div>
