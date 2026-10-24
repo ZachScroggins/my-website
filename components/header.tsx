@@ -75,9 +75,9 @@ export default function Header({
                   href="/Zach-Scroggins-Resume.pdf"
                   target="_blank"
                   rel="noopener"
-                  className="bg-opacity-90 hover:bg-opacity-100 hidden items-center justify-center rounded-md bg-linear-to-r from-green-400 to-blue-500 p-px font-medium md:inline-flex"
+                  className="bg-opacity-90 hover:bg-opacity-100 mr-0 hidden items-center justify-center rounded-sm bg-linear-to-r from-green-400 to-blue-500 p-px font-medium md:inline-flex"
                 >
-                  <span className="hover:bg-opacity-95 rounded-md bg-gray-900 px-2 py-1">
+                  <span className="hover:bg-opacity-95 rounded-sm bg-gray-900 px-2 py-1">
                     <span className="bg-linear-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
                       Resume
                     </span>
