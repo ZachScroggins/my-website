@@ -15,7 +15,9 @@ export function ThemeToggle() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<button className="flex items-center justify-center p-2" />}>
+      <DropdownMenuTrigger
+        render={<button type="button" className="flex items-center justify-center rounded" />}
+      >
         <FiMoon className="h-6 w-6 text-gray-400 hover:text-gray-100 dark:hidden" />
         <FiSun className="hidden h-6 w-6 text-gray-400 hover:text-gray-100 dark:inline" />
         <span className="sr-only">Toggle theme</span>

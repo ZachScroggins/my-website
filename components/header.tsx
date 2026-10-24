@@ -1,7 +1,8 @@
 import { AppSidebar } from '@/components/app-sidebar';
 import Logo from '@/components/logo';
+import SidebarToggle from '@/components/sidebar-toggle';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 import { GITHUB_URL, LINKEDIN_URL } from '@/lib/constants';
 import Link from 'next/link';
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
@@ -67,8 +68,9 @@ export default function Header({
                 >
                   <FiGithub className="h-6 w-6 rounded text-gray-400 hover:text-gray-100" />
                 </a>
-                <ThemeToggle />
-                {/* <ThemeChanger className="rounded p-2 text-gray-400 hover:text-gray-100" /> */}
+                <div className="flex items-center justify-center rounded p-2">
+                  <ThemeToggle />
+                </div>
                 <a
                   href="/Zach-Scroggins-Resume.pdf"
                   target="_blank"
@@ -81,7 +83,7 @@ export default function Header({
                     </span>
                   </span>
                 </a>
-                <SidebarTrigger className="md:hidden" />
+                <SidebarToggle />
               </div>
             </nav>
           </div>
