@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin '@tailwindcss/forms';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
 
@@ -59,15 +60,15 @@
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: oklch(78.9% 0.154 211.53);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(87.2% 0.01 258.338);
+  --ring: oklch(78.9% 0.154 211.53);
   --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
+  --chart-2: oklch(78.9% 0.154 211.53);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
@@ -79,7 +80,7 @@
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(87.2% 0.01 258.338);
+  --sidebar-ring: oklch(78.9% 0.154 211.53);
 }
 
 .dark {
@@ -98,11 +99,11 @@
   --accent: oklch(44.6% 0.03 256.802); /* was oklch(269 0 0) */
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
+  --border: oklch(55.1% 0.027 264.364);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --ring: oklch(78.9% 0.154 211.53);
   --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
+  --chart-2: oklch(78.9% 0.154 211.53);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(44.6% 0.03 256.802);
@@ -112,23 +113,19 @@
   --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent: oklch(44.6% 0.03 256.802);
   --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-border: oklch(55.1% 0.027 264.364);
+  --sidebar-ring: oklch(78.9% 0.154 211.53);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring;
   }
   *[id] {
     @apply scroll-mt-16;
   }
   body {
     @apply bg-background text-foreground;
-  }
-  button:not(:disabled),
-  [role='button']:not(:disabled) {
-    cursor: pointer;
   }
   html {
     @apply font-sans;
