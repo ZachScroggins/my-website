@@ -10,7 +10,6 @@ import { Geist_Mono, Nunito } from 'next/font/google';
 import './globals.css';
 
 export const viewport: Viewport = { themeColor: '#111827' };
-
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: SITE_TITLE,
