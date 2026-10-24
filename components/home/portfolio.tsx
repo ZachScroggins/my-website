@@ -1,19 +1,31 @@
 'use client';
 
+import {
+  BIG_AGI_REPO_ID,
+  MY_WEBSITE_REPO_ID,
+  NASA_API_EXPLORER_REPO_ID,
+  UNT_CSCE_CLUB_REPO_ID,
+} from '@/lib/constants';
 import { Repo, Repos } from '@/lib/types';
 import { useState } from 'react';
 import { FiCode, FiNavigation, FiServer, FiZap } from 'react-icons/fi';
 
+const isMyWebsite = (repo: Repo) => {
+  return repo.id === MY_WEBSITE_REPO_ID;
+};
+
 const isFeatured = (repo: Repo) => {
-  return repo.id === 266747152 || repo.id === 342325181 || repo.id === 427423678;
+  return (
+    isMyWebsite(repo) || repo.id === NASA_API_EXPLORER_REPO_ID || repo.id === UNT_CSCE_CLUB_REPO_ID
+  );
 };
 
 const isNotFeatured = (repo: Repo) => {
   return !(
-    repo.id === 266747152 ||
-    repo.id === 342325181 ||
-    repo.id === 427423678 ||
-    repo.id === 776368685
+    isMyWebsite(repo) ||
+    repo.id === NASA_API_EXPLORER_REPO_ID ||
+    repo.id === UNT_CSCE_CLUB_REPO_ID ||
+    repo.id === BIG_AGI_REPO_ID
   );
 };
 
@@ -141,14 +153,18 @@ export default function Portfolio({ repos }: { repos: Repos }) {
                   className="flex cursor-pointer flex-col rounded-lg border border-transparent shadow-lg filter focus-within:ring-2 focus-within:ring-teal-400 focus-within:ring-offset-2 hover:shadow-2xl dark:border-gray-700 dark:hover:drop-shadow-2xl"
                 >
                   <a
-                    href={repo.id === 342325181 ? repo.html_url : `${repo.homepage}`}
+                    href={isMyWebsite(repo) ? repo.html_url : `${repo.homepage}`}
                     target="_blank"
                     rel="noopener"
                     className="h-96 overflow-hidden rounded-t-lg bg-white dark:bg-gray-900"
                   >
                     <div className="shrink-0 rounded-t-lg">
                       <img
-                        src={`https://raw.githubusercontent.com/ZachScroggins/${repo.name}/${repo.default_branch}/public/images/og-image.png`}
+                        src={
+                          isMyWebsite(repo)
+                            ? '/opengraph-image.png'
+                            : `https://raw.githubusercontent.com/ZachScroggins/${repo.name}/${repo.default_branch}/public/images/og-image.png`
+                        }
                         alt={`${repo.name} screenshot`}
                         width={1200}
                         height={630}
@@ -174,12 +190,12 @@ export default function Portfolio({ repos }: { repos: Repos }) {
                   </a>
                   <div
                     className={`flex divide-gray-200 rounded-b-lg border-t border-gray-200 bg-white dark:divide-gray-700 dark:border-gray-700 dark:bg-gray-900 ${
-                      repo.id === 342325181 ? '' : 'divide-x'
+                      isMyWebsite(repo) ? '' : 'divide-x'
                     }`}
                   >
                     <div
                       className={`flex w-0 flex-1 rounded-bl-lg ${
-                        repo.id === 342325181 ? 'hidden' : ''
+                        isMyWebsite(repo) ? 'hidden' : ''
                       }`}
                     >
                       <a
@@ -192,15 +208,13 @@ export default function Portfolio({ repos }: { repos: Repos }) {
                         <span className="ml-3">Visit site</span>
                       </a>
                     </div>
-                    <div
-                      className={`flex w-0 flex-1 ${repo.id === 342325181 ? 'rounded-b-lg' : ''}`}
-                    >
+                    <div className={`flex w-0 flex-1 ${isMyWebsite(repo) ? 'rounded-b-lg' : ''}`}>
                       <a
                         href={repo.html_url}
                         target="_blank"
                         rel="noopener"
                         className={`${
-                          repo.id === 342325181 ? 'rounded-bl-lg' : ''
+                          isMyWebsite(repo) ? 'rounded-bl-lg' : ''
                         } relative inline-flex w-0 flex-1 items-center justify-center rounded-br-lg py-4 text-sm font-medium text-gray-700 hover:text-gray-500 focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:outline-none dark:text-gray-400 dark:hover:text-gray-100`}
                       >
                         <FiCode className="inline align-middle text-lg" />
