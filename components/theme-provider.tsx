@@ -1,9 +1,9 @@
 'use client';
 
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import * as React from 'react';
+import type { ComponentProps } from 'react';
 
-function ThemeProvider({ children, ...props }: React.ComponentProps<typeof NextThemesProvider>) {
+export function ThemeProvider(props: ComponentProps<typeof NextThemesProvider>) {
   return (
     <NextThemesProvider
       attribute="class"
@@ -11,10 +11,6 @@ function ThemeProvider({ children, ...props }: React.ComponentProps<typeof NextT
       enableSystem
       disableTransitionOnChange
       {...props}
-    >
-      {children}
-    </NextThemesProvider>
+    />
   );
 }
-
-export { ThemeProvider };

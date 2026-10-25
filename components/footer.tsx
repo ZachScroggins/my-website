@@ -1,27 +1,7 @@
-import {
-  FACEBOOK_URL,
-  GITHUB_URL,
-  INSTAGRAM_URL,
-  LINKEDIN_URL,
-  TWITTER_URL,
-} from '@/lib/constants';
+import { NAV_LINKS, SOCIAL_LINKS } from '@/lib/links';
 import Link from 'next/link';
-import { FiFacebook, FiGithub, FiInstagram, FiLinkedin, FiTwitter } from 'react-icons/fi';
 
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/#portfolio', label: 'Portfolio' },
-  { href: '/#about', label: 'About' },
-  { href: '/#contact', label: 'Contact' },
-];
-
-const socialLinks = [
-  { href: GITHUB_URL, label: 'GitHub', Icon: FiGithub },
-  { href: LINKEDIN_URL, label: 'LinkedIn', Icon: FiLinkedin },
-  { href: TWITTER_URL, label: 'Twitter', Icon: FiTwitter },
-  { href: FACEBOOK_URL, label: 'Facebook', Icon: FiFacebook },
-  { href: INSTAGRAM_URL, label: 'Instagram', Icon: FiInstagram },
-];
+const footerNavLinks = [{ href: '/', label: 'Home' }, ...NAV_LINKS];
 
 export default function Footer() {
   return (
@@ -30,7 +10,7 @@ export default function Footer() {
         <div className="pt-6 dark:border-t">
           <nav aria-label="Footer">
             <ul className="-my-2 flex flex-wrap justify-center">
-              {navLinks.map(({ href, label }) => (
+              {footerNavLinks.map(({ href, label }) => (
                 <li key={href}>
                   <Link
                     href={href}
@@ -43,7 +23,7 @@ export default function Footer() {
             </ul>
           </nav>
           <ul className="mt-8 flex justify-center gap-6">
-            {socialLinks.map(({ href, label, Icon }) => (
+            {Object.values(SOCIAL_LINKS).map(({ href, label, Icon }) => (
               <li key={label}>
                 <a
                   href={href}

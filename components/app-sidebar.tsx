@@ -3,6 +3,7 @@
 import type { ComponentProps } from 'react';
 
 import Logo from '@/components/logo';
+import { ThemeToggle } from '@/components/theme-toggle';
 import {
   Sidebar,
   SidebarContent,
@@ -13,30 +14,11 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/components/ui/sidebar';
-import { GITHUB_URL, LINKEDIN_URL, TWITTER_URL } from '@/lib/constants';
+import { NAV_LINKS, SOCIAL_LINKS } from '@/lib/links';
 import Link from 'next/link';
-import {
-  FiAward,
-  FiDownload,
-  FiGithub,
-  FiInfo,
-  FiLinkedin,
-  FiMail,
-  FiTwitter,
-} from 'react-icons/fi';
-import { ThemeToggle } from './theme-toggle';
+import { FiDownload } from 'react-icons/fi';
 
-const navLinks = [
-  { href: '/#portfolio', label: 'Portfolio', Icon: FiAward },
-  { href: '/#about', label: 'About', Icon: FiInfo },
-  { href: '/#contact', label: 'Contact', Icon: FiMail },
-];
-
-const socialLinks = [
-  { href: GITHUB_URL, label: 'GitHub', Icon: FiGithub },
-  { href: LINKEDIN_URL, label: 'LinkedIn', Icon: FiLinkedin },
-  { href: TWITTER_URL, label: 'Twitter', Icon: FiTwitter },
-];
+const sidebarSocialLinks = [SOCIAL_LINKS.github, SOCIAL_LINKS.linkedin, SOCIAL_LINKS.twitter];
 
 export function AppSidebar(props: ComponentProps<typeof Sidebar>) {
   const { toggleSidebar } = useSidebar();
@@ -55,7 +37,7 @@ export function AppSidebar(props: ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent className="p-2 pt-0 font-semibold">
         <SidebarMenu>
-          {navLinks.map(({ href, label, Icon }) => (
+          {NAV_LINKS.map(({ href, label, Icon }) => (
             <SidebarMenuItem key={href}>
               <SidebarMenuButton
                 render={<Link href={href} />}
@@ -81,7 +63,7 @@ export function AppSidebar(props: ComponentProps<typeof Sidebar>) {
         </a>
         <div className="mt-6 flex justify-center gap-8">
           <ThemeToggle />
-          {socialLinks.map(({ href, label, Icon }) => (
+          {sidebarSocialLinks.map(({ href, label, Icon }) => (
             <a
               key={label}
               href={href}

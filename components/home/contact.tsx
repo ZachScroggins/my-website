@@ -8,37 +8,38 @@ const fieldClass =
   'block w-full rounded-md border-input px-4 py-3 shadow-sm placeholder:text-gray-500 focus:border-ring focus:ring-ring dark:bg-background dark:text-gray-100 dark:placeholder:text-muted-foreground';
 const labelClass = 'mb-2 block text-muted-foreground dark:text-gray-100';
 
+type FormState = { key: number };
+
+async function submitMessage(prev: FormState, formData: FormData): Promise<FormState> {
+  const name = String(formData.get('full_name'));
+  const email = String(formData.get('email'));
+  const phone = String(formData.get('phone'));
+  const message = String(formData.get('message'));
+  const honeyPot = String(formData.get('contact_honey'));
+  if (honeyPot || !name.trim() || !email.trim() || !message.trim()) return prev;
+
+  const result = await sendMessage({ name, email, phone, message });
+
+  if (!result.success) {
+    toast.add({
+      type: 'error',
+      title: 'Error sending message',
+      description: result.message || 'Oops... Something went wrong. Please try again later.',
+    });
+    return prev;
+  }
+
+  toast.add({
+    type: 'success',
+    title: 'Message sent',
+    description:
+      'Thank you! I have received your message and will get back to you as soon as possible.',
+  });
+  return { key: prev.key + 1 };
+}
+
 export default function Contact() {
-  const [{ key }, formAction, isPending] = useActionState(
-    async (prev: { key: number }, formData: FormData) => {
-      const name = String(formData.get('full_name'));
-      const email = String(formData.get('email'));
-      const phone = String(formData.get('phone'));
-      const message = String(formData.get('message'));
-      const honeyPot = String(formData.get('contact_honey'));
-      if (honeyPot || !name.trim() || !email.trim() || !message.trim()) return prev;
-
-      const data = await sendMessage({ name, email, phone, message });
-
-      if (!data.success) {
-        toast.add({
-          type: 'error',
-          title: 'Error sending message',
-          description: data.message || 'Oops... Something went wrong. Please try again later.',
-        });
-        return prev;
-      }
-
-      toast.add({
-        type: 'success',
-        title: 'Message sent',
-        description:
-          'Thank you! I have received your message and will get back to you as soon as possible.',
-      });
-      return { key: prev.key + 1 };
-    },
-    { key: 0 }
-  );
+  const [{ key }, formAction, isPending] = useActionState(submitMessage, { key: 0 });
 
   return (
     <section className="relative bg-muted lg:mt-16 dark:bg-background">

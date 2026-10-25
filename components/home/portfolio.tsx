@@ -1,33 +1,18 @@
-'use client';
-
 import {
   BIG_AGI_REPO_ID,
   MY_WEBSITE_REPO_ID,
   NASA_API_EXPLORER_REPO_ID,
   UNT_CSCE_CLUB_REPO_ID,
 } from '@/lib/constants';
-import { Repo, Repos } from '@/lib/types';
-import { useState } from 'react';
+import type { Repo } from '@/lib/types';
 import { FiCode, FiNavigation, FiServer, FiZap } from 'react-icons/fi';
+import OtherWork from './other-work';
 
-const isMyWebsite = (repo: Repo) => {
-  return repo.id === MY_WEBSITE_REPO_ID;
-};
-
-const isFeatured = (repo: Repo) => {
-  return (
-    isMyWebsite(repo) || repo.id === NASA_API_EXPLORER_REPO_ID || repo.id === UNT_CSCE_CLUB_REPO_ID
-  );
-};
-
-const isNotFeatured = (repo: Repo) => {
-  return !(
-    isMyWebsite(repo) ||
-    repo.id === NASA_API_EXPLORER_REPO_ID ||
-    repo.id === UNT_CSCE_CLUB_REPO_ID ||
-    repo.id === BIG_AGI_REPO_ID
-  );
-};
+const FEATURED_REPO_IDS = new Set<Repo['id']>([
+  MY_WEBSITE_REPO_ID,
+  NASA_API_EXPLORER_REPO_ID,
+  UNT_CSCE_CLUB_REPO_ID,
+]);
 
 const features = [
   {
@@ -48,7 +33,7 @@ const footerLinkClass =
   'inline-flex flex-1 items-center justify-center gap-3 py-4 text-sm font-medium text-gray-700 first:rounded-bl-lg last:rounded-br-lg hover:text-gray-500 focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:outline-hidden dark:text-gray-400 dark:hover:text-gray-100';
 
 function FeaturedProject({ repo }: { repo: Repo }) {
-  const isMine = isMyWebsite(repo);
+  const isMine = repo.id === MY_WEBSITE_REPO_ID;
   const homepage = repo.homepage ?? repo.html_url;
 
   return (
@@ -99,12 +84,13 @@ function FeaturedProject({ repo }: { repo: Repo }) {
   );
 }
 
-export default function Portfolio({ repos }: { repos: Repos }) {
-  const [allProjectsShowing, setAllProjectsShowing] = useState(false);
-  const featured = repos.filter(isFeatured).reverse();
-  const theRest: Repos = repos.filter(isNotFeatured);
-  theRest.push(theRest.splice(3, 1)[0]);
-  theRest.push(theRest.splice(3, 1)[0]);
+export default function Portfolio({ repos }: { repos: Repo[] }) {
+  const featured = repos.filter((repo) => FEATURED_REPO_IDS.has(repo.id)).reverse();
+  const others = repos.filter(
+    (repo) => !FEATURED_REPO_IDS.has(repo.id) && repo.id !== BIG_AGI_REPO_ID
+  );
+  // Move the 4th and 5th repos to the end of the list
+  others.push(...others.splice(3, 2));
 
   return (
     <section className="mb-16 bg-muted dark:bg-background">
@@ -194,50 +180,15 @@ export default function Portfolio({ repos }: { repos: Repos }) {
             improving my skills and enjoy learning new technologies through firsthand experience.
           </p>
         </div>
-        <div className="mx-auto max-w-5xl px-4 xl:px-0">
-          <ul className="divide-y divide-border overflow-hidden rounded-lg bg-background shadow-sm dark:rounded-none">
-            {(allProjectsShowing ? theRest : theRest.slice(0, 6)).map((repo) => (
-              <li key={repo.id}>
-                <a
-                  href={repo.html_url}
-                  target="_blank"
-                  rel="noopener"
-                  className="flex items-center px-4 py-4 hover:bg-gray-50 sm:px-6 dark:hover:bg-background"
-                >
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-medium text-green-400">{repo.language}</p>
-                    <h4 className="mt-2 text-lg font-bold text-foreground">{repo.name}</h4>
-                    <p className="mt-2 text-gray-500 dark:text-muted-foreground">
-                      {repo.description}
-                    </p>
-                  </div>
-                  <svg
-                    className="ml-5 size-5 shrink-0 text-gray-400"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </a>
-              </li>
-            ))}
-          </ul>
-          {!allProjectsShowing && (
-            <button
-              type="button"
-              className="mt-6 flex w-full items-center justify-center rounded-md bg-linear-to-r from-green-400 to-blue-500 px-4 py-3 font-medium text-white shadow-sm hover:brightness-110"
-              onClick={() => setAllProjectsShowing(true)}
-            >
-              View all
-            </button>
-          )}
-        </div>
+        <OtherWork
+          repos={others.map(({ id, html_url, language, name, description }) => ({
+            id,
+            html_url,
+            language,
+            name,
+            description,
+          }))}
+        />
       </div>
     </section>
   );

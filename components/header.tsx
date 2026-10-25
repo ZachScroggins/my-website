@@ -3,20 +3,10 @@ import Logo from '@/components/logo';
 import SidebarToggle from '@/components/sidebar-toggle';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
-import { GITHUB_URL, LINKEDIN_URL } from '@/lib/constants';
+import { NAV_LINKS, SOCIAL_LINKS } from '@/lib/links';
 import Link from 'next/link';
-import { FiGithub, FiLinkedin } from 'react-icons/fi';
 
-const navLinks = [
-  { href: '/#portfolio', label: 'Portfolio' },
-  { href: '/#about', label: 'About' },
-  { href: '/#contact', label: 'Contact' },
-];
-
-const socialLinks = [
-  { href: LINKEDIN_URL, label: 'LinkedIn', Icon: FiLinkedin },
-  { href: GITHUB_URL, label: 'GitHub', Icon: FiGithub },
-];
+const headerSocialLinks = [SOCIAL_LINKS.linkedin, SOCIAL_LINKS.github];
 
 export default function Header({
   children,
@@ -38,7 +28,7 @@ export default function Header({
                 <Logo className="size-10" />
               </Link>
               <ul className="hidden gap-8 md:ml-10 md:flex">
-                {navLinks.map(({ href, label }) => (
+                {NAV_LINKS.map(({ href, label }) => (
                   <li key={href}>
                     <Link
                       href={href}
@@ -51,7 +41,7 @@ export default function Header({
               </ul>
             </div>
             <div className="-mr-2 flex items-center gap-3 md:mr-0">
-              {socialLinks.map(({ href, label, Icon }) => (
+              {headerSocialLinks.map(({ href, label, Icon }) => (
                 <a
                   key={label}
                   href={href}

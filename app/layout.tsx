@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 const nunito = Nunito({ subsets: ['latin'], variable: '--font-sans' });
-const fontMono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono' });
+const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
 export default function RootLayout({
   children,
@@ -38,7 +38,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${nunito.variable} ${fontMono.variable} font-sans antialiased`}
+      className={`${nunito.variable} ${geistMono.variable} font-sans antialiased`}
     >
       <body>
         <ThemeProvider>
