@@ -1,9 +1,18 @@
 import { NAV_LINKS, SOCIAL_LINKS } from '@/lib/links';
+import { cacheLife } from 'next/cache';
 import Link from 'next/link';
+
+async function getYear() {
+  'use cache';
+  cacheLife('days');
+  return new Date().getFullYear();
+}
 
 const footerNavLinks = [{ href: '/', label: 'Home' }, ...NAV_LINKS];
 
-export default function Footer() {
+export default async function Footer() {
+  const year = await getYear();
+
   return (
     <footer className="bg-gray-900">
       <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
@@ -41,7 +50,7 @@ export default function Footer() {
             href="/"
             className="mt-8 block text-center text-base text-gray-400 hover:text-gray-100"
           >
-            © {new Date().getFullYear()} Zach Scroggins
+            © {year} Zach Scroggins
           </Link>
         </div>
       </div>

@@ -1,24 +1,34 @@
 'use server';
 
+import { contactSchema, type ContactValues } from '@/lib/schemas';
 import { BirdClient } from '@messagebird/sdk';
+import * as z from 'zod';
 
 const bird = new BirdClient({ apiKey: process.env.BIRD_API_KEY! });
 
-type ContactMessage = {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-};
+type SendMessageResult =
+  | { success: true }
+  | {
+      success: false;
+      message: string;
+      fieldErrors?: Partial<Record<keyof ContactValues, string>>;
+    };
 
-type SendMessageResult = { success: true } | { success: false; message: string };
+export async function sendMessage(values: ContactValues): Promise<SendMessageResult> {
+  const parsed = contactSchema.safeParse(values);
 
-export async function sendMessage({
-  name,
-  email,
-  phone,
-  message,
-}: ContactMessage): Promise<SendMessageResult> {
+  if (!parsed.success) {
+    const fieldErrors = Object.fromEntries(
+      Object.entries(z.flattenError(parsed.error).fieldErrors).map(([field, errors]) => [
+        field,
+        errors?.[0],
+      ])
+    );
+    return { success: false, message: 'Please correct the highlighted fields.', fieldErrors };
+  }
+
+  const { name, email, phone, message } = parsed.data;
+
   const { error } = await bird.email
     .send({
       from: { email: 'contact-form@zachscroggins.com', name: 'Contact Form' },
