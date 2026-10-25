@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   twitter: { creator: '@scroggins_zach', card: 'summary' },
   openGraph: {
     type: 'website',
-    locale: 'en_IE',
     url: '/',
     title: SITE_TITLE,
     siteName: SITE_TITLE,
