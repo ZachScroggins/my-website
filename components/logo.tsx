@@ -1,19 +1,17 @@
-import { SVGProps } from 'react';
+import { SVGProps, useId } from 'react';
 
 export default function Logo(
   props: Omit<SVGProps<SVGSVGElement>, 'xmlns' | 'xmlnsXlink' | 'viewBox'>
 ) {
+  const id = useId();
+  const gradientA = `${id}-a`;
+  const gradientB = `${id}-b`;
+
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-      viewBox="0 0 200 200"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" {...props}>
       <defs>
         <linearGradient
-          id="a"
-          data-name="New swatch 3"
+          id={gradientA}
           x1={113.78045}
           y1={-12.78693}
           x2={113.78045}
@@ -24,21 +22,21 @@ export default function Logo(
           <stop offset={1} stopColor="#38bce8" />
         </linearGradient>
         <linearGradient
-          id="b"
+          id={gradientB}
           x1={86.22054}
           y1={37.21307}
           x2={86.22054}
           y2={214.95851}
-          xlinkHref="#a"
+          href={`#${gradientA}`}
         />
       </defs>
       <path
         d="M126.424 30a17.731 17.731 0 0115.624 9.226 17.23 17.23 0 01-.88 17.931L78.379 150l109.497-.002A98.427 98.427 0 00200 116.895l-44.738 22.05a10.223 10.223 0 01-13.61-4.473 9.933 9.933 0 014.537-13.416L188.91 100l-42.721-21.056a9.933 9.933 0 01-4.538-13.416 10.21 10.21 0 0113.61-4.472L200 83.106C191.854 35.923 150.186 0 100 0a101.86 101.86 0 00-72.44 30z"
-        fill="url(#a)"
+        fill={`url(#${gradientA})`}
       />
       <path
         d="M73.577 170a17.731 17.731 0 01-15.624-9.226 17.23 17.23 0 01.88-17.931L121.623 50H12.128A98.43 98.43 0 000 83.106l44.74-22.05a10.213 10.213 0 0113.61 4.472 9.933 9.933 0 01-4.537 13.416L11.09 100l42.722 21.056a9.933 9.933 0 014.537 13.416 10.223 10.223 0 01-13.61 4.472L0 116.894C8.145 164.076 49.814 200 100 200a101.859 101.859 0 0072.441-30.002z"
-        fill="url(#b)"
+        fill={`url(#${gradientB})`}
       />
     </svg>
   );

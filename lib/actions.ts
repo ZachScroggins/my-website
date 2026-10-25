@@ -4,31 +4,27 @@ import { BirdClient } from '@messagebird/sdk';
 
 const bird = new BirdClient({ apiKey: process.env.BIRD_API_KEY! });
 
+type ContactMessage = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+};
+
+type SendMessageResult = { success: true } | { success: false; message: string };
+
 export async function sendMessage({
   name,
   email,
   phone,
   message,
-}: {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-}) {
+}: ContactMessage): Promise<SendMessageResult> {
   const { error } = await bird.email
     .send({
       from: { email: 'contact-form@zachscroggins.com', name: 'Contact Form' },
-      to: [`${process.env.MY_EMAIL_ADDRESS}`],
+      to: [process.env.MY_EMAIL_ADDRESS!],
       subject: 'New message from contact form',
-      text: `
-Name: ${name}
-    
-Email: ${email}
-    
-Phone: ${phone}
-          
-${message}
-        `,
+      text: [`Name: ${name}`, `Email: ${email}`, `Phone: ${phone}`, message].join('\n\n'),
     })
     .safe();
 

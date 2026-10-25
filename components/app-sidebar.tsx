@@ -1,8 +1,9 @@
 'use client';
 
-import * as React from 'react';
+import type { ComponentProps } from 'react';
 
 import Logo from '@/components/logo';
+import { ThemeToggle } from '@/components/theme-toggle';
 import {
   Sidebar,
   SidebarContent,
@@ -13,117 +14,68 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/components/ui/sidebar';
-import { GITHUB_URL, LINKEDIN_URL, TWITTER_URL } from '@/lib/constants';
+import { NAV_LINKS, SOCIAL_LINKS } from '@/lib/links';
 import Link from 'next/link';
-import {
-  FiAward,
-  FiDownload,
-  FiGithub,
-  FiInfo,
-  FiLinkedin,
-  FiMail,
-  FiTwitter,
-} from 'react-icons/fi';
-import { ThemeToggle } from './theme-toggle';
+import { FiDownload } from 'react-icons/fi';
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+const sidebarSocialLinks = [SOCIAL_LINKS.github, SOCIAL_LINKS.linkedin, SOCIAL_LINKS.twitter];
+
+export function AppSidebar(props: ComponentProps<typeof Sidebar>) {
   const { toggleSidebar } = useSidebar();
 
   return (
     <Sidebar {...props}>
-      <SidebarHeader className="gap-0 py-0 pt-2">
-        <div className="flex items-center justify-between">
-          <Link
-            href="/"
-            onClick={toggleSidebar}
-            className="flex w-full items-center rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-gray-700"
-          >
-            <Logo className="h-9 w-9" />
-            <span className="ml-4 text-2xl font-extrabold text-gray-900 dark:text-gray-50">
-              Zach Scroggins
-            </span>
-          </Link>
-        </div>
+      <SidebarHeader className="pt-2 pb-0">
+        <Link
+          href="/"
+          onClick={toggleSidebar}
+          className="flex items-center gap-4 rounded-lg p-3 hover:bg-sidebar-accent"
+        >
+          <Logo className="size-9" />
+          <span className="text-2xl font-extrabold text-sidebar-foreground">Zach Scroggins</span>
+        </Link>
       </SidebarHeader>
-      <SidebarContent className="gap-0 p-2 pt-0 font-semibold">
+      <SidebarContent className="p-2 pt-0 font-semibold">
         <SidebarMenu>
-          <SidebarMenuItem className="rounded-lg">
-            <SidebarMenuButton
-              render={<Link href="/#portfolio" />}
-              onClick={toggleSidebar}
-              className="flex h-full w-full items-center rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-gray-700"
-            >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-linear-to-r from-green-400 to-cyan-500 text-gray-50 dark:to-blue-500">
-                <FiAward className="h-6! w-6!" />
-              </div>
-              <div className="ml-2 text-lg text-gray-900 dark:text-gray-50">Portfolio</div>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              render={<Link href="/#about" />}
-              onClick={toggleSidebar}
-              className="flex h-full w-full items-center rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-gray-700"
-            >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary bg-linear-to-r from-green-400 to-cyan-500 text-gray-50 dark:to-blue-500">
-                <FiInfo className="h-6! w-6!" />
-              </div>
-              <div className="ml-2 text-lg text-gray-900 dark:text-gray-50">About</div>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              render={<Link href="/#contact" />}
-              onClick={toggleSidebar}
-              className="flex h-full w-full items-center rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-gray-700"
-            >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary bg-linear-to-r from-green-400 to-cyan-500 text-gray-50 dark:to-blue-500">
-                <FiMail className="h-6! w-6!" />
-              </div>
-              <div className="ml-2 text-lg text-gray-900 dark:text-gray-50">Contact</div>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
+          {NAV_LINKS.map(({ href, label, Icon }) => (
+            <SidebarMenuItem key={href}>
+              <SidebarMenuButton
+                render={<Link href={href} />}
+                onClick={toggleSidebar}
+                className="h-full gap-4 rounded-lg p-3"
+              >
+                <span className="flex size-10 shrink-0 items-center justify-center rounded-md bg-linear-to-r from-green-400 to-cyan-500 text-gray-50 dark:to-blue-500">
+                  <Icon className="size-6!" aria-hidden="true" />
+                </span>
+                <span className="text-lg">{label}</span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          ))}
         </SidebarMenu>
       </SidebarContent>
       <SidebarFooter className="shrink-0 border-t border-gray-700 px-5 py-6">
         <a
           href="/Zach-Scroggins-Resume.pdf"
-          className="flex w-full items-center justify-center rounded-md bg-linear-to-r from-green-400 to-blue-500 px-4 py-2 text-base font-medium text-white shadow-sm"
+          className="flex items-center justify-center gap-2 rounded-md bg-linear-to-r from-green-400 to-blue-500 px-4 py-2 text-base font-medium text-white shadow-sm"
         >
-          <FiDownload className="mr-2" />
+          <FiDownload aria-hidden="true" />
           Download Resume
         </a>
-        <span className="mt-6 flex justify-center space-x-8 text-center text-base font-medium text-gray-500">
+        <div className="mt-6 flex justify-center gap-8">
           <ThemeToggle />
-          {/* <ThemeToggle className="rounded text-gray-500 hover:text-gray-500 dark:text-gray-300" /> */}
-          <a
-            href={GITHUB_URL}
-            target="_blank"
-            rel="noopener"
-            title="GitHub Profile"
-            className="rounded text-gray-400 hover:text-gray-500"
-          >
-            <FiGithub className="h-6 w-6" aria-hidden="true" />
-          </a>
-          <a
-            href={LINKEDIN_URL}
-            target="_blank"
-            rel="noopener"
-            title="LinkedIn Profile"
-            className="rounded text-gray-400 hover:text-gray-500"
-          >
-            <FiLinkedin className="h-6 w-6" aria-hidden="true" />
-          </a>
-          <a
-            href={TWITTER_URL}
-            target="_blank"
-            rel="noopener"
-            title="Twitter Profile"
-            className="rounded text-gray-400 hover:text-gray-500"
-          >
-            <FiTwitter className="h-6 w-6" aria-hidden="true" />
-          </a>
-        </span>
+          {sidebarSocialLinks.map(({ href, label, Icon }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener"
+              className="rounded text-gray-400 hover:text-gray-500"
+            >
+              <span className="sr-only">{label}</span>
+              <Icon className="size-6" aria-hidden="true" />
+            </a>
+          ))}
+        </div>
       </SidebarFooter>
     </Sidebar>
   );
