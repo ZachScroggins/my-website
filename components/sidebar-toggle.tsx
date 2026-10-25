@@ -10,9 +10,10 @@ export default function SidebarToggle() {
     <button
       type="button"
       onClick={toggleSidebar}
-      className="flex items-center justify-center rounded p-2 md:hidden"
+      className="rounded p-2 text-gray-400 hover:text-gray-100 md:hidden"
     >
-      <FiMenu className="h-6 w-6 rounded text-gray-400 hover:text-gray-100" />
+      <span className="sr-only">Toggle menu</span>
+      <FiMenu className="size-6" aria-hidden="true" />
     </button>
   );
 }

@@ -8,100 +8,62 @@ import {
 import Link from 'next/link';
 import { FiFacebook, FiGithub, FiInstagram, FiLinkedin, FiTwitter } from 'react-icons/fi';
 
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/#portfolio', label: 'Portfolio' },
+  { href: '/#about', label: 'About' },
+  { href: '/#contact', label: 'Contact' },
+];
+
+const socialLinks = [
+  { href: GITHUB_URL, label: 'GitHub', Icon: FiGithub },
+  { href: LINKEDIN_URL, label: 'LinkedIn', Icon: FiLinkedin },
+  { href: TWITTER_URL, label: 'Twitter', Icon: FiTwitter },
+  { href: FACEBOOK_URL, label: 'Facebook', Icon: FiFacebook },
+  { href: INSTAGRAM_URL, label: 'Instagram', Icon: FiInstagram },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-gray-900">
-      <div className="mx-auto flex max-w-7xl justify-center px-4 sm:px-6 lg:px-8">
-        <span className="h-full w-full pb-6 dark:border-t dark:border-gray-700"></span>
-      </div>
-      <div className="mx-auto max-w-7xl overflow-hidden px-4 pb-12 sm:px-6 lg:px-8">
-        <nav className="-my-2 flex flex-wrap justify-center" aria-label="Footer">
-          <div className="px-5 py-2">
-            <Link href="/" className="text-base text-gray-400 hover:text-gray-100">
-              Home
-            </Link>
-          </div>
-          <div className="px-5 py-2">
-            <Link href="/#portfolio" className="text-base text-gray-400 hover:text-gray-100">
-              Portfolio
-            </Link>
-          </div>
-          <div className="px-5 py-2">
-            <Link href="/#about" className="text-base text-gray-400 hover:text-gray-100">
-              About
-            </Link>
-          </div>
-          <div className="px-5 py-2">
-            <Link href="/#contact" className="text-base text-gray-400 hover:text-gray-100">
-              Contact
-            </Link>
-          </div>
-          {/* <div className='px-5 py-2'>
-              <Link href='/blog'>
-                <a className='text-base text-gray-500 hover:text-gray-900'>
-                  Blog
+      <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+        <div className="pt-6 dark:border-t">
+          <nav aria-label="Footer">
+            <ul className="-my-2 flex flex-wrap justify-center">
+              {navLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="block px-5 py-2 text-base text-gray-400 hover:text-gray-100"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <ul className="mt-8 flex justify-center gap-6">
+            {socialLinks.map(({ href, label, Icon }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener"
+                  className="block text-gray-400 hover:text-gray-100"
+                >
+                  <span className="sr-only">{label}</span>
+                  <Icon className="text-xl" aria-hidden="true" />
                 </a>
-              </Link>
-            </div> */}
-        </nav>
-        <div className="mt-8 flex justify-center space-x-6">
-          <a
-            href={GITHUB_URL}
-            target="_blank"
-            rel="noopener"
-            title="GitHub Profile"
-            className="text-gray-400 hover:text-gray-100"
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/"
+            className="mt-8 block text-center text-base text-gray-400 hover:text-gray-100"
           >
-            <span className="sr-only">GitHub</span>
-            <FiGithub className="text-xl" />
-          </a>
-          <a
-            href={LINKEDIN_URL}
-            target="_blank"
-            rel="noopener"
-            title="LinkedIn Profile"
-            className="text-gray-400 hover:text-gray-100"
-          >
-            <span className="sr-only">LinkedIn</span>
-            <FiLinkedin className="text-xl" />
-          </a>
-          <a
-            href={TWITTER_URL}
-            target="_blank"
-            rel="noopener"
-            title="Twitter Profile"
-            className="text-gray-400 hover:text-gray-100"
-          >
-            <span className="sr-only">Twitter</span>
-            <FiTwitter className="text-xl" />
-          </a>
-          <a
-            href={FACEBOOK_URL}
-            target="_blank"
-            rel="noopener"
-            title="Facebook Profile"
-            className="text-gray-400 hover:text-gray-100"
-          >
-            <span className="sr-only">Facebook</span>
-            <FiFacebook className="text-xl" />
-          </a>
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener"
-            title="Instagram Profile"
-            className="text-gray-400 hover:text-gray-100"
-          >
-            <span className="sr-only">Instagram</span>
-            <FiInstagram className="text-xl" />
-          </a>
+            © {new Date().getFullYear()} Zach Scroggins
+          </Link>
         </div>
-        <Link
-          href="/"
-          className="mt-8 block text-center text-base text-gray-400 hover:text-gray-100"
-        >
-          © {new Date().getFullYear()} Zach Scroggins
-        </Link>
       </div>
     </footer>
   );

@@ -4,7 +4,6 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toast';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { BASE_URL, SITE_DESCRIPTION, SITE_TITLE } from '@/lib/constants';
-import { cn } from '@/lib/utils';
 import type { Metadata, Viewport } from 'next';
 import { Geist_Mono, Nunito } from 'next/font/google';
 import './globals.css';
@@ -39,7 +38,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn('antialiased', fontMono.variable, 'font-sans', nunito.variable)}
+      className={`${nunito.variable} ${fontMono.variable} font-sans antialiased`}
     >
       <body>
         <ThemeProvider>
