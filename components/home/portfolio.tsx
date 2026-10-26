@@ -15,7 +15,7 @@ import OtherWork from './other-work';
 const lumerisJobs = [
   {
     title: 'Senior Software Engineer',
-    acconmplishments: [
+    accomplishments: [
       {
         text: 'Co-led AI value based care Windows application development - OCR + LLM via AWS Textract & Bedrock with embeddings stored in Pinecone vector database, confidence score calibration, and prompt engineering',
         tags: ['AWS Textract', 'AWS Bedrock', 'Pinecone', 'Electron'],
@@ -55,7 +55,7 @@ const lumerisJobs = [
   },
   {
     title: 'Software Engineer',
-    acconmplishments: [
+    accomplishments: [
       {
         text: 'Prototype real-time analytics engine with on AWS Kinesis / Lambda / HealthLake - fully managed, HIPAA-eligible service that stores, transforms, and analyzes healthcare data using the Fast Healthcare Interoperability Resources (FHIR R4) standard',
         tags: ['AWS Kinesis', 'AWS Lambda', 'AWS HealthLake', 'FHIR R4'],
@@ -191,11 +191,11 @@ export default function Portfolio({ repos }: { repos: Repo[] }) {
             <div key={jobIdx}>
               <h4 className="text-2xl pt-6 sm:text-3xl font-extrabold">{job.title}</h4>
               <ul role="list" className="space-y-3 pt-4">
-                {job.acconmplishments.map((accomplishment, accomplishmentIdx) => (
+                {job.accomplishments.map((accomplishment, accomplishmentIdx) => (
                   <li key={accomplishmentIdx} className="relative flex gap-x-4">
                     <div
                       className={cn(
-                        accomplishmentIdx === job.acconmplishments.length - 1 ? 'h-6' : '-bottom-6',
+                        accomplishmentIdx === job.accomplishments.length - 1 ? 'h-6' : '-bottom-6',
                         'absolute top-0 left-0 flex w-6 justify-center'
                       )}
                     >
@@ -210,8 +210,16 @@ export default function Portfolio({ repos }: { repos: Repo[] }) {
                       </p>
                       <ul role="list" className="mt-2 flex flex-wrap gap-1.5">
                         {accomplishment.tags.map((tag) => (
-                          <li key={tag}>
-                            <Badge variant="outline">{tag}</Badge>
+                          <li
+                            key={tag}
+                            className="flex rounded-4xl bg-linear-to-r from-green-400/60 to-blue-500/60 p-px"
+                          >
+                            <Badge
+                              variant="ghost"
+                              className="h-auto rounded-[calc(var(--radius-4xl)-1px)] border-0 bg-muted py-0.5 dark:bg-background"
+                            >
+                              {tag}
+                            </Badge>
                           </li>
                         ))}
                       </ul>
