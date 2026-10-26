@@ -1,3 +1,7 @@
+import LumerisLogo from '@/components/lumeris-logo';
+import Reveal from '@/components/reveal';
+import { Badge } from '@/components/ui/badge';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import {
   BIG_AGI_REPO_ID,
   MY_WEBSITE_REPO_ID,
@@ -5,8 +9,75 @@ import {
   UNT_CSCE_CLUB_REPO_ID,
 } from '@/lib/constants';
 import type { Repo } from '@/lib/types';
+import { cn } from '@/lib/utils';
 import { FiCode, FiNavigation, FiServer, FiZap } from 'react-icons/fi';
 import OtherWork from './other-work';
+
+const lumerisJobs = [
+  {
+    title: 'Senior Software Engineer',
+    accomplishments: [
+      {
+        text: 'Co-led AI value based care Windows application development - OCR + LLM via AWS Textract & Bedrock with embeddings stored in Pinecone vector database, confidence score calibration, and prompt engineering',
+        tags: ['AWS Textract', 'AWS Bedrock', 'Pinecone', 'Electron'],
+      },
+      {
+        text: 'Created internal component library shared across SvelteKit / Electron / Vue',
+        tags: ['SvelteKit', 'Electron', 'Vue'],
+      },
+      {
+        text: 'Led development of internal ChatGPT with Azure OpenAI API',
+        tags: ['Azure OpenAI', 'SvelteKit'],
+      },
+      {
+        text: 'Modernized customer support database dashboard',
+        tags: ['AWS RDS', 'SvelteKit', 'SQL Server'],
+      },
+      {
+        text: 'Created internal RDS management dashboard',
+        tags: ['AWS RDS', 'SvelteKit', 'SQL Server'],
+      },
+      {
+        text: 'Created IAC template for SvelteKit deployment on AWS Lambda / S3',
+        tags: [
+          'SvelteKit',
+          'AWS Lambda',
+          'AWS S3',
+          'AWS CloudFormation',
+          'AWS CloudFront',
+          'AWS CloudFront Functions',
+        ],
+      },
+      {
+        text: 'Led evaluation / overhaul of front-end tech stack from Angular to SvelteKit',
+        tags: ['Angular', 'SvelteKit', 'Next.js', 'React', 'Vue'],
+      },
+    ],
+  },
+  {
+    title: 'Software Engineer',
+    accomplishments: [
+      {
+        text: 'Prototype real-time analytics engine with on AWS Kinesis / Lambda / HealthLake - fully managed, HIPAA-eligible service that stores, transforms, and analyzes healthcare data using the Fast Healthcare Interoperability Resources (FHIR R4) standard',
+        tags: ['AWS Kinesis', 'AWS Lambda', 'AWS HealthLake', 'FHIR R4'],
+      },
+      {
+        text: 'Co-led AWS migration of primary analytics engine to AWS RDS',
+        tags: ['AWS RDS', 'AWS CloudFormation', 'SQL Server'],
+      },
+      {
+        text: 'Led AWS migration of public document service, 10000+ documents, setting the example for how to use AWS Lambda@Edge with CloudFront CDN',
+        tags: ['AWS Lambda@Edge', 'AWS CloudFront'],
+      },
+    ],
+  },
+];
+
+const lumerisStats = [
+  { value: '10,000+', label: 'Documents migrated to AWS' },
+  { value: '3', label: 'Frameworks. One component library' },
+  { value: '2', label: 'Roles: Engineer to Senior Engineer' },
+];
 
 const FEATURED_REPO_IDS = new Set<Repo['id']>([
   MY_WEBSITE_REPO_ID,
@@ -101,6 +172,90 @@ export default function Portfolio({ repos }: { repos: Repo[] }) {
         >
           Portfolio
         </h2>
+        <h3 className="mt-2 flex items-center gap-4 justify-center text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+          <LumerisLogo className="size-9 -ml-8 sm:size-12 inline" />
+          <span>Lumeris</span>
+        </h3>
+        <p className="mx-auto mt-5 max-w-prose text-xl text-muted-foreground">
+          A healthcare technology and services company that helps health systems, payers, and
+          physician groups transition to{' '}
+          <Tooltip>
+            <TooltipTrigger className="font-bold text-gray-700 dark:text-gray-200">
+              value-based care
+            </TooltipTrigger>
+            <TooltipContent>
+              <p className="text-base font-semibold">
+                A healthcare delivery and payment model that ties provider compensation to patient
+                health outcomes, quality of care, and cost efficiency, rather than the sheer volume
+                of services provided.
+              </p>
+            </TooltipContent>
+          </Tooltip>
+          .
+        </p>
+        <dl className="mt-10 grid gap-4 sm:grid-cols-3">
+          {lumerisStats.map((stat, statIdx) => (
+            <Reveal
+              key={stat.label}
+              delay={statIdx * 120}
+              className="flex flex-col-reverse rounded-2xl border bg-background p-6 text-center shadow-sm dark:bg-foreground/5"
+            >
+              <dt className="mt-2 text-base font-medium text-muted-foreground">{stat.label}</dt>
+              <dd className="bg-linear-to-r from-green-400 to-blue-500 bg-clip-text text-5xl font-extrabold tracking-tight text-transparent">
+                {stat.value}
+              </dd>
+            </Reveal>
+          ))}
+        </dl>
+        <div className="pb-12 pt-8 text-left">
+          {lumerisJobs.map((job, jobIdx) => (
+            <div key={jobIdx}>
+              <h4 className="text-2xl pt-6 sm:text-3xl font-extrabold">{job.title}</h4>
+              <ul role="list" className="space-y-3 pt-4">
+                {job.accomplishments.map((accomplishment, accomplishmentIdx) => (
+                  <Reveal
+                    as="li"
+                    key={accomplishmentIdx}
+                    delay={accomplishmentIdx * 80}
+                    className="relative flex gap-x-4"
+                  >
+                    <div
+                      className={cn(
+                        accomplishmentIdx === job.accomplishments.length - 1 ? 'h-6' : '-bottom-6',
+                        'absolute top-0 left-0 flex w-6 justify-center'
+                      )}
+                    >
+                      <div className="w-px bg-gray-300 dark:bg-white/15" />
+                    </div>
+                    <div className="relative flex size-6 flex-none items-center justify-center bg-secondary dark:bg-background">
+                      <div className="size-1.5 rounded-full bg-gray-200 ring ring-gray-400 dark:bg-white/10 dark:ring-white/20" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-lg text-muted-foreground">
+                        {accomplishment.text}
+                      </p>
+                      <ul role="list" className="mt-2 flex flex-wrap gap-1.5">
+                        {accomplishment.tags.map((tag) => (
+                          <li
+                            key={tag}
+                            className="flex rounded-4xl bg-linear-to-r from-green-400/60 to-blue-500/60 p-px"
+                          >
+                            <Badge
+                              variant="ghost"
+                              className="h-auto rounded-[calc(var(--radius-4xl)-1px)] border-0 bg-muted py-0.5 dark:bg-background"
+                            >
+                              {tag}
+                            </Badge>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </Reveal>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
         <h3 className="mt-2 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
           <a href="https://paulitacarlotta.com" className="hover:underline">
             PaulitaCarlotta.com
