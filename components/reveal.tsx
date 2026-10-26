@@ -12,6 +12,7 @@ type RevealProps = {
 
 export default function Reveal({ as: Tag = 'div', delay = 0, className, children }: RevealProps) {
   const [shown, setShown] = useState(false);
+  const [done, setDone] = useState(false);
 
   return (
     <Tag
@@ -29,7 +30,10 @@ export default function Reveal({ as: Tag = 'div', delay = 0, className, children
         observer.observe(el);
         return () => observer.disconnect();
       }}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={done ? undefined : { transitionDelay: `${delay}ms` }}
+      onTransitionEnd={(e) => {
+        if (shown && e.target === e.currentTarget) setDone(true);
+      }}
       className={cn(
         'transition duration-700 ease-out motion-reduce:transition-none',
         shown
