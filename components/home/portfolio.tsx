@@ -1,4 +1,5 @@
 import LumerisLogo from '@/components/lumeris-logo';
+import { Badge } from '@/components/ui/badge';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import {
   BIG_AGI_REPO_ID,
@@ -15,21 +16,58 @@ const lumerisJobs = [
   {
     title: 'Senior Software Engineer',
     acconmplishments: [
-      'Co-led AI value based care Windows application development - OCR + LLM via AWS Textract & Bedrock with embeddings stored in Pinecone vector database, confidence score calibration, and prompt engineering',
-      'Created internal component library shared across SvelteKit / Electron / Vue',
-      'Led development of internal ChatGPT with Azure OpenAI API',
-      'Modernized customer support database dashboard',
-      'Created internal RDS management dashboard',
-      'Created IAC template for SvelteKit deployment on AWS Lambda / S3',
-      'Led evaluation / overhaul of front-end tech stack from Angular to SvelteKit',
+      {
+        text: 'Co-led AI value based care Windows application development - OCR + LLM via AWS Textract & Bedrock with embeddings stored in Pinecone vector database, confidence score calibration, and prompt engineering',
+        tags: ['AWS Textract', 'AWS Bedrock', 'Pinecone', 'Electron'],
+      },
+      {
+        text: 'Created internal component library shared across SvelteKit / Electron / Vue',
+        tags: ['SvelteKit', 'Electron', 'Vue'],
+      },
+      {
+        text: 'Led development of internal ChatGPT with Azure OpenAI API',
+        tags: ['Azure OpenAI', 'SvelteKit'],
+      },
+      {
+        text: 'Modernized customer support database dashboard',
+        tags: ['AWS RDS', 'SvelteKit', 'SQL Server'],
+      },
+      {
+        text: 'Created internal RDS management dashboard',
+        tags: ['AWS RDS', 'SvelteKit', 'SQL Server'],
+      },
+      {
+        text: 'Created IAC template for SvelteKit deployment on AWS Lambda / S3',
+        tags: [
+          'SvelteKit',
+          'AWS Lambda',
+          'AWS S3',
+          'AWS CloudFormation',
+          'AWS CloudFront',
+          'AWS CloudFront Functions',
+        ],
+      },
+      {
+        text: 'Led evaluation / overhaul of front-end tech stack from Angular to SvelteKit',
+        tags: ['Angular', 'SvelteKit', 'Next.js', 'React', 'Vue'],
+      },
     ],
   },
   {
     title: 'Software Engineer',
     acconmplishments: [
-      'Prototype real-time analytics engine with on AWS Kinesis / Lambda / HealthLake - fully managed, HIPAA-eligible service that stores, transforms, and analyzes healthcare data using the Fast Healthcare Interoperability Resources (FHIR R4) standard',
-      'Co-led AWS migration of primary analytics engine to AWS RDS',
-      'Led AWS migration of public document service, 10000+ documents, setting the example for how to use AWS Lambda@Edge with CloudFront CDN',
+      {
+        text: 'Prototype real-time analytics engine with on AWS Kinesis / Lambda / HealthLake - fully managed, HIPAA-eligible service that stores, transforms, and analyzes healthcare data using the Fast Healthcare Interoperability Resources (FHIR R4) standard',
+        tags: ['AWS Kinesis', 'AWS Lambda', 'AWS HealthLake', 'FHIR R4'],
+      },
+      {
+        text: 'Co-led AWS migration of primary analytics engine to AWS RDS',
+        tags: ['AWS RDS', 'AWS CloudFormation', 'SQL Server'],
+      },
+      {
+        text: 'Led AWS migration of public document service, 10000+ documents, setting the example for how to use AWS Lambda@Edge with CloudFront CDN',
+        tags: ['AWS Lambda@Edge', 'AWS CloudFront'],
+      },
     ],
   },
 ];
@@ -166,7 +204,18 @@ export default function Portfolio({ repos }: { repos: Repo[] }) {
                     <div className="relative flex size-6 flex-none items-center justify-center bg-secondary dark:bg-background">
                       <div className="size-1.5 rounded-full bg-gray-200 ring ring-gray-400 dark:bg-white/10 dark:ring-white/20" />
                     </div>
-                    <p className="font-medium text-lg text-muted-foreground">{accomplishment}</p>
+                    <div>
+                      <p className="font-medium text-lg text-muted-foreground">
+                        {accomplishment.text}
+                      </p>
+                      <ul role="list" className="mt-2 flex flex-wrap gap-1.5">
+                        {accomplishment.tags.map((tag) => (
+                          <li key={tag}>
+                            <Badge variant="outline">{tag}</Badge>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </li>
                 ))}
               </ul>
