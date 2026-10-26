@@ -1,3 +1,4 @@
+import LumerisLogo from '@/components/lumeris-logo';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import {
   BIG_AGI_REPO_ID,
@@ -126,8 +127,9 @@ export default function Portfolio({ repos }: { repos: Repo[] }) {
         >
           Portfolio
         </h2>
-        <h3 className="mt-2 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
-          Lumeris
+        <h3 className="mt-2 flex items-center gap-4 justify-center text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+          <LumerisLogo className="size-9 -ml-8 sm:size-12 inline" />
+          <span>Lumeris</span>
         </h3>
         <p className="mx-auto mt-5 max-w-prose text-xl text-muted-foreground">
           A healthcare technology and services company that helps health systems, payers, and
@@ -146,14 +148,10 @@ export default function Portfolio({ repos }: { repos: Repo[] }) {
           </Tooltip>
           .
         </p>
-        <div className="py-12 text-left lg:grid lg:grid-cols-2 lg:gap-x-6">
+        <div className="pb-12 pt-8 text-left">
           {lumerisJobs.map((job, jobIdx) => (
             <div key={jobIdx}>
-              <h4
-                className={cn(jobIdx === 1 && 'pt-6 lg:p-0', 'text-2xl sm:text-3xl font-extrabold')}
-              >
-                {job.title}
-              </h4>
+              <h4 className="text-2xl pt-6 sm:text-3xl font-extrabold">{job.title}</h4>
               <ul role="list" className="space-y-3 pt-4">
                 {job.acconmplishments.map((accomplishment, accomplishmentIdx) => (
                   <li key={accomplishmentIdx} className="relative flex gap-x-4">
