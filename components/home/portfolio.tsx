@@ -1,3 +1,4 @@
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import {
   BIG_AGI_REPO_ID,
   MY_WEBSITE_REPO_ID,
@@ -5,8 +6,32 @@ import {
   UNT_CSCE_CLUB_REPO_ID,
 } from '@/lib/constants';
 import type { Repo } from '@/lib/types';
+import { cn } from '@/lib/utils';
 import { FiCode, FiNavigation, FiServer, FiZap } from 'react-icons/fi';
 import OtherWork from './other-work';
+
+const lumerisJobs = [
+  {
+    title: 'Senior Software Engineer',
+    acconmplishments: [
+      'Co-led AI value based care Windows application development - OCR + LLM via AWS Textract & Bedrock with embeddings stored in Pinecone vector database, confidence score calibration, and prompt engineering',
+      'Created internal component library shared across SvelteKit / Electron / Vue',
+      'Led development of internal ChatGPT with Azure OpenAI API',
+      'Modernized customer support database dashboard',
+      'Created internal RDS management dashboard',
+      'Created IAC template for SvelteKit deployment on AWS Lambda / S3',
+      'Led evaluation / overhaul of front-end tech stack from Angular to SvelteKit',
+    ],
+  },
+  {
+    title: 'Software Engineer',
+    acconmplishments: [
+      'Prototype real-time analytics engine with on AWS Kinesis / Lambda / HealthLake - fully managed, HIPAA-eligible service that stores, transforms, and analyzes healthcare data using the Fast Healthcare Interoperability Resources (FHIR R4) standard',
+      'Co-led AWS migration of primary analytics engine to AWS RDS',
+      'Led AWS migration of public document service, 10000+ documents, setting the example for how to use AWS Lambda@Edge with CloudFront CDN',
+    ],
+  },
+];
 
 const FEATURED_REPO_IDS = new Set<Repo['id']>([
   MY_WEBSITE_REPO_ID,
@@ -101,6 +126,55 @@ export default function Portfolio({ repos }: { repos: Repo[] }) {
         >
           Portfolio
         </h2>
+        <h3 className="mt-2 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+          Lumeris
+        </h3>
+        <p className="mx-auto mt-5 max-w-prose text-xl text-muted-foreground">
+          A healthcare technology and services company that helps health systems, payers, and
+          physician groups transition to{' '}
+          <Tooltip>
+            <TooltipTrigger className="font-bold text-gray-700 dark:text-gray-200">
+              value-based care
+            </TooltipTrigger>
+            <TooltipContent>
+              <p className="text-base font-semibold">
+                A healthcare delivery and payment model that ties provider compensation to patient
+                health outcomes, quality of care, and cost efficiency, rather than the sheer volume
+                of services provided.
+              </p>
+            </TooltipContent>
+          </Tooltip>
+          .
+        </p>
+        <div className="py-12 text-left lg:grid lg:grid-cols-2 lg:gap-x-6">
+          {lumerisJobs.map((job, jobIdx) => (
+            <div key={jobIdx}>
+              <h4
+                className={cn(jobIdx === 1 && 'pt-6 lg:p-0', 'text-2xl sm:text-3xl font-extrabold')}
+              >
+                {job.title}
+              </h4>
+              <ul role="list" className="space-y-3 pt-4">
+                {job.acconmplishments.map((accomplishment, accomplishmentIdx) => (
+                  <li key={accomplishmentIdx} className="relative flex gap-x-4">
+                    <div
+                      className={cn(
+                        accomplishmentIdx === job.acconmplishments.length - 1 ? 'h-6' : '-bottom-6',
+                        'absolute top-0 left-0 flex w-6 justify-center'
+                      )}
+                    >
+                      <div className="w-px bg-gray-300 dark:bg-white/15" />
+                    </div>
+                    <div className="relative flex size-6 flex-none items-center justify-center bg-secondary dark:bg-background">
+                      <div className="size-1.5 rounded-full bg-gray-200 ring ring-gray-400 dark:bg-white/10 dark:ring-white/20" />
+                    </div>
+                    <p className="font-medium text-lg text-muted-foreground">{accomplishment}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
         <h3 className="mt-2 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
           <a href="https://paulitacarlotta.com" className="hover:underline">
             PaulitaCarlotta.com
