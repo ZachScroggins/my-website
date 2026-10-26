@@ -74,9 +74,9 @@ const lumerisJobs = [
 ];
 
 const lumerisStats = [
-  { value: '10,000+', label: 'documents migrated to AWS' },
-  { value: '3', label: 'frameworks sharing one component library' },
-  { value: '2', label: 'roles: Engineer to Senior Engineer' },
+  { value: '10,000+', label: 'Documents migrated to AWS' },
+  { value: '3', label: 'Frameworks. One component library' },
+  { value: '2', label: 'Roles: Engineer to Senior Engineer' },
 ];
 
 const FEATURED_REPO_IDS = new Set<Repo['id']>([
