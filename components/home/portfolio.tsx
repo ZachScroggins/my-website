@@ -1,4 +1,5 @@
 import LumerisLogo from '@/components/lumeris-logo';
+import Reveal from '@/components/reveal';
 import { Badge } from '@/components/ui/badge';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import {
@@ -70,6 +71,12 @@ const lumerisJobs = [
       },
     ],
   },
+];
+
+const lumerisStats = [
+  { value: '10,000+', label: 'documents migrated to AWS' },
+  { value: '3', label: 'frameworks sharing one component library' },
+  { value: '2', label: 'roles: Engineer to Senior Engineer' },
 ];
 
 const FEATURED_REPO_IDS = new Set<Repo['id']>([
@@ -186,13 +193,32 @@ export default function Portfolio({ repos }: { repos: Repo[] }) {
           </Tooltip>
           .
         </p>
+        <dl className="mt-10 grid gap-4 sm:grid-cols-3">
+          {lumerisStats.map((stat, statIdx) => (
+            <Reveal
+              key={stat.label}
+              delay={statIdx * 120}
+              className="flex flex-col-reverse rounded-2xl border bg-background p-6 text-center shadow-sm dark:bg-foreground/5"
+            >
+              <dt className="mt-2 text-base font-medium text-muted-foreground">{stat.label}</dt>
+              <dd className="bg-linear-to-r from-green-400 to-blue-500 bg-clip-text text-5xl font-extrabold tracking-tight text-transparent">
+                {stat.value}
+              </dd>
+            </Reveal>
+          ))}
+        </dl>
         <div className="pb-12 pt-8 text-left">
           {lumerisJobs.map((job, jobIdx) => (
             <div key={jobIdx}>
               <h4 className="text-2xl pt-6 sm:text-3xl font-extrabold">{job.title}</h4>
               <ul role="list" className="space-y-3 pt-4">
                 {job.accomplishments.map((accomplishment, accomplishmentIdx) => (
-                  <li key={accomplishmentIdx} className="relative flex gap-x-4">
+                  <Reveal
+                    as="li"
+                    key={accomplishmentIdx}
+                    delay={accomplishmentIdx * 80}
+                    className="relative flex gap-x-4"
+                  >
                     <div
                       className={cn(
                         accomplishmentIdx === job.accomplishments.length - 1 ? 'h-6' : '-bottom-6',
@@ -224,7 +250,7 @@ export default function Portfolio({ repos }: { repos: Repo[] }) {
                         ))}
                       </ul>
                     </div>
-                  </li>
+                  </Reveal>
                 ))}
               </ul>
             </div>
