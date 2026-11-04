@@ -88,7 +88,7 @@ export default function Contact() {
                       id="full_name"
                       autoComplete="name"
                       className={fieldClass}
-                      placeholder="Tim Cook"
+                      placeholder="Linus Torvalds"
                       aria-invalid={fieldState.invalid}
                       required
                     />
@@ -111,7 +111,7 @@ export default function Contact() {
                         type="email"
                         autoComplete="email"
                         className={fieldClass}
-                        placeholder="tim@apple.com"
+                        placeholder="linus@linuxfoundation.org"
                         aria-invalid={fieldState.invalid}
                         required
                       />
