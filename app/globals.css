@@ -2,6 +2,7 @@
 @plugin '@tailwindcss/forms';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
+@import './typeset.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -130,4 +131,38 @@
   html {
     @apply font-sans;
   }
+}
+
+/* Blog posts: shadcn/typeset with a roomier rhythm (see app/typeset.css). */
+@layer components {
+  .typeset-blog {
+    --typeset-size: 1.0625rem;
+    --typeset-leading: 1.8;
+    --typeset-flow: 1.25em;
+    color: var(--color-muted-foreground);
+  }
+}
+
+/* sugar-high syntax colors, matched to the site's green/blue accents. */
+:root {
+  --sh-class: oklch(52% 0.18 259.8);
+  --sh-identifier: oklch(21% 0.034 264.665);
+  --sh-sign: oklch(55.1% 0.027 264.364);
+  --sh-property: oklch(50% 0.14 211.5);
+  --sh-entity: oklch(52% 0.17 151.7);
+  --sh-jsxliterals: oklch(45% 0.18 285);
+  --sh-string: oklch(52% 0.17 151.7);
+  --sh-keyword: oklch(52% 0.2 340);
+  --sh-comment: oklch(55.1% 0.027 264.364);
+}
+.dark {
+  --sh-class: oklch(70% 0.15 259.8);
+  --sh-identifier: oklch(96.7% 0.003 264.542);
+  --sh-sign: oklch(70.7% 0.022 261.325);
+  --sh-property: oklch(78.9% 0.154 211.53);
+  --sh-entity: oklch(79.2% 0.209 151.711);
+  --sh-jsxliterals: oklch(76% 0.13 285);
+  --sh-string: oklch(79.2% 0.209 151.711);
+  --sh-keyword: oklch(75% 0.17 340);
+  --sh-comment: oklch(55.1% 0.027 264.364);
 }
