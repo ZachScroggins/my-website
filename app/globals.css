@@ -166,3 +166,12 @@
   --sh-keyword: oklch(75% 0.17 340);
   --sh-comment: oklch(55.1% 0.027 264.364);
 }
+
+/* Inline code in posts: a ring instead of Typeset's gray fill (box-shadow, so nothing shifts). */
+@layer components {
+  .typeset-blog :where(:not(pre) > code) {
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px var(--color-border);
+    color: var(--color-foreground);
+  }
+}
