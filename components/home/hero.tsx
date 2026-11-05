@@ -13,9 +13,8 @@ export default function Hero() {
             </span>
           </h1>
           <p className="mt-3 text-lg text-muted-foreground sm:text-xl md:mt-5">
-            I&apos;m a web developer with a passion for creating exceptional, one-of-a-kind user
-            experiences, leveraging cutting-edge technologies for better performance, higher
-            security, and superior scalability.
+            I build polished, fast web apps with TypeScript, React and Next.js, ship AI features
+            that hold up in production, and work alongside AI coding agents every day.
           </p>
           <div className="mt-10 grid gap-3 sm:flex sm:justify-center lg:justify-start">
             <Link

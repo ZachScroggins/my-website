@@ -36,3 +36,7 @@ sendgrid.env
 *.tsbuildinfo
 next-env.d.ts
 .vercel
+
+# agent skills and local agent config (installed per machine)
+.agents/
+.claude/
