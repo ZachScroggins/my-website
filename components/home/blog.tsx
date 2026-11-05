@@ -6,7 +6,7 @@ import { FiArrowRight } from 'react-icons/fi';
 export default function Blog({ posts }: { posts: ReactNode }) {
   return (
     <section className="bg-muted pt-24 pb-8 lg:pt-32 dark:bg-background">
-      <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6">
+      <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl">
         <h2
           id="blog"
           className="mx-auto w-fit scroll-mt-25 bg-linear-to-r from-green-400 to-blue-500 bg-clip-text text-6xl font-extrabold tracking-tight text-transparent sm:text-8xl"

@@ -17,7 +17,7 @@ export default async function LatestPosts({ perspective, stega }: DynamicFetchOp
   if (!posts.length) return null;
 
   return (
-    <ItemGroup>
+    <ItemGroup className="lg:grid lg:grid-cols-3">
       {posts.map((post) => (
         <Item
           key={post._id}
@@ -50,7 +50,14 @@ export default async function LatestPosts({ perspective, stega }: DynamicFetchOp
                 {post.description}
               </ItemDescription>
             )}
-            <TagList tags={post.tags} surface="card" className="relative z-10 mt-1.5" />
+            {/* lg+: one row that scrolls sideways with no scrollbar. The padding (offset by
+                negative margin) leaves room for the badges' hover lift, and the right edge
+                fades when tags run past it. */}
+            <TagList
+              tags={post.tags}
+              surface="card"
+              className="relative z-10 mt-1.5 lg:-mx-1 lg:-my-1 lg:mt-0.5 lg:flex-nowrap lg:overflow-x-auto lg:px-1 lg:py-1 lg:[mask-image:linear-gradient(to_right,black_calc(100%-1.5rem),transparent)] lg:[scrollbar-width:none] lg:[&::-webkit-scrollbar]:hidden"
+            />
           </ItemContent>
         </Item>
       ))}
@@ -60,7 +67,7 @@ export default async function LatestPosts({ perspective, stega }: DynamicFetchOp
 
 export function LatestPostsSkeleton() {
   return (
-    <ItemGroup>
+    <ItemGroup className="lg:grid lg:grid-cols-3">
       {Array.from({ length: 3 }, (_, i) => (
         <Item key={i} variant="outline" className="bg-background p-4 sm:p-5">
           <ItemContent className="gap-2.5">
