@@ -28,18 +28,40 @@ export default function About() {
         </div>
         <div className="mt-12 lg:col-span-2 lg:m-0 lg:pl-8">
           <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0 lg:py-20">
-            <blockquote>
-              <p className="mt-6 text-2xl font-medium text-white lg:mt-0">
-                I love building websites and web apps with cutting edge technologies. I specialize
-                in JavaScript and have the most experience working with React and Node. I really
-                enjoy the JAMstack, but I am also proficient with the LAMP stack, Python, Java, C#,
-                and C++.
+            <p className="mt-6 text-2xl font-medium text-white text-shadow-sm text-shadow-gray-900/30 lg:mt-0">
+              I&apos;m a full-stack TypeScript engineer who cares about both the details people see
+              and the systems they don&apos;t, and AI is part of how I do both.
+            </p>
+            <div className="mt-6 space-y-4 text-lg text-white text-shadow-sm text-shadow-gray-900/30">
+              <p>
+                At Lumeris, a healthcare technology company, I went from Software Engineer to Senior
+                in a year. I co-led an AI application that worked alongside physicians&apos; medical
+                records to surface patient information that might otherwise be missed, built with
+                OCR, LLMs on AWS Bedrock and a Pinecone vector database. I was also lead developer
+                of the company&apos;s internal generative AI app on Azure OpenAI, led the front-end
+                framework evaluation that moved new apps from Angular to SvelteKit, and helped
+                migrate the main analytics database to AWS.
               </p>
-              <footer className="mt-6 text-base font-medium">
-                <p className="text-white">Zach Scroggins</p>
-                <p className="text-cyan-100">Full Stack Web Developer</p>
-              </footer>
-            </blockquote>
+              <p>
+                I use AI every day, not just in what I build. Claude Code is my pair programmer: I
+                plan the work, give it current docs, skills and MCP servers, then review every
+                change and check it in a real browser before it ships. I also run local models, so I
+                know what each tool is good at and where it falls short. This site&apos;s blog was
+                built that way.
+              </p>
+              <p>
+                Since 2025 I&apos;ve been consulting, building web and mobile apps with Next.js and
+                React Native, from a fly fishing trip tracker to a game server hosting platform. I
+                got my start at community college and as web development officer for the UNT
+                Computer Science Club. I live in the Dallas&ndash;Fort Worth area, and outside of
+                work I keep a small home server running on a Raspberry Pi and tinker with my Neovim
+                setup.
+              </p>
+            </div>
+            <div className="mt-6 text-base font-medium">
+              <p className="text-white">Zach Scroggins</p>
+              <p className="text-cyan-100">Senior Full Stack TypeScript Engineer</p>
+            </div>
             <a
               href="/Zach-Scroggins-Resume.pdf"
               target="_blank"

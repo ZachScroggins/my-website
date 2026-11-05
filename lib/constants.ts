@@ -2,7 +2,7 @@ export const BASE_URL = 'https://zachscroggins.com';
 
 export const SITE_TITLE = 'Zach Scroggins | Senior Full Stack TypeScript Engineer';
 export const SITE_DESCRIPTION =
-  "I'm a web developer with a passion for creating exceptional, one-of-a-kind user experiences, leveraging cutting-edge technologies for better performance, higher security, and superior scalability.";
+  'I build polished, fast web apps with TypeScript, React and Next.js, ship AI features that hold up in production, and work alongside AI coding agents every day.';
 
 export const MY_WEBSITE_REPO_ID = 342325181;
 export const NASA_API_EXPLORER_REPO_ID = 266747152;
