@@ -53,7 +53,12 @@ export default async function RootLayout({
             <Toaster />
           </TooltipProvider>
         </ThemeProvider>
-        <SanityLive includeDrafts={isDraftMode} />
+        {/* Production waits for the invalidate-tags Sanity Function (see app/api/revalidate-tags);
+            previews and dev revalidate from the browser as before. */}
+        <SanityLive
+          includeDrafts={isDraftMode}
+          waitFor={process.env.VERCEL_ENV === 'production' ? 'function' : undefined}
+        />
         {isDraftMode && (
           <>
             <VisualEditing />
