@@ -42,12 +42,16 @@ const features = [
 const footerLinkClass =
   'inline-flex flex-1 items-center justify-center gap-3 py-4 text-sm font-medium text-gray-700 first:rounded-bl-lg last:rounded-br-lg hover:text-gray-500 focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:outline-hidden dark:text-gray-400 dark:hover:text-gray-100';
 
-function FeaturedProject({ repo }: { repo: Repo }) {
+function FeaturedProject({ repo, idx }: { repo: Repo; idx: number }) {
   const isMine = repo.id === MY_WEBSITE_REPO_ID;
   const homepage = repo.homepage ?? repo.html_url;
 
   return (
-    <li className="flex cursor-pointer flex-col rounded-lg border border-transparent shadow-lg focus-within:ring-2 focus-within:ring-teal-400 focus-within:ring-offset-2 hover:shadow-2xl dark:border-border dark:hover:drop-shadow-2xl">
+    <Reveal
+      as="li"
+      delay={idx * 80}
+      className="flex cursor-pointer flex-col rounded-lg border border-transparent shadow-lg focus-within:ring-2 focus-within:ring-teal-400 focus-within:ring-offset-2 hover:shadow-2xl dark:border-border dark:hover:drop-shadow-2xl"
+    >
       <a
         href={isMine ? repo.html_url : homepage}
         target="_blank"
@@ -90,7 +94,7 @@ function FeaturedProject({ repo }: { repo: Repo }) {
           View code
         </a>
       </div>
-    </li>
+    </Reveal>
   );
 }
 
@@ -213,8 +217,8 @@ export default function Portfolio({ repos, jobs }: { repos: Repo[]; jobs: ReactN
           </p>
         </div>
         <ul className="mx-auto mt-12 grid max-w-md gap-8 px-4 sm:max-w-lg sm:px-6 lg:max-w-7xl lg:grid-cols-3">
-          {featured.map((repo) => (
-            <FeaturedProject key={repo.id} repo={repo} />
+          {featured.map((repo, repoIdx) => (
+            <FeaturedProject key={repo.id} repo={repo} idx={repoIdx} />
           ))}
         </ul>
         <div className="my-16 text-center">

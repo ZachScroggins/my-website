@@ -1,3 +1,4 @@
+import Reveal from '@/components/reveal';
 import { TagList } from '@/components/tag-badge';
 import { Item, ItemContent, ItemDescription, ItemGroup, ItemTitle } from '@/components/ui/item';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -17,49 +18,50 @@ export default async function LatestPosts({ perspective, stega }: DynamicFetchOp
   if (!posts.length) return null;
 
   return (
-    <ItemGroup className="lg:grid lg:grid-cols-3">
-      {posts.map((post) => (
-        <Item
-          key={post._id}
-          variant="outline"
-          role="listitem"
-          className="relative bg-background p-4 text-left shadow-sm transition-shadow hover:shadow-md sm:p-5 dark:hover:border-muted-foreground/40"
-        >
-          <ItemContent className="min-w-0 gap-1.5">
-            <p className="text-sm font-medium text-cyan-700 dark:text-green-400">
-              {postKindLabel(post.kind)}
-              {post.publishedAt && (
-                <>
-                  {' · '}
-                  <time dateTime={stegaClean(post.publishedAt)}>
-                    {formatDate(post.publishedAt)}
-                  </time>
-                </>
+    <ItemGroup className="lg:grid lg:grid-cols-3 text-left">
+      {posts.map((post, postIdx) => (
+        <Reveal key={post._id} delay={postIdx * 80}>
+          <Item
+            variant="outline"
+            role="listitem"
+            className="relative bg-background p-4 shadow-sm transition-shadow hover:shadow-md sm:p-5 dark:hover:border-muted-foreground/40"
+          >
+            <ItemContent className="min-w-0 gap-1.5">
+              <p className="text-sm font-medium text-cyan-700 dark:text-green-400">
+                {postKindLabel(post.kind)}
+                {post.publishedAt && (
+                  <>
+                    {' · '}
+                    <time dateTime={stegaClean(post.publishedAt)}>
+                      {formatDate(post.publishedAt)}
+                    </time>
+                  </>
+                )}
+              </p>
+              <ItemTitle className="block w-full truncate text-lg font-semibold text-foreground">
+                <Link
+                  href={`/blog/${stegaClean(post.slug)}`}
+                  className="outline-none after:absolute after:inset-0 after:rounded-lg focus-visible:after:ring-[3px] focus-visible:after:ring-ring/50"
+                >
+                  {post.title}
+                </Link>
+              </ItemTitle>
+              {post.description && (
+                <ItemDescription className="line-clamp-none truncate text-base">
+                  {post.description}
+                </ItemDescription>
               )}
-            </p>
-            <ItemTitle className="block w-full truncate text-lg font-semibold text-foreground">
-              <Link
-                href={`/blog/${stegaClean(post.slug)}`}
-                className="cursor-pointer outline-none after:absolute after:inset-0 after:rounded-lg group-hover/item:underline focus-visible:after:ring-[3px] focus-visible:after:ring-ring/50"
-              >
-                {post.title}
-              </Link>
-            </ItemTitle>
-            {post.description && (
-              <ItemDescription className="line-clamp-none truncate text-base">
-                {post.description}
-              </ItemDescription>
-            )}
-            {/* lg+: one row that scrolls sideways with no scrollbar. The padding (offset by
+              {/* lg+: one row that scrolls sideways with no scrollbar. The padding (offset by
                 negative margin) leaves room for the badges' hover lift, and the right edge
                 fades when tags run past it. */}
-            <TagList
-              tags={post.tags}
-              surface="card"
-              className="relative z-10 mt-1.5 lg:-mx-1 lg:-my-1 lg:mt-0.5 lg:flex-nowrap lg:overflow-x-auto lg:px-1 lg:py-1 lg:[mask-image:linear-gradient(to_right,black_calc(100%-1.5rem),transparent)] lg:[scrollbar-width:none] lg:[&::-webkit-scrollbar]:hidden"
-            />
-          </ItemContent>
-        </Item>
+              <TagList
+                tags={post.tags}
+                surface="card"
+                className="relative z-10 mt-1.5 lg:-mx-1 lg:-my-1 lg:mt-0.5 lg:flex-nowrap lg:overflow-x-auto lg:px-1 lg:py-1 lg:mask-[linear-gradient(to_right,black_calc(100%-1.5rem),transparent)] lg:scrollbar-none lg:[&::-webkit-scrollbar]:hidden"
+              />
+            </ItemContent>
+          </Item>
+        </Reveal>
       ))}
     </ItemGroup>
   );
