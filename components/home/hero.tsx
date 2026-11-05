@@ -9,7 +9,7 @@ export default function Hero() {
           <h1 className="text-4xl font-extrabold tracking-tight text-gray-800 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl dark:text-white">
             <span className="block xl:inline">Zach Scroggins</span>{' '}
             <span className="mt-2 block bg-linear-to-r from-green-400 to-blue-500 bg-clip-text text-3xl text-transparent md:mt-3 lg:mt-4">
-              Full Stack JavaScript / TypeScript Developer
+              Senior Full Stack TypeScript Engineer
             </span>
           </h1>
           <p className="mt-3 text-lg text-muted-foreground sm:text-xl md:mt-5">

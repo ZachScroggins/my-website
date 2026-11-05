@@ -1,6 +1,6 @@
 export const BASE_URL = 'https://zachscroggins.com';
 
-export const SITE_TITLE = 'Zach Scroggins | Full Stack TypeScript Developer';
+export const SITE_TITLE = 'Zach Scroggins | Senior Full Stack TypeScript Engineer';
 export const SITE_DESCRIPTION =
   "I'm a web developer with a passion for creating exceptional, one-of-a-kind user experiences, leveraging cutting-edge technologies for better performance, higher security, and superior scalability.";
 
