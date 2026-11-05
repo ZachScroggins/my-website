@@ -1,6 +1,7 @@
 import PostList from '@/components/blog/post-list';
 import { Skeleton } from '@/components/ui/skeleton';
 import { gradientHeading } from '@/lib/blog';
+import { SITE_TITLE } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { urlFor } from '@/sanity/image';
 import {
@@ -34,6 +35,13 @@ export async function generateMetadata({ params }: PageProps<'/tags/[slug]'>): P
     title: `${tag.name} | Zach Scroggins`,
     description: tag.description ?? undefined,
     alternates: { canonical: `/tags/${slug}` },
+    openGraph: {
+      type: 'website',
+      siteName: SITE_TITLE,
+      title: tag.name ?? undefined,
+      description: tag.description ?? undefined,
+      url: `/tags/${slug}`,
+    },
   };
 }
 

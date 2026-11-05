@@ -2,6 +2,7 @@ import PortableText from '@/components/blog/portable-text';
 import { TagList } from '@/components/tag-badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { formatDate, gradientHeading, postKindLabel } from '@/lib/blog';
+import { SITE_TITLE } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { urlFor } from '@/sanity/image';
 import {
@@ -37,6 +38,7 @@ export async function generateMetadata({ params }: PageProps<'/blog/[slug]'>): P
     alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       type: 'article',
+      siteName: SITE_TITLE,
       title: post.title ?? undefined,
       description: post.description ?? undefined,
       publishedTime: post.publishedAt ?? undefined,

@@ -1,6 +1,7 @@
 import { TagBadge } from '@/components/tag-badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { gradientHeading } from '@/lib/blog';
+import { SITE_TITLE } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { SanityBoundary } from '@/sanity/boundary';
 import { cachedSanity, type DynamicFetchOptions } from '@/sanity/live';
@@ -11,6 +12,13 @@ export const metadata: Metadata = {
   title: 'Tags | Zach Scroggins',
   description: 'Technologies and topics Zach Scroggins writes about and works with.',
   alternates: { canonical: '/tags' },
+  openGraph: {
+    type: 'website',
+    siteName: SITE_TITLE,
+    title: 'Tags',
+    description: 'Technologies and topics Zach Scroggins writes about and works with.',
+    url: '/tags',
+  },
 };
 
 export default function TagsPage() {

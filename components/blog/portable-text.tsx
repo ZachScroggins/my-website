@@ -5,6 +5,7 @@ import {
   type PortableTextComponents,
 } from 'next-sanity';
 import { highlight } from 'sugar-high';
+import { lang } from 'sugar-high/lang';
 
 type CodeValue = { code?: string; filename?: string; language?: string };
 type ImageValue = { asset?: { _ref: string }; alt?: string; caption?: string };
@@ -13,13 +14,18 @@ const components: PortableTextComponents = {
   types: {
     code: ({ value }: { value: CodeValue }) => {
       if (!value.code) return null;
+      const language = stegaClean(value.language);
+      // Studio values like `sh` or `tsx` map to sugar-high's canonical names; unknown ones fall back to JS.
+      const html = highlight(stegaClean(value.code), {
+        lang: language ? lang(language) : undefined,
+      });
       return (
         <figure>
           {value.filename && (
             <figcaption className="mt-0! mb-2 text-left! font-mono">{value.filename}</figcaption>
           )}
-          <pre data-language={stegaClean(value.language)}>
-            <code dangerouslySetInnerHTML={{ __html: highlight(stegaClean(value.code)) }} />
+          <pre data-language={language}>
+            <code dangerouslySetInnerHTML={{ __html: html }} />
           </pre>
         </figure>
       );
