@@ -1,6 +1,8 @@
 import About from '@/components/home/about';
+import Blog from '@/components/home/blog';
 import Contact from '@/components/home/contact';
 import Hero from '@/components/home/hero';
+import LatestPosts, { LatestPostsSkeleton } from '@/components/home/latest-posts';
 import LumerisJobs, { LumerisJobsSkeleton } from '@/components/home/lumeris-jobs';
 import Portfolio from '@/components/home/portfolio';
 import { getRepos } from '@/lib/github';
@@ -21,6 +23,13 @@ export default async function Page() {
         }
       />
       <About />
+      <Blog
+        posts={
+          <SanityBoundary fallback={<LatestPostsSkeleton />}>
+            {(options) => <LatestPosts {...options} />}
+          </SanityBoundary>
+        }
+      />
       <Contact />
     </>
   );
