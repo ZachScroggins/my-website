@@ -14,14 +14,15 @@ export default function About() {
             className="absolute inset-x-0 top-0 h-1/2 bg-muted lg:hidden dark:bg-background"
           />
           <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:h-full lg:p-0">
-            <div className="overflow-hidden rounded-xl shadow-xl lg:h-full">
+            {/* lg+: natural height, capped to the viewport, and sticky below the h-16 header. */}
+            <div className="overflow-hidden rounded-xl shadow-xl lg:sticky lg:top-24">
               <img
                 src="/images/profile-pic.jpg"
                 alt="Zach Scroggins profile picture"
                 width={2778}
                 height={3023}
                 loading="lazy"
-                className="relative object-cover lg:h-full lg:w-full"
+                className="relative w-full object-cover lg:max-h-[calc(100dvh-8rem)]"
               />
             </div>
           </div>
@@ -39,8 +40,9 @@ export default function About() {
                 records to surface patient information that might otherwise be missed, built with
                 OCR, LLMs on AWS Bedrock and a Pinecone vector database. I was also lead developer
                 of the company&apos;s internal generative AI app on Azure OpenAI, led the front-end
-                framework evaluation that moved new apps from Angular to SvelteKit, and helped
-                migrate the main analytics database to AWS.
+                framework evaluation that moved new apps from Angular to SvelteKit, and was
+                hand-picked by an application architect to migrate the main revenue-generating,
+                business-critical analytics database to AWS.
               </p>
               <p>
                 I use AI every day, not just in what I build. Claude Code is my pair programmer: I
@@ -50,12 +52,13 @@ export default function About() {
                 built that way.
               </p>
               <p>
-                Since 2025 I&apos;ve been consulting, building web and mobile apps with Next.js and
-                React Native, from a fly fishing trip tracker to a game server hosting platform. I
-                got my start at community college and as web development officer for the UNT
-                Computer Science Club. I live in the Dallas&ndash;Fort Worth area, and outside of
-                work I keep a small home server running on a Raspberry Pi and tinker with my Neovim
-                setup.
+                Since 2025 I&apos;ve pursued some startup ideas, stayed up to date with the latest
+                technologies and AI, and put that knowledge to use on a number of personal projects.
+                I got my start at community college, freelancing as a web developer, and as web
+                development officer for the UNT Computer Science Club. I live in the
+                Dallas&ndash;Fort Worth area, and outside of work I keep a small home server running
+                on a Raspberry Pi and tinker with my Neovim setup, despite using VS Code as my
+                primary editor 😅
               </p>
             </div>
             <div className="mt-6 text-base font-medium">
