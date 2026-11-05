@@ -175,3 +175,27 @@
     color: var(--color-foreground);
   }
 }
+
+/* Code block lines (components/blog/code-block.tsx). Lines are grid rows so a highlighted line's
+   bar spans the widest line and runs into the pre's 1.25rem side padding; empty lines keep one
+   line of height. Highlighted lines are toggled in the Studio by clicking line numbers. */
+@layer components {
+  [data-slot='code-block'] code {
+    display: grid;
+    width: max-content;
+    min-width: 100%;
+  }
+  [data-slot='code-block'] .sh__line {
+    min-height: 1lh;
+    margin-inline: -1.25rem;
+    padding-inline: 1.25rem;
+  }
+  [data-slot='code-block'] .sh__line--highlighted {
+    background-color: color-mix(in oklab, var(--color-green-500) 12%, transparent);
+    box-shadow: inset 3px 0 0 var(--color-green-500);
+  }
+  .dark [data-slot='code-block'] .sh__line--highlighted {
+    background-color: color-mix(in oklab, var(--color-green-400) 12%, transparent);
+    box-shadow: inset 3px 0 0 var(--color-green-400);
+  }
+}

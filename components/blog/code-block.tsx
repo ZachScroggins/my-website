@@ -4,7 +4,13 @@ import { FiFileText } from 'react-icons/fi';
 import { highlight } from 'sugar-high';
 import { lang } from 'sugar-high/lang';
 
-export type CodeValue = { code?: string; filename?: string; language?: string };
+export type CodeValue = {
+  code?: string;
+  filename?: string;
+  language?: string;
+  /** 1-based line numbers, toggled by clicking line numbers in the Studio's code input. */
+  highlightedLines?: number[];
+};
 
 // Names for the Studio's language values, shown when a block has no filename.
 const LANGUAGE_LABELS: Record<string, string> = {
@@ -31,8 +37,15 @@ export function CodeBlock({ value }: { value: CodeValue }) {
   const code = stegaClean(value.code);
   const language = stegaClean(value.language);
   const filename = stegaClean(value.filename);
-  // Studio values like `sh` or `tsx` map to sugar-high's names; unknown ones fall back to JS.
-  const html = highlight(code, { lang: language ? lang(language) : undefined });
+  const highlighted = new Set(value.highlightedLines ?? []);
+  const html = highlight(code, {
+    // Studio values like `sh` or `tsx` map to sugar-high's names; unknown ones fall back to JS.
+    lang: language ? lang(language) : undefined,
+    // sugar-high counts lines from 0; the Studio counts from 1.
+    markLine(line) {
+      if (highlighted.has(line.index + 1)) line.className += ' sh__line--highlighted';
+    },
+  });
 
   return (
     <figure
