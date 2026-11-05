@@ -10,9 +10,13 @@ import {
 import { cookies, draftMode } from 'next/headers';
 import { client } from './client';
 
+// Viewer-role token. The dataset is public, so published content builds and renders without it;
+// it is only needed for draft content (Presentation Tool and draft mode).
 const token = process.env.SANITY_API_READ_TOKEN;
-if (!token) {
-  throw new Error('Missing SANITY_API_READ_TOKEN');
+if (!token && process.env.NODE_ENV === 'production') {
+  console.warn(
+    'SANITY_API_READ_TOKEN is not set: published content only; draft preview is disabled.'
+  );
 }
 
 export const { SanityLive, sanityFetch } = defineLive({
