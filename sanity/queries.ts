@@ -34,6 +34,11 @@ export const POSTS_QUERY = defineQuery(`
   *[_type == "post" && defined(slug.current)] | order(publishedAt desc, _createdAt asc){${postListFields}}
 `);
 
+/** The home page Blog section: the three newest posts of any kind. */
+export const LATEST_POSTS_QUERY = defineQuery(`
+  *[_type == "post" && defined(slug.current)] | order(publishedAt desc, _createdAt asc)[0...3]{${postListFields}}
+`);
+
 export const POST_SLUGS_QUERY = defineQuery(`
   *[_type == "post" && defined(slug.current)]{"slug": slug.current}
 `);

@@ -17,40 +17,42 @@ export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: schema.json
 export type PostReference = {
   _ref: string;
-  _type: "reference";
+  _type: 'reference';
   _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "post";
+  [internalGroqTypeReferenceTo]?: 'post';
 };
 
 export type Role = {
   _id: string;
-  _type: "role";
+  _type: 'role';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
   title: string;
-  accomplishments?: Array<{
-    _key: string;
-  } & PostReference>;
+  accomplishments?: Array<
+    {
+      _key: string;
+    } & PostReference
+  >;
 };
 
 export type SanityImageAssetReference = {
   _ref: string;
-  _type: "reference";
+  _type: 'reference';
   _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+  [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
 };
 
 export type RoleReference = {
   _ref: string;
-  _type: "reference";
+  _type: 'reference';
   _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "role";
+  [internalGroqTypeReferenceTo]?: 'role';
 };
 
 export type Company = {
   _id: string;
-  _type: "company";
+  _type: 'company';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -63,16 +65,18 @@ export type Company = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     alt?: string;
-    _type: "image";
+    _type: 'image';
   };
   description?: string;
-  roles?: Array<{
-    _key: string;
-  } & RoleReference>;
+  roles?: Array<
+    {
+      _key: string;
+    } & RoleReference
+  >;
 };
 
 export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
+  _type: 'sanity.imageCrop';
   top: number;
   bottom: number;
   left: number;
@@ -80,7 +84,7 @@ export type SanityImageCrop = {
 };
 
 export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
+  _type: 'sanity.imageHotspot';
   x: number;
   y: number;
   height: number;
@@ -88,14 +92,14 @@ export type SanityImageHotspot = {
 };
 
 export type Slug = {
-  _type: "slug";
+  _type: 'slug';
   current: string;
   source?: string;
 };
 
 export type Tag = {
   _id: string;
-  _type: "tag";
+  _type: 'tag';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -117,73 +121,79 @@ export type Tag = {
     alt?: string;
     source?: string;
     license?: string;
-    _type: "image";
+    _type: 'image';
   };
 };
 
 export type TagReference = {
   _ref: string;
-  _type: "reference";
+  _type: 'reference';
   _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "tag";
+  [internalGroqTypeReferenceTo]?: 'tag';
 };
 
 export type Post = {
   _id: string;
-  _type: "post";
+  _type: 'post';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  kind: "post" | "portfolio-article";
+  kind: 'post' | 'portfolio-article';
   title: string;
   slug: Slug;
   publishedAt: string;
   description: string;
   accomplishment?: string;
-  tags?: Array<{
-    _key: string;
-  } & TagReference>;
+  tags?: Array<
+    {
+      _key: string;
+    } & TagReference
+  >;
   image?: {
     asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     alt?: string;
-    _type: "image";
+    _type: 'image';
   };
-  body?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  } | {
-    asset?: SanityImageAssetReference;
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt: string;
-    caption?: string;
-    _type: "image";
-    _key: string;
-  } | {
-    _key: string;
-  } & Code>;
+  body?: Array<
+    | {
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: 'span';
+          _key: string;
+        }>;
+        style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote';
+        listItem?: 'bullet' | 'number';
+        markDefs?: Array<{
+          href?: string;
+          _type: 'link';
+          _key: string;
+        }>;
+        level?: number;
+        _type: 'block';
+        _key: string;
+      }
+    | {
+        asset?: SanityImageAssetReference;
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt: string;
+        caption?: string;
+        _type: 'image';
+        _key: string;
+      }
+    | ({
+        _key: string;
+      } & Code)
+  >;
 };
 
 export type Code = {
-  _type: "code";
+  _type: 'code';
   language?: string;
   filename?: string;
   code?: string;
@@ -191,7 +201,7 @@ export type Code = {
 };
 
 export type SanityImagePaletteSwatch = {
-  _type: "sanity.imagePaletteSwatch";
+  _type: 'sanity.imagePaletteSwatch';
   background?: string;
   foreground?: string;
   population?: number;
@@ -199,7 +209,7 @@ export type SanityImagePaletteSwatch = {
 };
 
 export type SanityImagePalette = {
-  _type: "sanity.imagePalette";
+  _type: 'sanity.imagePalette';
   darkMuted?: SanityImagePaletteSwatch;
   lightVibrant?: SanityImagePaletteSwatch;
   darkVibrant?: SanityImagePaletteSwatch;
@@ -210,14 +220,14 @@ export type SanityImagePalette = {
 };
 
 export type SanityImageDimensions = {
-  _type: "sanity.imageDimensions";
+  _type: 'sanity.imageDimensions';
   height: number;
   width: number;
   aspectRatio: number;
 };
 
 export type SanityImageMetadata = {
-  _type: "sanity.imageMetadata";
+  _type: 'sanity.imageMetadata';
   location?: Geopoint;
   dimensions?: SanityImageDimensions;
   palette?: SanityImagePalette;
@@ -230,7 +240,7 @@ export type SanityImageMetadata = {
 
 export type SanityFileAsset = {
   _id: string;
-  _type: "sanity.fileAsset";
+  _type: 'sanity.fileAsset';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -251,7 +261,7 @@ export type SanityFileAsset = {
 };
 
 export type SanityAssetSourceData = {
-  _type: "sanity.assetSourceData";
+  _type: 'sanity.assetSourceData';
   name?: string;
   id?: string;
   url?: string;
@@ -259,7 +269,7 @@ export type SanityAssetSourceData = {
 
 export type SanityImageAsset = {
   _id: string;
-  _type: "sanity.imageAsset";
+  _type: 'sanity.imageAsset';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -281,13 +291,33 @@ export type SanityImageAsset = {
 };
 
 export type Geopoint = {
-  _type: "geopoint";
+  _type: 'geopoint';
   lat?: number;
   lng?: number;
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = PostReference | Role | SanityImageAssetReference | RoleReference | Company | SanityImageCrop | SanityImageHotspot | Slug | Tag | TagReference | Post | Code | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes =
+  | PostReference
+  | Role
+  | SanityImageAssetReference
+  | RoleReference
+  | Company
+  | SanityImageCrop
+  | SanityImageHotspot
+  | Slug
+  | Tag
+  | TagReference
+  | Post
+  | Code
+  | SanityImagePaletteSwatch
+  | SanityImagePalette
+  | SanityImageDimensions
+  | SanityImageMetadata
+  | SanityFileAsset
+  | SanityAssetSourceData
+  | SanityImageAsset
+  | Geopoint;
 
 // Source: ../my-website/sanity/queries.ts
 // Variable: COMPANY_JOBS_QUERY
@@ -316,7 +346,24 @@ export type COMPANY_JOBS_QUERY_RESULT = {
 // Query: *[_type == "post" && defined(slug.current)] | order(publishedAt desc, _createdAt asc){  _id,  kind,  title,  "slug": slug.current,  publishedAt,  description,  tags[]->{_id, name, "slug": slug.current}}
 export type POSTS_QUERY_RESULT = Array<{
   _id: string;
-  kind: "portfolio-article" | "post";
+  kind: 'portfolio-article' | 'post';
+  title: string;
+  slug: string;
+  publishedAt: string;
+  description: string;
+  tags: Array<{
+    _id: string;
+    name: string;
+    slug: string;
+  }> | null;
+}>;
+
+// Source: ../my-website/sanity/queries.ts
+// Variable: LATEST_POSTS_QUERY
+// Query: *[_type == "post" && defined(slug.current)] | order(publishedAt desc, _createdAt asc)[0...3]{  _id,  kind,  title,  "slug": slug.current,  publishedAt,  description,  tags[]->{_id, name, "slug": slug.current}}
+export type LATEST_POSTS_QUERY_RESULT = Array<{
+  _id: string;
+  kind: 'portfolio-article' | 'post';
   title: string;
   slug: string;
   publishedAt: string;
@@ -340,7 +387,7 @@ export type POST_SLUGS_QUERY_RESULT = Array<{
 // Query: *[_type == "post" && slug.current == $slug][0]{      _id,  kind,  title,  "slug": slug.current,  publishedAt,  description,  tags[]->{_id, name, "slug": slug.current},    accomplishment,    image,    body,    "role": *[_type == "role" && references(^._id)][0]{      _id,      title,      "company": *[_type == "company" && references(^._id)][0]{        _id,        name,        url,        logo      }    }  }
 export type POST_QUERY_RESULT = {
   _id: string;
-  kind: "portfolio-article" | "post";
+  kind: 'portfolio-article' | 'post';
   title: string;
   slug: string;
   publishedAt: string;
@@ -357,37 +404,41 @@ export type POST_QUERY_RESULT = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     alt?: string;
-    _type: "image";
+    _type: 'image';
   } | null;
-  body: Array<{
-    _key: string;
-  } & Code | {
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  } | {
-    asset?: SanityImageAssetReference;
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt: string;
-    caption?: string;
-    _type: "image";
-    _key: string;
-  }> | null;
+  body: Array<
+    | ({
+        _key: string;
+      } & Code)
+    | {
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: 'span';
+          _key: string;
+        }>;
+        style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
+        listItem?: 'bullet' | 'number';
+        markDefs?: Array<{
+          href?: string;
+          _type: 'link';
+          _key: string;
+        }>;
+        level?: number;
+        _type: 'block';
+        _key: string;
+      }
+    | {
+        asset?: SanityImageAssetReference;
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt: string;
+        caption?: string;
+        _type: 'image';
+        _key: string;
+      }
+  > | null;
   role: {
     _id: string;
     title: string;
@@ -401,7 +452,7 @@ export type POST_QUERY_RESULT = {
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
         alt?: string;
-        _type: "image";
+        _type: 'image';
       } | null;
     } | null;
   } | null;
@@ -446,11 +497,11 @@ export type TAG_QUERY_RESULT = {
     alt?: string;
     source?: string;
     license?: string;
-    _type: "image";
+    _type: 'image';
   } | null;
   posts: Array<{
     _id: string;
-    kind: "portfolio-article" | "post";
+    kind: 'portfolio-article' | 'post';
     title: string;
     slug: string;
     publishedAt: string;
@@ -490,19 +541,19 @@ export type RSS_QUERY_RESULT = Array<{
 // Query TypeMap
 declare global {
   interface SanityQueries {
-    "\n  *[_type == \"company\" && slug.current == $company][0]{\n    _id,\n    name,\n    roles[]->{\n      _id,\n      title,\n      accomplishments[]->{\n        _id,\n        accomplishment,\n        \"slug\": slug.current,\n        tags[]->{_id, name, \"slug\": slug.current}\n      }\n    }\n  }\n": COMPANY_JOBS_QUERY_RESULT;
-    "\n  *[_type == \"post\" && defined(slug.current)] | order(publishedAt desc, _createdAt asc){\n  _id,\n  kind,\n  title,\n  \"slug\": slug.current,\n  publishedAt,\n  description,\n  tags[]->{_id, name, \"slug\": slug.current}\n}\n": POSTS_QUERY_RESULT;
-    "\n  *[_type == \"post\" && defined(slug.current)]{\"slug\": slug.current}\n": POST_SLUGS_QUERY_RESULT;
-    "\n  *[_type == \"post\" && slug.current == $slug][0]{\n    \n  _id,\n  kind,\n  title,\n  \"slug\": slug.current,\n  publishedAt,\n  description,\n  tags[]->{_id, name, \"slug\": slug.current}\n,\n    accomplishment,\n    image,\n    body,\n    \"role\": *[_type == \"role\" && references(^._id)][0]{\n      _id,\n      title,\n      \"company\": *[_type == \"company\" && references(^._id)][0]{\n        _id,\n        name,\n        url,\n        logo\n      }\n    }\n  }\n": POST_QUERY_RESULT;
-    "\n  *[_type == \"tag\" && defined(slug.current)] | order(lower(name) asc){_id, name, \"slug\": slug.current}\n": TAGS_QUERY_RESULT;
-    "\n  *[_type == \"tag\" && defined(slug.current)]{\"slug\": slug.current}\n": TAG_SLUGS_QUERY_RESULT;
-    "\n  *[_type == \"tag\" && slug.current == $slug][0]{\n    _id, name, \"slug\": slug.current,\n    description,\n    homepageUrl,\n    repoUrl,\n    docsUrl,\n    icon,\n    logo,\n    \"posts\": *[_type == \"post\" && references(^._id) && defined(slug.current)]\n      | order(publishedAt desc, _createdAt asc){\n  _id,\n  kind,\n  title,\n  \"slug\": slug.current,\n  publishedAt,\n  description,\n  tags[]->{_id, name, \"slug\": slug.current}\n}\n  }\n": TAG_QUERY_RESULT;
-    "{\n  \"posts\": *[_type == \"post\" && defined(slug.current)]{\"slug\": slug.current, _updatedAt},\n  \"tags\": *[_type == \"tag\" && defined(slug.current)]{\"slug\": slug.current, _updatedAt}\n}": SITEMAP_QUERY_RESULT;
-    "\n  *[_type == \"post\" && defined(slug.current)] | order(publishedAt desc, _createdAt asc)[0...50]{\n    title,\n    \"slug\": slug.current,\n    publishedAt,\n    description\n  }\n": RSS_QUERY_RESULT;
+    '\n  *[_type == "company" && slug.current == $company][0]{\n    _id,\n    name,\n    roles[]->{\n      _id,\n      title,\n      accomplishments[]->{\n        _id,\n        accomplishment,\n        "slug": slug.current,\n        tags[]->{_id, name, "slug": slug.current}\n      }\n    }\n  }\n': COMPANY_JOBS_QUERY_RESULT;
+    '\n  *[_type == "post" && defined(slug.current)] | order(publishedAt desc, _createdAt asc){\n  _id,\n  kind,\n  title,\n  "slug": slug.current,\n  publishedAt,\n  description,\n  tags[]->{_id, name, "slug": slug.current}\n}\n': POSTS_QUERY_RESULT;
+    '\n  *[_type == "post" && defined(slug.current)] | order(publishedAt desc, _createdAt asc)[0...3]{\n  _id,\n  kind,\n  title,\n  "slug": slug.current,\n  publishedAt,\n  description,\n  tags[]->{_id, name, "slug": slug.current}\n}\n': LATEST_POSTS_QUERY_RESULT;
+    '\n  *[_type == "post" && defined(slug.current)]{"slug": slug.current}\n': POST_SLUGS_QUERY_RESULT;
+    '\n  *[_type == "post" && slug.current == $slug][0]{\n    \n  _id,\n  kind,\n  title,\n  "slug": slug.current,\n  publishedAt,\n  description,\n  tags[]->{_id, name, "slug": slug.current}\n,\n    accomplishment,\n    image,\n    body,\n    "role": *[_type == "role" && references(^._id)][0]{\n      _id,\n      title,\n      "company": *[_type == "company" && references(^._id)][0]{\n        _id,\n        name,\n        url,\n        logo\n      }\n    }\n  }\n': POST_QUERY_RESULT;
+    '\n  *[_type == "tag" && defined(slug.current)] | order(lower(name) asc){_id, name, "slug": slug.current}\n': TAGS_QUERY_RESULT;
+    '\n  *[_type == "tag" && defined(slug.current)]{"slug": slug.current}\n': TAG_SLUGS_QUERY_RESULT;
+    '\n  *[_type == "tag" && slug.current == $slug][0]{\n    _id, name, "slug": slug.current,\n    description,\n    homepageUrl,\n    repoUrl,\n    docsUrl,\n    icon,\n    logo,\n    "posts": *[_type == "post" && references(^._id) && defined(slug.current)]\n      | order(publishedAt desc, _createdAt asc){\n  _id,\n  kind,\n  title,\n  "slug": slug.current,\n  publishedAt,\n  description,\n  tags[]->{_id, name, "slug": slug.current}\n}\n  }\n': TAG_QUERY_RESULT;
+    '{\n  "posts": *[_type == "post" && defined(slug.current)]{"slug": slug.current, _updatedAt},\n  "tags": *[_type == "tag" && defined(slug.current)]{"slug": slug.current, _updatedAt}\n}': SITEMAP_QUERY_RESULT;
+    '\n  *[_type == "post" && defined(slug.current)] | order(publishedAt desc, _createdAt asc)[0...50]{\n    title,\n    "slug": slug.current,\n    publishedAt,\n    description\n  }\n': RSS_QUERY_RESULT;
   }
 }
 // Lets @sanity/client releases that predate the global registry read it too
-declare module "@sanity/client" {
+declare module '@sanity/client' {
   interface SanityQueries extends globalThis.SanityQueries {}
 }
-
