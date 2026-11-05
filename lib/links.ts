@@ -1,5 +1,6 @@
 import {
   FiAward,
+  FiBookOpen,
   FiFacebook,
   FiGithub,
   FiInfo,
@@ -13,6 +14,7 @@ export const NAV_LINKS = [
   { href: '/#portfolio', label: 'Portfolio', Icon: FiAward },
   { href: '/#about', label: 'About', Icon: FiInfo },
   { href: '/#contact', label: 'Contact', Icon: FiMail },
+  { href: '/blog', label: 'Blog', Icon: FiBookOpen },
 ];
 
 export const SOCIAL_LINKS = {

@@ -1,11 +1,15 @@
+import DisableDraftMode from '@/components/disable-draft-mode';
 import Footer from '@/components/footer';
 import Header from '@/components/header';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toast';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { BASE_URL, SITE_DESCRIPTION, SITE_TITLE } from '@/lib/constants';
+import { SanityLive } from '@/sanity/live';
 import type { Metadata, Viewport } from 'next';
+import { VisualEditing } from 'next-sanity/visual-editing';
 import { Geist, Geist_Mono } from 'next/font/google';
+import { draftMode } from 'next/headers';
 import './globals.css';
 
 export const viewport: Viewport = { themeColor: '#111827' };
@@ -28,11 +32,13 @@ export const metadata: Metadata = {
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { isEnabled: isDraftMode } = await draftMode();
+
   return (
     <html
       lang="en"
@@ -47,6 +53,13 @@ export default function RootLayout({
             <Toaster />
           </TooltipProvider>
         </ThemeProvider>
+        <SanityLive includeDrafts={isDraftMode} />
+        {isDraftMode && (
+          <>
+            <VisualEditing />
+            <DisableDraftMode />
+          </>
+        )}
       </body>
     </html>
   );

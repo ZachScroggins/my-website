@@ -3,6 +3,7 @@
 import type { ComponentProps } from 'react';
 
 import Logo from '@/components/logo';
+import { NavLink } from '@/components/nav-link';
 import { ThemeToggle } from '@/components/theme-toggle';
 import {
   Sidebar,
@@ -40,7 +41,12 @@ export function AppSidebar(props: ComponentProps<typeof Sidebar>) {
           {NAV_LINKS.map(({ href, label, Icon }) => (
             <SidebarMenuItem key={href}>
               <SidebarMenuButton
-                render={<Link href={href} />}
+                render={
+                  <NavLink
+                    href={href}
+                    activeClassName="underline decoration-green-400 decoration-2 underline-offset-4"
+                  />
+                }
                 onClick={toggleSidebar}
                 className="h-full gap-4 rounded-lg p-3"
               >

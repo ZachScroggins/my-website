@@ -1,4 +1,5 @@
 User-Agent: *
 Allow: /
- 
+Disallow: /api/
+
 Sitemap: https://zachscroggins.com/sitemap.xml

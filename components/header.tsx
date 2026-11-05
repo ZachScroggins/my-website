@@ -1,5 +1,6 @@
 import { AppSidebar } from '@/components/app-sidebar';
 import Logo from '@/components/logo';
+import { NavLink } from '@/components/nav-link';
 import SidebarToggle from '@/components/sidebar-toggle';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
@@ -30,12 +31,13 @@ export default function Header({
               <ul className="hidden gap-8 md:ml-10 md:flex">
                 {NAV_LINKS.map(({ href, label }) => (
                   <li key={href}>
-                    <Link
+                    <NavLink
                       href={href}
                       className="text-base font-semibold text-gray-300 hover:text-gray-100"
+                      activeClassName="text-gray-100 underline decoration-green-400 decoration-2 underline-offset-8"
                     >
                       {label}
-                    </Link>
+                    </NavLink>
                   </li>
                 ))}
               </ul>
