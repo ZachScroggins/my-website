@@ -31,7 +31,7 @@ export const COMPANY_JOBS_QUERY = defineQuery(`
 `);
 
 export const POSTS_QUERY = defineQuery(`
-  *[_type == "post" && defined(slug.current)] | order(publishedAt desc){${postListFields}}
+  *[_type == "post" && defined(slug.current)] | order(publishedAt desc, _createdAt asc){${postListFields}}
 `);
 
 export const POST_SLUGS_QUERY = defineQuery(`
@@ -75,7 +75,7 @@ export const TAG_QUERY = defineQuery(`
     icon,
     logo,
     "posts": *[_type == "post" && references(^._id) && defined(slug.current)]
-      | order(publishedAt desc){${postListFields}}
+      | order(publishedAt desc, _createdAt asc){${postListFields}}
   }
 `);
 
@@ -85,7 +85,7 @@ export const SITEMAP_QUERY = defineQuery(`{
 }`);
 
 export const RSS_QUERY = defineQuery(`
-  *[_type == "post" && defined(slug.current)] | order(publishedAt desc)[0...50]{
+  *[_type == "post" && defined(slug.current)] | order(publishedAt desc, _createdAt asc)[0...50]{
     title,
     "slug": slug.current,
     publishedAt,

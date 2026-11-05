@@ -9,8 +9,8 @@ export type TagRef = { _id: string; name: string | null; slug: string | null };
 type Surface = 'section' | 'card';
 
 const surfaceClass: Record<Surface, string> = {
-  section: 'bg-muted dark:bg-background',
-  card: 'bg-background',
+  section: 'bg-muted hover:bg-muted dark:bg-background dark:hover:bg-background',
+  card: 'bg-background hover:bg-background dark:hover:bg-background',
 };
 
 export function TagBadge({ tag, surface = 'section' }: { tag: TagRef; surface?: Surface }) {
@@ -20,12 +20,12 @@ export function TagBadge({ tag, surface = 'section' }: { tag: TagRef; surface?: 
   return (
     <Link
       href={`/tags/${slug}`}
-      className="flex cursor-pointer rounded-4xl bg-linear-to-r from-green-400/60 to-blue-500/60 p-px transition duration-200 ease-out hover:-translate-y-0.5 hover:scale-105 hover:from-green-400 hover:to-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-reduce:transition-none motion-reduce:hover:transform-none"
+      className="flex cursor-pointer rounded-4xl bg-linear-to-r from-green-400/60 to-blue-500/60 p-px transition duration-200 ease-out hover:-translate-y-0.5 hover:scale-105 hover:from-green-400 hover:to-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-reduce:transition-none motion-reduce:hover:translate-none motion-reduce:hover:scale-100"
     >
       <Badge
         variant="ghost"
         className={cn(
-          'h-auto rounded-[calc(var(--radius-4xl)-1px)] border-0 py-0.5 hover:bg-inherit hover:text-inherit dark:hover:bg-inherit',
+          'h-auto rounded-[calc(var(--radius-4xl)-1px)] border-0 py-0.5 hover:text-foreground',
           surfaceClass[surface]
         )}
       >
