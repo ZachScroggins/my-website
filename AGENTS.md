@@ -17,7 +17,8 @@ Next.js 16 (App Router, Cache Components, React Compiler), React 19, Tailwind CS
 - Content comes from the Sanity Studio in `../my-website-cms`. Read with `next-sanity` (v13+) and `@sanity/image-url`.
 - Data fetching follows the `sanity-live-cache-components` skill: `defineLive` with `strict: true`, one shared `'use cache'` fetch, and pages that branch on draft mode. Don't call `cookies()` or `headers()` inside `'use cache'`.
 - Use `stega: false` for metadata, static params, sitemap, RSS and OG images. Use `stegaClean()` before comparing a string from Sanity.
-- Env vars live in `.env.local` (never committed): `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, `NEXT_PUBLIC_SANITY_STUDIO_URL`, `SANITY_API_READ_TOKEN` (Viewer role).
+- Env vars live in `.env.local` (never committed): `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, `NEXT_PUBLIC_SANITY_STUDIO_URL`, `SANITY_API_READ_TOKEN` (Viewer role), `SANITY_REVALIDATE_SECRET`.
+- Production revalidation: the `invalidate-tags` Sanity Function (in `../my-website-cms`) POSTs stale sync tags to `app/api/revalidate-tags/route.ts`, which expires `sanity:<tag>` cache entries. On Vercel production, `<SanityLive waitFor="function">` refreshes pages after that; previews and dev revalidate from the browser. Needs `SANITY_REVALIDATE_SECRET` (same value as the function's).
 - Post bodies render inside a `typeset` wrapper (shadcn Typeset, `app/typeset.css`), not `@tailwindcss/typography`. Code blocks use sugar-high.
 - Sanity skills in `.agents/skills/`: `sanity-best-practices`, `sanity-live-cache-components`, `content-modeling-best-practices`, `seo-aeo-best-practices`.
 
