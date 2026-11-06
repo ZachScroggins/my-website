@@ -32,16 +32,16 @@ Requires Node.js and npm.
 
 2. Create `.env.local` (never commit it) with these variables:
 
-   | Variable | Used for |
-   |---|---|
-   | `NEXT_PUBLIC_SANITY_PROJECT_ID` | Sanity project |
-   | `NEXT_PUBLIC_SANITY_DATASET` | Sanity dataset |
-   | `NEXT_PUBLIC_SANITY_STUDIO_URL` | Studio URL, for the Presentation Tool and click-to-edit |
-   | `SANITY_API_READ_TOKEN` | Sanity token with the Viewer role (drafts and live content) |
-   | `SANITY_REVALIDATE_SECRET` | Shared secret for `/api/revalidate-tags` (same value as the Studio's `invalidate-tags` function) |
-   | `GITHUB_ACCESS_TOKEN` | Reads my public repos for the Featured Projects section |
-   | `BIRD_API_KEY` | Sends contact form messages |
-   | `MY_EMAIL_ADDRESS` | Where contact form messages are delivered |
+   | Variable                        | Used for                                                                                         |
+   | ------------------------------- | ------------------------------------------------------------------------------------------------ |
+   | `NEXT_PUBLIC_SANITY_PROJECT_ID` | Sanity project                                                                                   |
+   | `NEXT_PUBLIC_SANITY_DATASET`    | Sanity dataset                                                                                   |
+   | `NEXT_PUBLIC_SANITY_STUDIO_URL` | Studio URL, for the Presentation Tool and click-to-edit                                          |
+   | `SANITY_API_READ_TOKEN`         | Sanity token with the Viewer role (drafts and live content)                                      |
+   | `SANITY_REVALIDATE_SECRET`      | Shared secret for `/api/revalidate-tags` (same value as the Studio's `invalidate-tags` function) |
+   | `GITHUB_ACCESS_TOKEN`           | Reads my public repos for the Featured Projects section                                          |
+   | `BIRD_API_KEY`                  | Sends contact form messages                                                                      |
+   | `MY_EMAIL_ADDRESS`              | Where contact form messages are delivered                                                        |
 
 3. Start the dev server and open <http://localhost:3000>:
 
@@ -53,14 +53,14 @@ To edit content with live preview, also run the Studio from `my-website-cms` (it
 
 ## Scripts
 
-| Command | What it does |
-|---|---|
-| `npm run dev` | Dev server |
-| `npm run build` | Production build |
-| `npm run start` | Serve the production build |
-| `npm run lint` | ESLint (`lint:fix` to fix) |
-| `npm run typecheck` | `tsc --noEmit` |
-| `npm run format` | Prettier on all `.ts` and `.tsx` files |
+| Command             | What it does                           |
+| ------------------- | -------------------------------------- |
+| `npm run dev`       | Dev server                             |
+| `npm run build`     | Production build                       |
+| `npm run start`     | Serve the production build             |
+| `npm run lint`      | ESLint (`lint:fix` to fix)             |
+| `npm run typecheck` | `tsc --noEmit`                         |
+| `npm run format`    | Prettier on all `.ts` and `.tsx` files |
 
 ## How content updates reach the site
 
@@ -74,14 +74,14 @@ npm run typegen   # run in my-website-cms; writes ../my-website/sanity/types.ts
 
 ## Project layout
 
-| Path | What's there |
-|---|---|
-| `app/` | Routes: home, `blog`, `tags`, `api`, sitemap, robots, icons |
-| `components/home/` | Home page sections |
-| `components/blog/` | Portable Text rendering, code blocks, post list |
-| `components/ui/` | shadcn/ui components |
-| `sanity/` | Sanity client, live fetch, GROQ queries, generated types |
-| `lib/` | Server actions, GitHub fetching, schemas, constants, OG image helpers |
+| Path               | What's there                                                          |
+| ------------------ | --------------------------------------------------------------------- |
+| `app/`             | Routes: home, `blog`, `tags`, `api`, sitemap, robots, icons           |
+| `components/home/` | Home page sections                                                    |
+| `components/blog/` | Portable Text rendering, code blocks, post list                       |
+| `components/ui/`   | shadcn/ui components                                                  |
+| `sanity/`          | Sanity client, live fetch, GROQ queries, generated types              |
+| `lib/`             | Server actions, GitHub fetching, schemas, constants, OG image helpers |
 
 ## Working on it
 
