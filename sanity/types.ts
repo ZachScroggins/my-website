@@ -530,12 +530,45 @@ export type SITEMAP_QUERY_RESULT = {
 
 // Source: ../my-website/sanity/queries.ts
 // Variable: RSS_QUERY
-// Query: *[_type == "post" && defined(slug.current)] | order(publishedAt desc, _createdAt asc)[0...50]{    title,    "slug": slug.current,    publishedAt,    description  }
+// Query: *[_type == "post" && defined(slug.current)] | order(publishedAt desc, _createdAt asc)[0...50]{    title,    "slug": slug.current,    publishedAt,    description,    body  }
 export type RSS_QUERY_RESULT = Array<{
   title: string;
   slug: string;
   publishedAt: string;
   description: string;
+  body: Array<
+    | ({
+        _key: string;
+      } & Code)
+    | {
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: 'span';
+          _key: string;
+        }>;
+        style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
+        listItem?: 'bullet' | 'number';
+        markDefs?: Array<{
+          href?: string;
+          _type: 'link';
+          _key: string;
+        }>;
+        level?: number;
+        _type: 'block';
+        _key: string;
+      }
+    | {
+        asset?: SanityImageAssetReference;
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt: string;
+        caption?: string;
+        _type: 'image';
+        _key: string;
+      }
+  > | null;
 }>;
 
 // Query TypeMap
@@ -550,7 +583,7 @@ declare global {
     '\n  *[_type == "tag" && defined(slug.current)]{"slug": slug.current}\n': TAG_SLUGS_QUERY_RESULT;
     '\n  *[_type == "tag" && slug.current == $slug][0]{\n    _id, name, "slug": slug.current,\n    description,\n    homepageUrl,\n    repoUrl,\n    docsUrl,\n    icon,\n    logo,\n    "posts": *[_type == "post" && references(^._id) && defined(slug.current)]\n      | order(publishedAt desc, _createdAt asc){\n  _id,\n  kind,\n  title,\n  "slug": slug.current,\n  publishedAt,\n  description,\n  tags[]->{_id, name, "slug": slug.current}\n}\n  }\n': TAG_QUERY_RESULT;
     '{\n  "posts": *[_type == "post" && defined(slug.current)]{"slug": slug.current, _updatedAt},\n  "tags": *[_type == "tag" && defined(slug.current)]{"slug": slug.current, _updatedAt}\n}': SITEMAP_QUERY_RESULT;
-    '\n  *[_type == "post" && defined(slug.current)] | order(publishedAt desc, _createdAt asc)[0...50]{\n    title,\n    "slug": slug.current,\n    publishedAt,\n    description\n  }\n': RSS_QUERY_RESULT;
+    '\n  *[_type == "post" && defined(slug.current)] | order(publishedAt desc, _createdAt asc)[0...50]{\n    title,\n    "slug": slug.current,\n    publishedAt,\n    description,\n    body\n  }\n': RSS_QUERY_RESULT;
   }
 }
 // Lets @sanity/client releases that predate the global registry read it too
