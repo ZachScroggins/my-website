@@ -94,6 +94,7 @@ export const RSS_QUERY = defineQuery(`
     title,
     "slug": slug.current,
     publishedAt,
-    description
+    description,
+    body
   }
 `);
