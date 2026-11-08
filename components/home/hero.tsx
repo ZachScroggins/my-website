@@ -1,10 +1,11 @@
+import AnimatedMobile from '@/components/home/animated-mobile';
 import Link from 'next/link';
 import { FiMail } from 'react-icons/fi';
 
 export default function Hero() {
   return (
-    <section className="relative bg-muted dark:bg-background">
-      <div className="mx-auto max-w-7xl pt-16 pb-20 text-center lg:py-32 lg:text-left">
+    <section className="relative bg-muted dark:bg-background pt-8 lg:py-32">
+      <div className="mx-auto max-w-7xl text-center lg:text-left">
         <div className="px-4 sm:px-6 lg:w-1/2">
           <h1 className="text-4xl font-extrabold tracking-tight text-gray-800 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl dark:text-white">
             <span className="block xl:inline">Zach Scroggins</span>{' '}
@@ -37,14 +38,8 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:rounded-bl-3xl lg:bg-gray-900">
-        <img
-          src="/images/web-dev-mobile.png"
-          alt="Web development graphic"
-          width={1280}
-          height={1049}
-          className="w-full lg:absolute lg:inset-0 lg:h-full lg:max-w-7xl lg:rounded-bl-3xl lg:object-cover lg:object-top-left xl:object-contain"
-        />
+      <div className="flex items-center justify-center lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:rounded-bl-3xl lg:bg-gray-900 pt-16 lg:px-8">
+        <AnimatedMobile showToggle={false} className="lg:max-w-7xl lg:rounded-bl-3xl" />
       </div>
     </section>
   );
