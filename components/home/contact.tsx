@@ -88,7 +88,7 @@ export default function Contact() {
                       id="full_name"
                       autoComplete="name"
                       className={fieldClass}
-                      placeholder="Linus Torvalds"
+                      placeholder="Dr. Miles Dyson"
                       aria-invalid={fieldState.invalid}
                       required
                     />
@@ -111,7 +111,7 @@ export default function Contact() {
                         type="email"
                         autoComplete="email"
                         className={fieldClass}
-                        placeholder="linus@linuxfoundation.org"
+                        placeholder="dyson@cyberdyne.net"
                         aria-invalid={fieldState.invalid}
                         required
                       />
