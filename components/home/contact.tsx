@@ -1,6 +1,5 @@
 'use client';
 
-import AnimatedLaptop from '@/components/home/animated-laptop';
 import { Button } from '@/components/ui/button';
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
@@ -54,9 +53,16 @@ export default function Contact() {
   }
 
   return (
-    <section className="relative bg-muted lg:mt-16 dark:bg-background lg:py-8">
-      <div className="bg-gray-900 py-4 lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2 flex flex-col items-center justify-center lg:rounded-tr-3xl lg:py-0">
-        <AnimatedLaptop showToggle={false} className="lg:max-w-7xl lg:rounded-tr-3xl" />
+    <section className="relative bg-muted lg:mt-16 dark:bg-background">
+      <div className="bg-gray-900 py-4 lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2 lg:rounded-tr-3xl lg:py-0">
+        <img
+          src="/images/web-dev-laptop.png"
+          alt="Web development graphic"
+          width={1280}
+          height={1104}
+          loading="lazy"
+          className="w-full lg:absolute lg:top-0 lg:right-0 lg:h-full lg:max-w-7xl lg:rounded-tr-3xl lg:object-contain lg:object-right lg:py-8"
+        />
       </div>
       <div id="contact" className="mx-auto max-w-7xl py-8">
         <div className="px-4 sm:px-6 lg:ml-auto lg:w-1/2">
