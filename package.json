@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,mjs,md,mdx,css,json}\"",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
